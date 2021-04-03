@@ -1,0 +1,229 @@
+﻿<Page x:Class="TestDoshico.Views.QuesttPt1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestDoshico.Views"
+      xmlns:prop="clr-namespace:TestDoshico.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Parte 1: La Prakriti Fisica Originale"
+      HorizontalAlignment="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="300"/>
+            <ColumnDefinition MaxWidth="300"/>
+            <ColumnDefinition MaxWidth="300"/>
+            <ColumnDefinition MaxWidth="300"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <!--#region Borders-->
+        <Rectangle Grid.Row="0" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="0" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="0" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="0" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="0" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="0" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="0" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="1" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="1" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="1" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="1" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="1" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="1" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="2" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="2" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="2" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="2" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="2" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="2" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="2" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="3" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="3" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="3" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="3" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="3" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="3" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="3" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="4" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="4" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="4" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="4" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="4" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="4" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="4" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="5" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="5" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="5" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="5" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="5" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="5" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="5" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="6" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="6" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="6" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="6" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="6" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="6" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="6" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="7" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="7" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="7" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="7" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="7" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="7" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="7" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="8" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="8" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="8" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="8" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="8" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="8" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="8" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="9" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="9" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="9" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="9" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="9" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="9" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="9" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="10" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="10" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="10" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="10" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="10" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="10" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="10" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="11" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="11" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="11" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="11" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="11" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="11" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="11" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="12" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="12" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="12" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="12" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="12" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="12" Grid.Column="5" Stroke="Black" StrokeThickness="0.5"/>
+        <Rectangle Grid.Row="12" Grid.Column="6" Stroke="Black" StrokeThickness="0.5"/>
+
+        <!--#endregion-->
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_PrakritiHeader}"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_VataHeader}"  FontWeight="Bold"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_PittaHeader}" FontWeight="Bold"/>
+        <TextBlock Grid.Row="0" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_KaphaHeader}" FontWeight="Bold"/>
+        <TextBlock Grid.Row="0" Grid.Column="4" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_VHeader}" />
+        <TextBlock Grid.Row="0" Grid.Column="5" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_PHeader}" />
+        <TextBlock Grid.Row="0" Grid.Column="6" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_KHeader}" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_Corporatura}"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CorporaturaV}"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CorporaturaP}"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CorporaturaK}"/>
+        <CheckBox Grid.Row="1" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="1" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="1" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_StruttOssea}"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_StruttOsseaV}"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_StruttOsseaP}"/>
+        <TextBlock Grid.Row="2" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_StruttOsseaK}"/>
+        <CheckBox Grid.Row="2" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="2" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="2" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_Mani}"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_ManiV}"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_ManiP}"/>
+        <TextBlock Grid.Row="3" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_ManiK}"/>
+        <CheckBox Grid.Row="3" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="3" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="3" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CorporaturaFanc}"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CorporaturaFancV}"/>
+        <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CorporaturaFancP}"/>
+        <TextBlock Grid.Row="4" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CorporaturaFancK}"/>
+        <CheckBox Grid.Row="4" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="4" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="4" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_TendAccumulo}"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_TendAccumuloV}"/>
+        <TextBlock Grid.Row="5" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_TendAccumuloP}"/>
+        <TextBlock Grid.Row="5" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_TendAccumuloK}"/>
+        <CheckBox Grid.Row="5" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="5" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="5" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_Pelle}"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt1_PelleV}"/>
+        <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt1_PelleP}"/>
+        <TextBlock Grid.Row="6" Grid.Column="3" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt1_PelleK}"/>
+        <CheckBox Grid.Row="6" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="6" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="6" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CapelliFanc}"/>
+        <TextBlock Grid.Row="7" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CapelliFancV}"/>
+        <TextBlock Grid.Row="7" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CapelliFancP}"/>
+        <TextBlock Grid.Row="7" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_CapelliFancK}"/>
+        <CheckBox Grid.Row="7" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="7" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="7" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_Fronte}"/>
+        <TextBlock Grid.Row="8" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_FronteV}"/>
+        <TextBlock Grid.Row="8" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_FronteP}"/>
+        <TextBlock Grid.Row="8" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_FronteK}"/>
+        <CheckBox Grid.Row="8" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="8" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="8" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="9" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_Occhi}"/>
+        <TextBlock Grid.Row="9" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_OcchiV}"/>
+        <TextBlock Grid.Row="9" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_OcchiP}"/>
+        <TextBlock Grid.Row="9" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_OcchiK}"/>
+        <CheckBox Grid.Row="9" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="9" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="9" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="10" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_Denti}"/>
+        <TextBlock Grid.Row="10" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_DentiV}"/>
+        <TextBlock Grid.Row="10" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_DentiP}"/>
+        <TextBlock Grid.Row="10" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_DentiK}"/>
+        <CheckBox Grid.Row="10" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="10" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="10" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="11" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_Collo}"/>
+        <TextBlock Grid.Row="11" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_ColloV}"/>
+        <TextBlock Grid.Row="11" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_ColloP}"/>
+        <TextBlock Grid.Row="11" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_ColloK}"/>
+        <CheckBox Grid.Row="11" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="11" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="11" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="12" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_Mento}" />
+        <TextBlock Grid.Row="12" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_MentoV}"/>
+        <TextBlock Grid.Row="12" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_MentoP}"/>
+        <TextBlock Grid.Row="12" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_MentoK}"/>
+        <CheckBox Grid.Row="12" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="12" Grid.Column="5" Style="{StaticResource GridCheckBox}"/>
+        <CheckBox Grid.Row="12" Grid.Column="6" Style="{StaticResource GridCheckBox}"/>
+        <TextBlock Grid.Row="13" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.Quesiti_Tot}"/>
+        <TextBlock Grid.Row="13" Grid.Column="4" Style="{StaticResource GridTextBlock}"/>
+        <TextBlock Grid.Row="13" Grid.Column="5" Style="{StaticResource GridTextBlock}"/>
+        <TextBlock Grid.Row="13" Grid.Column="6" Style="{StaticResource GridTextBlock}"/>
+    </Grid>
+</Page>

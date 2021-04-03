@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,387 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BtnAvanti" xml:space="preserve">
+    <value>Avanti</value>
+  </data>
+  <data name="DatiPersonali_Costituzione" xml:space="preserve">
+    <value>COSTITUZIONE:</value>
+  </data>
+  <data name="DatiPersonali_Data" xml:space="preserve">
+    <value>DATA:</value>
+  </data>
+  <data name="DatiPersonali_Eta" xml:space="preserve">
+    <value>ETÀ:</value>
+  </data>
+  <data name="DatiPersonali_EvNote" xml:space="preserve">
+    <value>EVENTUALI NOTE:</value>
+  </data>
+  <data name="DatiPersonali_EvSquilibrio" xml:space="preserve">
+    <value>EVENTUALE SQUILIBRIO:</value>
+  </data>
+  <data name="DatiPersonali_Inestetismi" xml:space="preserve">
+    <value>INESTETISMI:</value>
+  </data>
+  <data name="DatiPersonali_Signora" xml:space="preserve">
+    <value>SIG.RA:</value>
+  </data>
+  <data name="DatiPersonali_Titolo" xml:space="preserve">
+    <value>DATI PERSONALI</value>
+  </data>
+  <data name="QuesitiPt1_CapelliFanc" xml:space="preserve">
+    <value>CAPELLI IN FANCIULLEZZA</value>
+  </data>
+  <data name="QuesitiPt1_CapelliFancK" xml:space="preserve">
+    <value>Ondulati, lisci e spessi</value>
+  </data>
+  <data name="QuesitiPt1_CapelliFancP" xml:space="preserve">
+    <value>Fini e chiari</value>
+  </data>
+  <data name="QuesitiPt1_CapelliFancV" xml:space="preserve">
+    <value>Folti, attorcigliati e ricci</value>
+  </data>
+  <data name="QuesitiPt1_Collo" xml:space="preserve">
+    <value>COLLO</value>
+  </data>
+  <data name="QuesitiPt1_ColloK" xml:space="preserve">
+    <value>Largo e solido</value>
+  </data>
+  <data name="QuesitiPt1_ColloP" xml:space="preserve">
+    <value>Contenuto</value>
+  </data>
+  <data name="QuesitiPt1_ColloV" xml:space="preserve">
+    <value>Piccolo</value>
+  </data>
+  <data name="QuesitiPt1_Corporatura" xml:space="preserve">
+    <value>CORPORATURA</value>
+  </data>
+  <data name="QuesitiPt1_CorporaturaFanc" xml:space="preserve">
+    <value>CORPORATURA IN FANCIULLEZZA</value>
+  </data>
+  <data name="QuesitiPt1_CorporaturaFancK" xml:space="preserve">
+    <value>Grossa e robusta</value>
+  </data>
+  <data name="QuesitiPt1_CorporaturaFancP" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="QuesitiPt1_CorporaturaFancV" xml:space="preserve">
+    <value>Esile</value>
+  </data>
+  <data name="QuesitiPt1_CorporaturaK" xml:space="preserve">
+    <value>Grande o robusta</value>
+  </data>
+  <data name="QuesitiPt1_CorporaturaP" xml:space="preserve">
+    <value>Media e ben proporzionata</value>
+  </data>
+  <data name="QuesitiPt1_CorporaturaV" xml:space="preserve">
+    <value>Snella, a volte insolitamente alta o bassa</value>
+  </data>
+  <data name="QuesitiPt1_Denti" xml:space="preserve">
+    <value>DENTI</value>
+  </data>
+  <data name="QuesitiPt1_DentiK" xml:space="preserve">
+    <value>Grandi, spessi, bianchi e regolari con gengive rosa e morbide. Sani, non necessitano di cure</value>
+  </data>
+  <data name="QuesitiPt1_DentiP" xml:space="preserve">
+    <value>Regolari con gengive rosa tendendi al sanguinamento e alle infiammazioni. Tendenza alle afte</value>
+  </data>
+  <data name="QuesitiPt1_DentiV" xml:space="preserve">
+    <value>Irregolari, con gengive che nel tempo tendono a recedere, sensibili al freddo e al caldo, possono presentare ampi spazi fra un dente e l'altro. Tendenza alle carie</value>
+  </data>
+  <data name="QuesitiPt1_Fronte" xml:space="preserve">
+    <value>FRONTE</value>
+  </data>
+  <data name="QuesitiPt1_FronteK" xml:space="preserve">
+    <value>Spaziosa</value>
+  </data>
+  <data name="QuesitiPt1_FronteP" xml:space="preserve">
+    <value>Media con pieghe e linee</value>
+  </data>
+  <data name="QuesitiPt1_FronteV" xml:space="preserve">
+    <value>Bassa</value>
+  </data>
+  <data name="Quesiti_KaphaHeader" xml:space="preserve">
+    <value>KAPHA</value>
+  </data>
+  <data name="Quesiti_KHeader" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="QuesitiPt1_Mani" xml:space="preserve">
+    <value>MANI</value>
+  </data>
+  <data name="QuesitiPt1_ManiK" xml:space="preserve">
+    <value>Grandi, squadrate, morbide, tendenzialmente fredde o umide</value>
+  </data>
+  <data name="QuesitiPt1_ManiP" xml:space="preserve">
+    <value>Proporzionate, nella media, tendenzialmente calde e morbide</value>
+  </data>
+  <data name="QuesitiPt1_ManiV" xml:space="preserve">
+    <value>Tendenzialmente ruvide, screpolate, piccole, affusolate, secche, fredde, nervose</value>
+  </data>
+  <data name="QuesitiPt1_Mento" xml:space="preserve">
+    <value>MENTO</value>
+  </data>
+  <data name="QuesitiPt1_MentoK" xml:space="preserve">
+    <value>Mascella larga</value>
+  </data>
+  <data name="QuesitiPt1_MentoP" xml:space="preserve">
+    <value>Contenuto</value>
+  </data>
+  <data name="QuesitiPt1_MentoV" xml:space="preserve">
+    <value>Delicato</value>
+  </data>
+  <data name="QuesitiPt1_Occhi" xml:space="preserve">
+    <value>OCCHI</value>
+  </data>
+  <data name="QuesitiPt1_OcchiK" xml:space="preserve">
+    <value>Grandi, liquidi, con secrezioni. Calmi, blu o marrone chiaro, attraenti, a volte prominenti</value>
+  </data>
+  <data name="QuesitiPt1_OcchiP" xml:space="preserve">
+    <value>Medi, chiari, azzurri, grigi, verdi. Acuti e penetranti. Molto sensibili alla luce, si arrossano facilmente</value>
+  </data>
+  <data name="QuesitiPt1_OcchiV" xml:space="preserve">
+    <value>Piccoli, molto scuri, neri o blu. Possono essere diversi tra loro, asciutti. Hanno difficoltà a mantenere la concetrazione</value>
+  </data>
+  <data name="QuesitiPt1_Pelle" xml:space="preserve">
+    <value>PELLE</value>
+  </data>
+  <data name="QuesitiPt1_PelleK" xml:space="preserve">
+    <value>Si abbronza uniformemente</value>
+  </data>
+  <data name="QuesitiPt1_PelleP" xml:space="preserve">
+    <value>Chiara, si scotta facilmente, sono comuni lentiggini e nei</value>
+  </data>
+  <data name="QuesitiPt1_PelleV" xml:space="preserve">
+    <value>Scura, si abbronza facilmente</value>
+  </data>
+  <data name="Quesiti_PHeader" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="Quesiti_PittaHeader" xml:space="preserve">
+    <value>PITTA</value>
+  </data>
+  <data name="QuesitiPt1_PrakritiHeader" xml:space="preserve">
+    <value>PRAKRITI</value>
+  </data>
+  <data name="QuesitiPt1_StruttOssea" xml:space="preserve">
+    <value>STRUTTURA OSSEA</value>
+  </data>
+  <data name="QuesitiPt1_StruttOsseaK" xml:space="preserve">
+    <value>Ossatura forte e solida, massiccio, quadrato, ben piantato e sviluppato. Peso consistente. Muscolatura massiccia che tollera sforzi</value>
+  </data>
+  <data name="QuesitiPt1_StruttOsseaP" xml:space="preserve">
+    <value>Ossatura armoniosa, peso equilibrato e costante. Muscolatura tonica e ben modellata</value>
+  </data>
+  <data name="QuesitiPt1_StruttOsseaV" xml:space="preserve">
+    <value>Ossa sottili e sporgenti, aspetti fisici disarmonici, magro. Muscolatura esile che si sviluppa con difficoltà</value>
+  </data>
+  <data name="QuesitiPt1_TendAccumulo" xml:space="preserve">
+    <value>TENDENZA DI ACCUMULO</value>
+  </data>
+  <data name="QuesitiPt1_TendAccumuloK" xml:space="preserve">
+    <value>Sedere e cosce</value>
+  </data>
+  <data name="QuesitiPt1_TendAccumuloP" xml:space="preserve">
+    <value>Uniforme</value>
+  </data>
+  <data name="QuesitiPt1_TendAccumuloV" xml:space="preserve">
+    <value>Intorno alla vita</value>
+  </data>
+  <data name="Quesiti_Tot" xml:space="preserve">
+    <value>TOTALI PARZIALI</value>
+  </data>
+  <data name="Quesiti_VataHeader" xml:space="preserve">
+    <value>VATA</value>
+  </data>
+  <data name="Quesiti_VHeader" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="QuesitiPt2_Articolazioni" xml:space="preserve">
+    <value>ARTICOLAZIONI DOLORI TIPICI</value>
+  </data>
+  <data name="QuesitiPt2_ArticolazioniK" xml:space="preserve">
+    <value>Flessibili, edematose, fortemente dolenti</value>
+  </data>
+  <data name="QuesitiPt2_ArticolazioniP" xml:space="preserve">
+    <value>Calde, gonfie e che scottano</value>
+  </data>
+  <data name="QuesitiPt2_ArticolazioniV" xml:space="preserve">
+    <value>Doloranti, malferme, scricchiolanti o rigide</value>
+  </data>
+  <data name="QuesitiPt2_BiancoOcchi" xml:space="preserve">
+    <value>BIANCO DEGLI OCCHI (Sclera)</value>
+  </data>
+  <data name="QuesitiPt2_BiancoOcchiK" xml:space="preserve">
+    <value>Con riflessi bluastri. Tendente ad avere occhi gonfi</value>
+  </data>
+  <data name="QuesitiPt2_BiancoOcchiP" xml:space="preserve">
+    <value>Può avere una tinta rossastra o giallastra</value>
+  </data>
+  <data name="QuesitiPt2_BiancoOcchiV" xml:space="preserve">
+    <value>Tendente al grigio. Occhi spesso asciutti e pruriginosi</value>
+  </data>
+  <data name="QuesitiPt2_Capelli" xml:space="preserve">
+    <value>CAPELLI</value>
+  </data>
+  <data name="QuesitiPt2_CapelliK" xml:space="preserve">
+    <value>Spessi, leggermente ondulati, un po' oleosi, scuri, marroni, splendenti</value>
+  </data>
+  <data name="QuesitiPt2_CapelliP" xml:space="preserve">
+    <value>Fini, chiari, oleosi, biondi, rossi o precocemente grigi, sono possibili diradamento o calvizie precoce</value>
+  </data>
+  <data name="QuesitiPt2_CapelliV" xml:space="preserve">
+    <value>Secchi, opachi, con doppie punte, scuri, ruvidi, arricciati o crespi</value>
+  </data>
+  <data name="QuesitiPt2_Evacuazione" xml:space="preserve">
+    <value>EVACUAZIONE</value>
+  </data>
+  <data name="QuesitiPt2_EvacuazioneK" xml:space="preserve">
+    <value>Una volta al giorno, abbondante, con possibile presenza di muco e prurito</value>
+  </data>
+  <data name="QuesitiPt2_EvacuazioneP" xml:space="preserve">
+    <value>Possibile anche due-tre volte al giorno. Feci tendenti al molle</value>
+  </data>
+  <data name="QuesitiPt2_EvacuazioneV" xml:space="preserve">
+    <value>Può essere irregolare con tendenza alla costipazione, Feci dure e asciutte</value>
+  </data>
+  <data name="QuesitiPt2_Gengive" xml:space="preserve">
+    <value>GENGIVE</value>
+  </data>
+  <data name="QuesitiPt2_GengiveK" xml:space="preserve">
+    <value>Sane e spesse</value>
+  </data>
+  <data name="QuesitiPt2_GengiveP" xml:space="preserve">
+    <value>Infiammate che tendono a sanguinare</value>
+  </data>
+  <data name="QuesitiPt2_GengiveV" xml:space="preserve">
+    <value>Che si ritraggono, lasciando scoperti i denti alla base</value>
+  </data>
+  <data name="QuesitiPt2_IntSessuale" xml:space="preserve">
+    <value>INTERESSE SESSUALE</value>
+  </data>
+  <data name="QuesitiPt2_IntSessualeK" xml:space="preserve">
+    <value>Stabile, lento ad eccitarsi</value>
+  </data>
+  <data name="QuesitiPt2_IntSessualeP" xml:space="preserve">
+    <value>Molto sensuale, si eccita facilmente</value>
+  </data>
+  <data name="QuesitiPt2_IntSessualeV" xml:space="preserve">
+    <value>Variabile, spazio alla fantasia</value>
+  </data>
+  <data name="QuesitiPt2_Labbra" xml:space="preserve">
+    <value>LABBRA</value>
+  </data>
+  <data name="QuesitiPt2_LabbraK" xml:space="preserve">
+    <value>Carnose e umettate</value>
+  </data>
+  <data name="QuesitiPt2_LabbraP" xml:space="preserve">
+    <value>Rosso scuro con tendenza all'herpes</value>
+  </data>
+  <data name="QuesitiPt2_LabbraV" xml:space="preserve">
+    <value>Spesso screpolate</value>
+  </data>
+  <data name="QuesitiPt2_Lingua" xml:space="preserve">
+    <value>LINGUA</value>
+  </data>
+  <data name="QuesitiPt2_LinguaK" xml:space="preserve">
+    <value>Tendenzialmente gonfia con una spessa patina biancastra</value>
+  </data>
+  <data name="QuesitiPt2_LinguaP" xml:space="preserve">
+    <value>Con patina giallastra oppure arancio-rossastra</value>
+  </data>
+  <data name="QuesitiPt2_LinguaV" xml:space="preserve">
+    <value>Prevalentemente secca, con una leggera patina tendente al grigio</value>
+  </data>
+  <data name="QuesitiPt2_Malattie" xml:space="preserve">
+    <value>MALATTIE RICORRENTI</value>
+  </data>
+  <data name="QuesitiPt2_MalattieK" xml:space="preserve">
+    <value>Gonfiori, ritenzione di liquidi, muco e congestione</value>
+  </data>
+  <data name="QuesitiPt2_MalattieP" xml:space="preserve">
+    <value>Febbre, probabili le eruzioni cutanee e le infiammazioni</value>
+  </data>
+  <data name="QuesitiPt2_MalattieV" xml:space="preserve">
+    <value>Dolori acuti e disturbi nervosi</value>
+  </data>
+  <data name="QuesitiPt2_Mestruazioni" xml:space="preserve">
+    <value>MESTRUAZIONI</value>
+  </data>
+  <data name="QuesitiPt2_MestruazioniK" xml:space="preserve">
+    <value>Tendenza a ritenzione idrica durante il periodo</value>
+  </data>
+  <data name="QuesitiPt2_MestruazioniP" xml:space="preserve">
+    <value>Abbondanti o molto abbondanti</value>
+  </data>
+  <data name="QuesitiPt2_MestruazioniV" xml:space="preserve">
+    <value>Irregolari, flusso scarso, crampi acuti e dolorosi</value>
+  </data>
+  <data name="QuesitiPt2_Peso" xml:space="preserve">
+    <value>PESO</value>
+  </data>
+  <data name="QuesitiPt2_PesoK" xml:space="preserve">
+    <value>Facilità a prendere peso e difficoltà a perderlo, se non si fa esercizio</value>
+  </data>
+  <data name="QuesitiPt2_PesoP" xml:space="preserve">
+    <value>Facilità a prendere e perdere peso</value>
+  </data>
+  <data name="QuesitiPt2_PesoV" xml:space="preserve">
+    <value>Facilità a perdere peso e difficoltà a riacquistarlo</value>
+  </data>
+  <data name="QuesitiPt2_PrefLuoghi" xml:space="preserve">
+    <value>PREFERENZE LUOGHI</value>
+  </data>
+  <data name="QuesitiPt2_PrefLuoghiK" xml:space="preserve">
+    <value>Tollera la maggior parte dei climi (non ama l'umidità)</value>
+  </data>
+  <data name="QuesitiPt2_PrefLuoghiP" xml:space="preserve">
+    <value>Preferisce i posti freschi e ben ventilati (non ama il calore)</value>
+  </data>
+  <data name="QuesitiPt2_PrefLuoghiV" xml:space="preserve">
+    <value>Non ama i climi ventosi e freddi (ama il calore)</value>
+  </data>
+  <data name="QuesitiPt2_Temperatura" xml:space="preserve">
+    <value>TEMPERATURA</value>
+  </data>
+  <data name="QuesitiPt2_TemperaturaK" xml:space="preserve">
+    <value>Pelle fresca, umida, non fredda</value>
+  </data>
+  <data name="QuesitiPt2_TemperaturaP" xml:space="preserve">
+    <value>Pelle calda al tatto</value>
+  </data>
+  <data name="QuesitiPt2_TemperaturaV" xml:space="preserve">
+    <value>Mani e piedi freddi</value>
+  </data>
+  <data name="QuesitiPt2_TendCibo" xml:space="preserve">
+    <value>TENDENZE CIBO</value>
+  </data>
+  <data name="QuesitiPt2_TendCiboK" xml:space="preserve">
+    <value>Ama dolci, latticini, pane e pasticceria</value>
+  </data>
+  <data name="QuesitiPt2_TendCiboP" xml:space="preserve">
+    <value>Ama cibi proteici, piccanti, speziati, salati, caffeina</value>
+  </data>
+  <data name="QuesitiPt2_TendCiboV" xml:space="preserve">
+    <value>Indulge ai cibi ricchi o alla dieta stretta</value>
+  </data>
+  <data name="QuesitiPt2_TendPelle" xml:space="preserve">
+    <value>TENDENZE PELLE (Spessore su avambraccio)</value>
+  </data>
+  <data name="QuesitiPt2_TendPelleK" xml:space="preserve">
+    <value>Ben lubrificata e spessa (2 cm o più)</value>
+  </data>
+  <data name="QuesitiPt2_TendPelleP" xml:space="preserve">
+    <value>Untuosa con tendenza ai brufoli e alle eruzioni (spessore da mezzo ad 1 cm)</value>
+  </data>
+  <data name="QuesitiPt2_TendPelleV" xml:space="preserve">
+    <value>Secca (circa mezzo cm, pizzicandola). Si screpola facilmente, propensione a calli e duroni</value>
+  </data>
+  <data name="QuesitiPt2_VikritiHeader" xml:space="preserve">
+    <value>VIKRITI</value>
+  </data>
 </root>

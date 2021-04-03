@@ -3,10 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"  
+        xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         xmlns:local="clr-namespace:TestDoshico"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.ColumnSpan="4" Content="PRAKRITI TEST"/>
+        <Label Grid.Row="1" Grid.ColumnSpan="4" Content="COSTITUZIONE INDIVIDUALE AYURVEDICA"/>
+        <StackPanel Grid.Row="2">
+            <Button Content="DatiPersonali" Click="Button_Click"/>
+            <Button Content="QuesitiPt1" Click="Button_Click_1"/>
+            <Button Content="QuesitiPt2" Click="Button_Click_2"/>
+        </StackPanel>
+        <Frame Name="Main" Grid.Row="3" NavigationUIVisibility="Visible" Style="{DynamicResource FrameNewNavigationUI}"/>
     </Grid>
 </Window>
