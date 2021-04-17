@@ -219,9 +219,6 @@
   <data name="Quesiti_KaphaHeader" xml:space="preserve">
     <value>KAPHA</value>
   </data>
-  <data name="Quesiti_KHeader" xml:space="preserve">
-    <value>K</value>
-  </data>
   <data name="QuesitiPt1_Mani" xml:space="preserve">
     <value>MANI</value>
   </data>
@@ -270,9 +267,6 @@
   <data name="QuesitiPt1_PelleV" xml:space="preserve">
     <value>Scura, si abbronza facilmente</value>
   </data>
-  <data name="Quesiti_PHeader" xml:space="preserve">
-    <value>P</value>
-  </data>
   <data name="Quesiti_PittaHeader" xml:space="preserve">
     <value>PITTA</value>
   </data>
@@ -309,8 +303,8 @@
   <data name="Quesiti_VataHeader" xml:space="preserve">
     <value>VATA</value>
   </data>
-  <data name="Quesiti_VHeader" xml:space="preserve">
-    <value>V</value>
+  <data name="Quesiti_DoshaHeader" xml:space="preserve">
+    <value>TIPO DOSHA</value>
   </data>
   <data name="QuesitiPt2_Articolazioni" xml:space="preserve">
     <value>ARTICOLAZIONI DOLORI TIPICI</value>
@@ -494,5 +488,239 @@
   </data>
   <data name="QuesitiPt2_VikritiHeader" xml:space="preserve">
     <value>VIKRITI</value>
+  </data>
+  <data name="QuesitiPt3_Amicizia" xml:space="preserve">
+    <value>AMICIZIA</value>
+  </data>
+  <data name="QuesitiPt3_AmiciziaK" xml:space="preserve">
+    <value>Leale, con molti amici</value>
+  </data>
+  <data name="QuesitiPt3_AmiciziaP" xml:space="preserve">
+    <value>Molto selettivo, crea salde amicizie e facilmente dei nemici</value>
+  </data>
+  <data name="QuesitiPt3_AmiciziaV" xml:space="preserve">
+    <value>Conosce molte persone, pochi amici intimi</value>
+  </data>
+  <data name="QuesitiPt3_Carattere" xml:space="preserve">
+    <value>CARATTERE</value>
+  </data>
+  <data name="QuesitiPt3_CarattereK" xml:space="preserve">
+    <value>Calmo, ama il rilassamento e le attività comode</value>
+  </data>
+  <data name="QuesitiPt3_CarattereP" xml:space="preserve">
+    <value>Aggressivo, preferisce le attività competitive</value>
+  </data>
+  <data name="QuesitiPt3_CarattereV" xml:space="preserve">
+    <value>Irrequieto, attivo, ama il movimento</value>
+  </data>
+  <data name="QuesitiPt3_Decisioni" xml:space="preserve">
+    <value>DECISIONI</value>
+  </data>
+  <data name="QuesitiPt3_DecisioniK" xml:space="preserve">
+    <value>Ci mette tempo a prenderle, ma non le abbandona</value>
+  </data>
+  <data name="QuesitiPt3_DecisioniP" xml:space="preserve">
+    <value>Rapide da prendere, vede le cose chiaramente</value>
+  </data>
+  <data name="QuesitiPt3_DecisioniV" xml:space="preserve">
+    <value>Difficili da prendere, cambia idea facilmente</value>
+  </data>
+  <data name="QuesitiPt3_Denaro" xml:space="preserve">
+    <value>PSICOLOGIA DEL DENARO</value>
+  </data>
+  <data name="QuesitiPt3_DenaroK" xml:space="preserve">
+    <value>Spende con riluttanza, gli piace risparmiare</value>
+  </data>
+  <data name="QuesitiPt3_DenaroP" xml:space="preserve">
+    <value>Spende con criterio, il denaro ha lo scopo di realizzare la persona</value>
+  </data>
+  <data name="QuesitiPt3_DenaroV" xml:space="preserve">
+    <value>Spende impulsivamente, il denaro è un mezzo e va usato</value>
+  </data>
+  <data name="QuesitiPt3_Memoria" xml:space="preserve">
+    <value>MEMORIA</value>
+  </data>
+  <data name="QuesitiPt3_MemoriaK" xml:space="preserve">
+    <value>Lento ad imparare, ma una volta imparato non dimentica più, iper logico e iper razionale</value>
+  </data>
+  <data name="QuesitiPt3_MemoriaP" xml:space="preserve">
+    <value>Buona a breve ed a lungo termine, pensiero logico e razionale</value>
+  </data>
+  <data name="QuesitiPt3_MemoriaV" xml:space="preserve">
+    <value>Buona a breve termine, ma dimentica facilmente. Concentrazione breve</value>
+  </data>
+  <data name="QuesitiPt3_MenteHeader" xml:space="preserve">
+    <value>LA MENTE</value>
+  </data>
+  <data name="QuesitiPt3_Organizzazione" xml:space="preserve">
+    <value>ORGANIZZAZIONE</value>
+  </data>
+  <data name="QuesitiPt3_OrganizzazioneK" xml:space="preserve">
+    <value>Resiste ai cambiamenti ed ai nuovi progetti, ama la semplicità</value>
+  </data>
+  <data name="QuesitiPt3_OrganizzazioneP" xml:space="preserve">
+    <value>Costante, ama procedere in maniera ordinata</value>
+  </data>
+  <data name="QuesitiPt3_OrganizzazioneV" xml:space="preserve">
+    <value>Fa molti progetti contemporaneamente</value>
+  </data>
+  <data name="QuesitiPt3_Pensiero" xml:space="preserve">
+    <value>PENSIERO</value>
+  </data>
+  <data name="QuesitiPt3_PensieroK" xml:space="preserve">
+    <value>Preferisce seguire un piano od un'idea</value>
+  </data>
+  <data name="QuesitiPt3_PensieroP" xml:space="preserve">
+    <value>Organizzato</value>
+  </data>
+  <data name="QuesitiPt3_PensieroV" xml:space="preserve">
+    <value>Creativo</value>
+  </data>
+  <data name="QuesitiPt3_Routine" xml:space="preserve">
+    <value>ROUTINE</value>
+  </data>
+  <data name="QuesitiPt3_RoutineK" xml:space="preserve">
+    <value>Lavora bene proprio seguendola</value>
+  </data>
+  <data name="QuesitiPt3_RoutineP" xml:space="preserve">
+    <value>Ama pianificare ed organizzare</value>
+  </data>
+  <data name="QuesitiPt3_RoutineV" xml:space="preserve">
+    <value>Non la ama</value>
+  </data>
+  <data name="QuesitiPt4_EmozioniHeader" xml:space="preserve">
+    <value>EMOZIONI</value>
+  </data>
+  <data name="QuesitiPt4_ForzCaratteriale" xml:space="preserve">
+    <value>PUNTO DI FORZA CARATTERIALE</value>
+  </data>
+  <data name="QuesitiPt4_ForzCaratterialeK" xml:space="preserve">
+    <value>Paziente</value>
+  </data>
+  <data name="QuesitiPt4_ForzCaratterialeP" xml:space="preserve">
+    <value>Tollerante</value>
+  </data>
+  <data name="QuesitiPt4_ForzCaratterialeV" xml:space="preserve">
+    <value>Flessibile</value>
+  </data>
+  <data name="QuesitiPt4_GestEmozioni" xml:space="preserve">
+    <value>GESTIONE EMOZIONI</value>
+  </data>
+  <data name="QuesitiPt4_GestEmozioniK" xml:space="preserve">
+    <value>Devoto</value>
+  </data>
+  <data name="QuesitiPt4_GestEmozioniP" xml:space="preserve">
+    <value>Si prende cura delle cose</value>
+  </data>
+  <data name="QuesitiPt4_GestEmozioniV" xml:space="preserve">
+    <value>Comunicativo</value>
+  </data>
+  <data name="QuesitiPt4_Indole" xml:space="preserve">
+    <value>INDOLE</value>
+  </data>
+  <data name="QuesitiPt4_IndoleK" xml:space="preserve">
+    <value>Può essere trascurato</value>
+  </data>
+  <data name="QuesitiPt4_IndoleP" xml:space="preserve">
+    <value>Può essere vendicativo</value>
+  </data>
+  <data name="QuesitiPt4_IndoleV" xml:space="preserve">
+    <value>Riservato</value>
+  </data>
+  <data name="QuesitiPt4_Istinto" xml:space="preserve">
+    <value>ISTINTO</value>
+  </data>
+  <data name="QuesitiPt4_IstintoK" xml:space="preserve">
+    <value>Si sente vittima</value>
+  </data>
+  <data name="QuesitiPt4_IstintoP" xml:space="preserve">
+    <value>Può essere distruttivo</value>
+  </data>
+  <data name="QuesitiPt4_IstintoV" xml:space="preserve">
+    <value>Può essere autodistruttivo</value>
+  </data>
+  <data name="QuesitiPt4_ReazEmotiva" xml:space="preserve">
+    <value>REAZIONE EMOTIVA</value>
+  </data>
+  <data name="QuesitiPt4_ReazEmotivaK" xml:space="preserve">
+    <value>Evita di esprimere opinioni in situazioni difficili</value>
+  </data>
+  <data name="QuesitiPt4_ReazEmotivaP" xml:space="preserve">
+    <value>Aggressivo riguardo le opinioni ed i sentimenti, esprime pareri anche se non richiesti</value>
+  </data>
+  <data name="QuesitiPt4_ReazEmotivaV" xml:space="preserve">
+    <value>I sentimenti e le emozioni cambiano facilmente</value>
+  </data>
+  <data name="QuesitiPt4_ReazStress" xml:space="preserve">
+    <value>REAZIONE ALLO STRESS</value>
+  </data>
+  <data name="QuesitiPt4_ReazStressK" xml:space="preserve">
+    <value>Ha attaccamento alle cose</value>
+  </data>
+  <data name="QuesitiPt4_ReazStressP" xml:space="preserve">
+    <value>Irritabile</value>
+  </data>
+  <data name="QuesitiPt4_ReazStressV" xml:space="preserve">
+    <value>Ansioso</value>
+  </data>
+  <data name="QuesitiPt4_SentimentoPrev" xml:space="preserve">
+    <value>SENTIMENTO PREVALENTE</value>
+  </data>
+  <data name="QuesitiPt4_SentimentoPrevK" xml:space="preserve">
+    <value>Apatia</value>
+  </data>
+  <data name="QuesitiPt4_SentimentoPrevP" xml:space="preserve">
+    <value>Odio</value>
+  </data>
+  <data name="QuesitiPt4_SentimentoPrevV" xml:space="preserve">
+    <value>Paura</value>
+  </data>
+  <data name="QuesitiPt4_Sogni" xml:space="preserve">
+    <value>SOGNI</value>
+  </data>
+  <data name="QuesitiPt4_SogniK" xml:space="preserve">
+    <value>Corti e romantici, spesso riguardante l'acqua</value>
+  </data>
+  <data name="QuesitiPt4_SogniP" xml:space="preserve">
+    <value>Colorati, veloci, passionali, conflittuali</value>
+  </data>
+  <data name="QuesitiPt4_SogniV" xml:space="preserve">
+    <value>Agitati, incubi, sogna di volare</value>
+  </data>
+  <data name="QuesitiPt4_TendEmozionale" xml:space="preserve">
+    <value>TENDENZA EMOZIONALE</value>
+  </data>
+  <data name="QuesitiPt4_TendEmozionaleK" xml:space="preserve">
+    <value>Desideroso</value>
+  </data>
+  <data name="QuesitiPt4_TendEmozionaleP" xml:space="preserve">
+    <value>Rabbioso</value>
+  </data>
+  <data name="QuesitiPt4_TendEmozionaleV" xml:space="preserve">
+    <value>Nervoso</value>
+  </data>
+  <data name="QuesitiPt4_Virtù" xml:space="preserve">
+    <value>VIRTÙ</value>
+  </data>
+  <data name="QuesitiPt4_VirtùK" xml:space="preserve">
+    <value>Armonioso</value>
+  </data>
+  <data name="QuesitiPt4_VirtùP" xml:space="preserve">
+    <value>Percettivo</value>
+  </data>
+  <data name="QuesitiPt4_VirtùV" xml:space="preserve">
+    <value>Dinamico</value>
+  </data>
+  <data name="QuesitiPt4_Vizio" xml:space="preserve">
+    <value>VIZIO</value>
+  </data>
+  <data name="QuesitiPt4_VizioK" xml:space="preserve">
+    <value>Avido</value>
+  </data>
+  <data name="QuesitiPt4_VizioP" xml:space="preserve">
+    <value>Manipolatore</value>
+  </data>
+  <data name="QuesitiPt4_VizioV" xml:space="preserve">
+    <value>Vile</value>
   </data>
 </root>

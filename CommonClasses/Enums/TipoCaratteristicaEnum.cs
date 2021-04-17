@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace CommonClasses.Enums
 {
-    public class PiePoint
+    public enum TipoCaratteristicaEnum : byte
     {
-        public string Name { get; set; }
-        public Int16 Share { get; set; }
+        Vata = 0,
+        Pitta = 1,
+        Kapha = 2
     }
 }

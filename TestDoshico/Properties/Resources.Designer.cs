@@ -142,29 +142,20 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a TIPO DOSHA.
+        /// </summary>
+        public static string Quesiti_DoshaHeader {
+            get {
+                return ResourceManager.GetString("Quesiti_DoshaHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a KAPHA.
         /// </summary>
         public static string Quesiti_KaphaHeader {
             get {
                 return ResourceManager.GetString("Quesiti_KaphaHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a K.
-        /// </summary>
-        public static string Quesiti_KHeader {
-            get {
-                return ResourceManager.GetString("Quesiti_KHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a P.
-        /// </summary>
-        public static string Quesiti_PHeader {
-            get {
-                return ResourceManager.GetString("Quesiti_PHeader", resourceCulture);
             }
         }
         
@@ -192,15 +183,6 @@ namespace TestDoshico.Properties {
         public static string Quesiti_VataHeader {
             get {
                 return ResourceManager.GetString("Quesiti_VataHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a V.
-        /// </summary>
-        public static string Quesiti_VHeader {
-            get {
-                return ResourceManager.GetString("Quesiti_VHeader", resourceCulture);
             }
         }
         
@@ -1191,6 +1173,708 @@ namespace TestDoshico.Properties {
         public static string QuesitiPt2_VikritiHeader {
             get {
                 return ResourceManager.GetString("QuesitiPt2_VikritiHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a AMICIZIA.
+        /// </summary>
+        public static string QuesitiPt3_Amicizia {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_Amicizia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Leale, con molti amici.
+        /// </summary>
+        public static string QuesitiPt3_AmiciziaK {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_AmiciziaK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Molto selettivo, crea salde amicizie e facilmente dei nemici.
+        /// </summary>
+        public static string QuesitiPt3_AmiciziaP {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_AmiciziaP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Conosce molte persone, pochi amici intimi.
+        /// </summary>
+        public static string QuesitiPt3_AmiciziaV {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_AmiciziaV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a CARATTERE.
+        /// </summary>
+        public static string QuesitiPt3_Carattere {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_Carattere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Calmo, ama il rilassamento e le attività comode.
+        /// </summary>
+        public static string QuesitiPt3_CarattereK {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_CarattereK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Aggressivo, preferisce le attività competitive.
+        /// </summary>
+        public static string QuesitiPt3_CarattereP {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_CarattereP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Irrequieto, attivo, ama il movimento.
+        /// </summary>
+        public static string QuesitiPt3_CarattereV {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_CarattereV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a DECISIONI.
+        /// </summary>
+        public static string QuesitiPt3_Decisioni {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_Decisioni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ci mette tempo a prenderle, ma non le abbandona.
+        /// </summary>
+        public static string QuesitiPt3_DecisioniK {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_DecisioniK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Rapide da prendere, vede le cose chiaramente.
+        /// </summary>
+        public static string QuesitiPt3_DecisioniP {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_DecisioniP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Difficili da prendere, cambia idea facilmente.
+        /// </summary>
+        public static string QuesitiPt3_DecisioniV {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_DecisioniV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a PSICOLOGIA DEL DENARO.
+        /// </summary>
+        public static string QuesitiPt3_Denaro {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_Denaro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Spende con riluttanza, gli piace risparmiare.
+        /// </summary>
+        public static string QuesitiPt3_DenaroK {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_DenaroK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Spende con criterio, il denaro ha lo scopo di realizzare la persona.
+        /// </summary>
+        public static string QuesitiPt3_DenaroP {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_DenaroP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Spende impulsivamente, il denaro è un mezzo e va usato.
+        /// </summary>
+        public static string QuesitiPt3_DenaroV {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_DenaroV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a MEMORIA.
+        /// </summary>
+        public static string QuesitiPt3_Memoria {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_Memoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Lento ad imparare, ma una volta imparato non dimentica più, iper logico e iper razionale.
+        /// </summary>
+        public static string QuesitiPt3_MemoriaK {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_MemoriaK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Buona a breve ed a lungo termine, pensiero logico e razionale.
+        /// </summary>
+        public static string QuesitiPt3_MemoriaP {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_MemoriaP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Buona a breve termine, ma dimentica facilmente. Concentrazione breve.
+        /// </summary>
+        public static string QuesitiPt3_MemoriaV {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_MemoriaV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a LA MENTE.
+        /// </summary>
+        public static string QuesitiPt3_MenteHeader {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_MenteHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a ORGANIZZAZIONE.
+        /// </summary>
+        public static string QuesitiPt3_Organizzazione {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_Organizzazione", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Resiste ai cambiamenti ed ai nuovi progetti, ama la semplicità.
+        /// </summary>
+        public static string QuesitiPt3_OrganizzazioneK {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_OrganizzazioneK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Costante, ama procedere in maniera ordinata.
+        /// </summary>
+        public static string QuesitiPt3_OrganizzazioneP {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_OrganizzazioneP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Fa molti progetti contemporaneamente.
+        /// </summary>
+        public static string QuesitiPt3_OrganizzazioneV {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_OrganizzazioneV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a PENSIERO.
+        /// </summary>
+        public static string QuesitiPt3_Pensiero {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_Pensiero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Preferisce seguire un piano od un&apos;idea.
+        /// </summary>
+        public static string QuesitiPt3_PensieroK {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_PensieroK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Organizzato.
+        /// </summary>
+        public static string QuesitiPt3_PensieroP {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_PensieroP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Creativo.
+        /// </summary>
+        public static string QuesitiPt3_PensieroV {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_PensieroV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a ROUTINE.
+        /// </summary>
+        public static string QuesitiPt3_Routine {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_Routine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Lavora bene proprio seguendola.
+        /// </summary>
+        public static string QuesitiPt3_RoutineK {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_RoutineK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ama pianificare ed organizzare.
+        /// </summary>
+        public static string QuesitiPt3_RoutineP {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_RoutineP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Non la ama.
+        /// </summary>
+        public static string QuesitiPt3_RoutineV {
+            get {
+                return ResourceManager.GetString("QuesitiPt3_RoutineV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a EMOZIONI.
+        /// </summary>
+        public static string QuesitiPt4_EmozioniHeader {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_EmozioniHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a PUNTO DI FORZA CARATTERIALE.
+        /// </summary>
+        public static string QuesitiPt4_ForzCaratteriale {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ForzCaratteriale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Paziente.
+        /// </summary>
+        public static string QuesitiPt4_ForzCaratterialeK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ForzCaratterialeK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Tollerante.
+        /// </summary>
+        public static string QuesitiPt4_ForzCaratterialeP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ForzCaratterialeP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Flessibile.
+        /// </summary>
+        public static string QuesitiPt4_ForzCaratterialeV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ForzCaratterialeV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a GESTIONE EMOZIONI.
+        /// </summary>
+        public static string QuesitiPt4_GestEmozioni {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_GestEmozioni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Devoto.
+        /// </summary>
+        public static string QuesitiPt4_GestEmozioniK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_GestEmozioniK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Si prende cura delle cose.
+        /// </summary>
+        public static string QuesitiPt4_GestEmozioniP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_GestEmozioniP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Comunicativo.
+        /// </summary>
+        public static string QuesitiPt4_GestEmozioniV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_GestEmozioniV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a INDOLE.
+        /// </summary>
+        public static string QuesitiPt4_Indole {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_Indole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Può essere trascurato.
+        /// </summary>
+        public static string QuesitiPt4_IndoleK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_IndoleK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Può essere vendicativo.
+        /// </summary>
+        public static string QuesitiPt4_IndoleP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_IndoleP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Riservato.
+        /// </summary>
+        public static string QuesitiPt4_IndoleV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_IndoleV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a ISTINTO.
+        /// </summary>
+        public static string QuesitiPt4_Istinto {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_Istinto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Si sente vittima.
+        /// </summary>
+        public static string QuesitiPt4_IstintoK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_IstintoK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Può essere distruttivo.
+        /// </summary>
+        public static string QuesitiPt4_IstintoP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_IstintoP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Può essere autodistruttivo.
+        /// </summary>
+        public static string QuesitiPt4_IstintoV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_IstintoV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a REAZIONE EMOTIVA.
+        /// </summary>
+        public static string QuesitiPt4_ReazEmotiva {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ReazEmotiva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Evita di esprimere opinioni in situazioni difficili.
+        /// </summary>
+        public static string QuesitiPt4_ReazEmotivaK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ReazEmotivaK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Aggressivo riguardo le opinioni ed i sentimenti, esprime pareri anche se non richiesti.
+        /// </summary>
+        public static string QuesitiPt4_ReazEmotivaP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ReazEmotivaP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a I sentimenti e le emozioni cambiano facilmente.
+        /// </summary>
+        public static string QuesitiPt4_ReazEmotivaV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ReazEmotivaV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a REAZIONE ALLO STRESS.
+        /// </summary>
+        public static string QuesitiPt4_ReazStress {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ReazStress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ha attaccamento alle cose.
+        /// </summary>
+        public static string QuesitiPt4_ReazStressK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ReazStressK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Irritabile.
+        /// </summary>
+        public static string QuesitiPt4_ReazStressP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ReazStressP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ansioso.
+        /// </summary>
+        public static string QuesitiPt4_ReazStressV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_ReazStressV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a SENTIMENTO PREVALENTE.
+        /// </summary>
+        public static string QuesitiPt4_SentimentoPrev {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_SentimentoPrev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Apatia.
+        /// </summary>
+        public static string QuesitiPt4_SentimentoPrevK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_SentimentoPrevK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Odio.
+        /// </summary>
+        public static string QuesitiPt4_SentimentoPrevP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_SentimentoPrevP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Paura.
+        /// </summary>
+        public static string QuesitiPt4_SentimentoPrevV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_SentimentoPrevV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a SOGNI.
+        /// </summary>
+        public static string QuesitiPt4_Sogni {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_Sogni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Corti e romantici, spesso riguardante l&apos;acqua.
+        /// </summary>
+        public static string QuesitiPt4_SogniK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_SogniK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Colorati, veloci, passionali, conflittuali.
+        /// </summary>
+        public static string QuesitiPt4_SogniP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_SogniP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Agitati, incubi, sogna di volare.
+        /// </summary>
+        public static string QuesitiPt4_SogniV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_SogniV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a TENDENZA EMOZIONALE.
+        /// </summary>
+        public static string QuesitiPt4_TendEmozionale {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_TendEmozionale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Desideroso.
+        /// </summary>
+        public static string QuesitiPt4_TendEmozionaleK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_TendEmozionaleK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Rabbioso.
+        /// </summary>
+        public static string QuesitiPt4_TendEmozionaleP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_TendEmozionaleP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Nervoso.
+        /// </summary>
+        public static string QuesitiPt4_TendEmozionaleV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_TendEmozionaleV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a VIRTÙ.
+        /// </summary>
+        public static string QuesitiPt4_Virtù {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_Virtù", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Armonioso.
+        /// </summary>
+        public static string QuesitiPt4_VirtùK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_VirtùK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Percettivo.
+        /// </summary>
+        public static string QuesitiPt4_VirtùP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_VirtùP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Dinamico.
+        /// </summary>
+        public static string QuesitiPt4_VirtùV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_VirtùV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a VIZIO.
+        /// </summary>
+        public static string QuesitiPt4_Vizio {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_Vizio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Avido.
+        /// </summary>
+        public static string QuesitiPt4_VizioK {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_VizioK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Manipolatore.
+        /// </summary>
+        public static string QuesitiPt4_VizioP {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_VizioP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Vile.
+        /// </summary>
+        public static string QuesitiPt4_VizioV {
+            get {
+                return ResourceManager.GetString("QuesitiPt4_VizioV", resourceCulture);
             }
         }
     }
