@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestDoshico.Views"
       xmlns:prop="clr-namespace:TestDoshico.Properties"
+      xmlns:baseclasses="clr-namespace:CommonClasses.BaseClasses;assembly=CommonClasses"
+      xmlns:enums ="clr-namespace:CommonClasses.Enums;assembly=CommonClasses"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Parte 2: La Vikriti Mutevole"
@@ -108,57 +110,57 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_SentimentoPrevV}"/>
         <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_SentimentoPrevP}"/>
         <TextBlock Grid.Row="1" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_SentimentoPrevK}"/>
-        <CheckBox Grid.Row="1" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="1" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_Indole}"/>
         <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_IndoleV}"/>
         <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_IndoleP}"/>
         <TextBlock Grid.Row="2" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_IndoleK}"/>
-        <CheckBox Grid.Row="2" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="2" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_Istinto}"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_IstintoV}"/>
         <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_IstintoP}"/>
         <TextBlock Grid.Row="3" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_IstintoK}"/>
-        <CheckBox Grid.Row="3" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="3" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ReazStress}"/>
         <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ReazStressV}"/>
         <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ReazStressP}"/>
         <TextBlock Grid.Row="4" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ReazStressK}"/>
-        <CheckBox Grid.Row="4" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="4" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_Vizio}"/>
         <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_VizioV}"/>
         <TextBlock Grid.Row="5" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_VizioP}"/>
         <TextBlock Grid.Row="5" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_VizioK}"/>
-        <CheckBox Grid.Row="5" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="5" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_TendEmozionale}"/>
         <TextBlock Grid.Row="6" Grid.Column="1" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt4_TendEmozionaleV}"/>
         <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt4_TendEmozionaleP}"/>
         <TextBlock Grid.Row="6" Grid.Column="3" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt4_TendEmozionaleK}"/>
-        <CheckBox Grid.Row="6" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="6" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_Virtù}"/>
         <TextBlock Grid.Row="7" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_Virtù}"/>
         <TextBlock Grid.Row="7" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_Virtù}"/>
         <TextBlock Grid.Row="7" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_Virtù}"/>
-        <CheckBox Grid.Row="7" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="7" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_GestEmozioni}"/>
         <TextBlock Grid.Row="8" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_GestEmozioniV}"/>
         <TextBlock Grid.Row="8" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_GestEmozioniP}"/>
         <TextBlock Grid.Row="8" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_GestEmozioniK}"/>
-        <CheckBox Grid.Row="8" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="8" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="9" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ForzCaratteriale}"/>
         <TextBlock Grid.Row="9" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ForzCaratterialeV}"/>
         <TextBlock Grid.Row="9" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ForzCaratterialeP}"/>
         <TextBlock Grid.Row="9" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ForzCaratterialeK}"/>
-        <CheckBox Grid.Row="9" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="9" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="10" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ReazEmotiva}"/>
         <TextBlock Grid.Row="10" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ReazEmotivaV}"/>
         <TextBlock Grid.Row="10" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ReazEmotivaP}"/>
         <TextBlock Grid.Row="10" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_ReazEmotivaK}"/>
-        <CheckBox Grid.Row="10" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="10" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="11" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_Sogni}"/>
         <TextBlock Grid.Row="11" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_SogniV}"/>
         <TextBlock Grid.Row="11" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_SogniP}"/>
         <TextBlock Grid.Row="11" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_SogniK}"/>
-        <CheckBox Grid.Row="11" Grid.Column="4" Style="{StaticResource GridCheckBox}"/>
+        <ComboBox Grid.Row="11" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
         <TextBlock Grid.Row="12" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.Quesiti_Tot}"/>
         <TextBlock Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource GridTextBlock}"/>
     </Grid>

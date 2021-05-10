@@ -156,6 +156,10 @@
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonClasses\CommonClasses.csproj">
+      <Project>{d1eeb7dd-ad6a-4647-a877-c0a00d9f7ff6}</Project>
+      <Name>CommonClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{BAB390F2-F1D7-4C1C-8ACB-B7A1B422077C}</Project>
       <Name>Data</Name>

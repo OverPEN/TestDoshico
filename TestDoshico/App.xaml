@@ -386,8 +386,8 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         <!--#endregion-->
-         <!--#region CheckBox-->
-        <Style TargetType="{x:Type CheckBox}" x:Key="GridCheckBox">
+         <!--#region ComboBox-->
+        <Style TargetType="{x:Type ComboBox}" x:Key="GridComboBox">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="5,5,5,5"/>
