@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestDoshico.ViewModels;
 
 namespace TestDoshico.Views
 {
@@ -22,7 +24,7 @@ namespace TestDoshico.Views
     {
         public DatiPersonali()
         {
-            InitializeComponent();
+            InitializeComponent();       
         }
     }
 }

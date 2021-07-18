@@ -27,6 +27,7 @@ namespace TestDoshico
         public MainWindow()
         {
             InitializeComponent();
+            Main.Content = new DatiPersonali();
 
             //((PieSeries)Chart.Series[0]).ItemsSource = new KeyValuePair<string, int>[]
             //{
@@ -35,21 +36,6 @@ namespace TestDoshico
             //    new KeyValuePair<string, int> ("Grapes", 15 ),
             //    new KeyValuePair<string, int> ("Apple", 20 )
             //};
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new DatiPersonali();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new QuesttPt1();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new QuesttPt2();
         }
     }
 }

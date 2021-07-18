@@ -44,7 +44,7 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Emozioni.cs" />
     <Compile Include="Models\Mente.cs" />
-    <Compile Include="Models\TestDoshico.cs" />
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Models\Vikriti.cs" />
     <Compile Include="Models\Prakriti.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

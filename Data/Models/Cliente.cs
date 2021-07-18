@@ -9,11 +9,66 @@ namespace Data.Models
 {
     public class Cliente : BaseNotifyPropertyChanged
     {
-        public string NomeCognome { get; set; }
-        public int Età { get; set; }
-        public string Costituzione { get; set; }
-        public string Squilibrio { get; set; }
-        public string Note { get; set; }
-        public string Inestetismi { get; set; }
+        private string nomeCognome;
+        private int età;
+        private string costituzione;
+        private string squilibrio;
+        private string note;
+        private string inestetismi;
+
+        public string NomeCognome
+        {
+            get { return nomeCognome; }
+            set
+            {
+                nomeCognome = value;
+                OnPropertyChanged();
+            }
+        }
+        public int Età
+        {
+            get { return età; }
+            set
+            {
+                età = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Costituzione
+        {
+            get { return costituzione; }
+            set
+            {
+                costituzione = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Squilibrio
+        {
+            get { return squilibrio; }
+            set
+            {
+                squilibrio = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Note
+        {
+            get { return note; }
+            set
+            {
+                note = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Inestetismi
+        {
+            get { return inestetismi; }
+            set
+            {
+                inestetismi = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }

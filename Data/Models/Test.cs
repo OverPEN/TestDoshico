@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    public class TestDoshico
+    public class Test
     {
+        public Cliente Cliente { get; set; }
         public Prakriti QuesitiPrakriti { get; set; }
         public Vikriti QuesitiVikriti { get; set; }
         public Mente QuesitiMente { get; set; }
