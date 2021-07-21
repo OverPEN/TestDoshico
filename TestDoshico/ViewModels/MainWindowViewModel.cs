@@ -54,8 +54,8 @@ namespace TestDoshico.ViewModels
             get { return prakriti; }
             set
             {
-                prakriti = value;
-                OnPropertyChanged();
+                this.prakriti = value;
+                this.OnPropertyChanged();
             }
         }
         public Vikriti Vikriti
@@ -83,7 +83,35 @@ namespace TestDoshico.ViewModels
 
             if(page.GetType() == typeof(DatiPersonali)){
                 TestDoshico.Cliente = Cliente;
-                page.NavigationService.Navigate(new QuesitiPt1());
+                if(Prakriti == null)
+                    Prakriti = new Prakriti();
+                page.NavigationService.Navigate(new QuesitiPrakriti());
+            }
+            if (page.GetType() == typeof(QuesitiPrakriti))
+            {
+                TestDoshico.QuesitiPrakriti = Prakriti;
+                if (Vikriti == null)
+                    Vikriti = new Vikriti();
+                page.NavigationService.Navigate(new QuesitiVikriti());
+            }
+            if (page.GetType() == typeof(QuesitiVikriti))
+            {
+                TestDoshico.QuesitiVikriti = Vikriti;
+                if (Mente == null)
+                    Mente = new Mente();
+                page.NavigationService.Navigate(new QuesitiMente());
+            }
+            if (page.GetType() == typeof(QuesitiMente))
+            {
+                TestDoshico.QuesitiMente = Mente;
+                if (Emozioni == null)
+                    Emozioni = new Emozioni();
+                page.NavigationService.Navigate(new QuesitiEmozioni());
+            }
+            if (page.GetType() == typeof(QuesitiEmozioni))
+            {
+                TestDoshico.QuesitiEmozioni = Emozioni;
+                //page.NavigationService.Navigate(new QuesitiPt4());
             }
         }
     }

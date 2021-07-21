@@ -81,17 +81,17 @@
     <Compile Include="Views\DatiPersonali.xaml.cs">
       <DependentUpon>DatiPersonali.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuesitiPt4.xaml.cs">
-      <DependentUpon>QuesitiPt4.xaml</DependentUpon>
+    <Compile Include="Views\QuesitiEmozioni.xaml.cs">
+      <DependentUpon>QuesitiEmozioni.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuesitiPt3.xaml.cs">
-      <DependentUpon>QuesitiPt3.xaml</DependentUpon>
+    <Compile Include="Views\QuesitiMente.xaml.cs">
+      <DependentUpon>QuesitiMente.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuesitiPt2.xaml.cs">
-      <DependentUpon>QuesitiPt2.xaml</DependentUpon>
+    <Compile Include="Views\QuesitiVikriti.xaml.cs">
+      <DependentUpon>QuesitiVikriti.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuesitiPt1.xaml.cs">
-      <DependentUpon>QuesitiPt1.xaml</DependentUpon>
+    <Compile Include="Views\QuesitiPrakriti.xaml.cs">
+      <DependentUpon>QuesitiPrakriti.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -109,19 +109,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\QuesitiPt4.xaml">
+    <Page Include="Views\QuesitiEmozioni.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\QuesitiPt3.xaml">
+    <Page Include="Views\QuesitiMente.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\QuesitiPt2.xaml">
+    <Page Include="Views\QuesitiVikriti.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\QuesitiPt1.xaml">
+    <Page Include="Views\QuesitiPrakriti.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

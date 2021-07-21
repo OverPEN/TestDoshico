@@ -18,9 +18,9 @@ namespace TestDoshico.Views
     /// <summary>
     /// Logica di interazione per QuesttPt1.xaml
     /// </summary>
-    public partial class QuesitiPt3 : Page
+    public partial class QuesitiPrakriti : Page
     {
-        public QuesitiPt3()
+        public QuesitiPrakriti()
         {
             InitializeComponent();
         }
