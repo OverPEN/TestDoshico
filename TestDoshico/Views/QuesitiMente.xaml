@@ -7,10 +7,14 @@
       xmlns:prop="clr-namespace:TestDoshico.Properties"
       xmlns:baseclasses="clr-namespace:CommonClasses.BaseClasses;assembly=CommonClasses"
       xmlns:enums ="clr-namespace:CommonClasses.Enums;assembly=CommonClasses"
+      xmlns:ViewModels="clr-namespace:TestDoshico.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Parte 3: La Mente"
       HorizontalAlignment="Center">
+    <Page.DataContext>
+        <ViewModels:MainWindowViewModel/>
+    </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -93,43 +97,43 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_MemoriaV}"/>
         <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_MemoriaP}"/>
         <TextBlock Grid.Row="1" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_MemoriaK}"/>
-        <ComboBox Grid.Row="1" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
+        <ComboBox Grid.Row="1" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Memoria}"/>
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Routine}"/>
         <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_RoutineV}"/>
         <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_RoutineP}"/>
         <TextBlock Grid.Row="2" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_RoutineK}"/>
-        <ComboBox Grid.Row="2" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
+        <ComboBox Grid.Row="2" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Routine}"/>
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Decisioni}"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DecisioniV}"/>
         <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DecisioniP}"/>
         <TextBlock Grid.Row="3" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DecisioniK}"/>
-        <ComboBox Grid.Row="3" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
+        <ComboBox Grid.Row="3" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Decisioni}"/>
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Carattere}"/>
         <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_CarattereV}"/>
         <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_CarattereP}"/>
         <TextBlock Grid.Row="4" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_CarattereK}"/>
-        <ComboBox Grid.Row="4" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
+        <ComboBox Grid.Row="4" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Carattere}"/>
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Pensiero}"/>
         <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_PensieroV}"/>
         <TextBlock Grid.Row="5" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_PensieroP}"/>
         <TextBlock Grid.Row="5" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_PensieroK}"/>
-        <ComboBox Grid.Row="5" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
+        <ComboBox Grid.Row="5" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Pensiero}"/>
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Organizzazione}"/>
         <TextBlock Grid.Row="6" Grid.Column="1" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt3_OrganizzazioneV}"/>
         <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt3_OrganizzazioneP}"/>
         <TextBlock Grid.Row="6" Grid.Column="3" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt3_OrganizzazioneK}"/>
-        <ComboBox Grid.Row="6" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
+        <ComboBox Grid.Row="6" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Organizzazione}"/>
         <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Amicizia}"/>
         <TextBlock Grid.Row="7" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_AmiciziaV}"/>
         <TextBlock Grid.Row="7" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_AmiciziaP}"/>
         <TextBlock Grid.Row="7" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_AmiciziaK}"/>
-        <ComboBox Grid.Row="7" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
+        <ComboBox Grid.Row="7" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Amicizia}"/>
         <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Denaro}"/>
         <TextBlock Grid.Row="8" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DenaroV}"/>
         <TextBlock Grid.Row="8" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DenaroP}"/>
         <TextBlock Grid.Row="8" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DenaroK}"/>
-        <ComboBox Grid.Row="8" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}"/>
+        <ComboBox Grid.Row="8" Grid.Column="4" Style="{StaticResource GridComboBox}" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Denaro}"/>
         <TextBlock Grid.Row="9" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.Quesiti_Tot}"/>
-        <TextBlock Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource GridTextBlock}"/>
+        <TextBlock Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource GridTextBlock}" Text="{Binding Mente.TotDosha}"/>
     </Grid>
 </Page>

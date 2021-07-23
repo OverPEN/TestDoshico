@@ -5,18 +5,128 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Data.Models
 {
     public class Mente : BaseNotifyPropertyChanged
     {
-        public TipoCaratteristicaEnum Memoria { get; set; }
-        public TipoCaratteristicaEnum Routine { get; set; }
-        public TipoCaratteristicaEnum Decisioni { get; set; }
-        public TipoCaratteristicaEnum Carattere { get; set; }
-        public TipoCaratteristicaEnum Pensiero { get; set; }
-        public TipoCaratteristicaEnum Organizzazione { get; set; }
-        public TipoCaratteristicaEnum Amicizia { get; set; }
-        public TipoCaratteristicaEnum Denaro { get; set; }
+        #region Private properties
+        private TipoCaratteristicaEnum memoria;
+        private TipoCaratteristicaEnum routine;
+        private TipoCaratteristicaEnum decisioni;
+        private TipoCaratteristicaEnum carattere;
+        private TipoCaratteristicaEnum pensiero;
+        private TipoCaratteristicaEnum organizzazione;
+        private TipoCaratteristicaEnum amicizia;
+        private TipoCaratteristicaEnum denaro;
+        #endregion
+
+        public TipoCaratteristicaEnum Memoria
+        {
+            get { return memoria; }
+            set
+            {
+                memoria = value;
+                OnPropertyChanged();
+                OnPropertyChanged("TotDosha");
+            }
+        }
+        public TipoCaratteristicaEnum Routine
+        {
+            get { return routine; }
+            set
+            {
+                routine = value;
+                OnPropertyChanged();
+                OnPropertyChanged("TotDosha");
+            }
+        }
+        public TipoCaratteristicaEnum Decisioni
+        {
+            get { return decisioni; }
+            set
+            {
+                decisioni = value;
+                OnPropertyChanged();
+                OnPropertyChanged("TotDosha");
+            }
+        }
+        public TipoCaratteristicaEnum Carattere
+        {
+            get { return carattere; }
+            set
+            {
+                carattere = value;
+                OnPropertyChanged();
+                OnPropertyChanged("TotDosha");
+            }
+        }
+        public TipoCaratteristicaEnum Pensiero
+        {
+            get { return pensiero; }
+            set
+            {
+                pensiero = value;
+                OnPropertyChanged();
+                OnPropertyChanged("TotDosha");
+            }
+        }
+        public TipoCaratteristicaEnum Organizzazione
+        {
+            get { return organizzazione; }
+            set
+            {
+                organizzazione = value;
+                OnPropertyChanged();
+                OnPropertyChanged("TotDosha");
+            }
+        }
+        public TipoCaratteristicaEnum Amicizia
+        {
+            get { return amicizia; }
+            set
+            {
+                amicizia = value;
+                OnPropertyChanged();
+                OnPropertyChanged("TotDosha");
+            }
+        }
+        public TipoCaratteristicaEnum Denaro
+        {
+            get { return denaro; }
+            set
+            {
+                denaro = value;
+                OnPropertyChanged();
+                OnPropertyChanged("TotDosha");
+            }
+        }
+        public String TotDosha => CalculateTotDosha(this);
+
+
+        private static String CalculateTotDosha(Mente mente)
+        {
+            int Kcounter = 0;
+            int Pcounter = 0;
+            int Vcounter = 0;
+            List<PropertyInfo> props = typeof(Mente).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+            foreach (PropertyInfo T in props)
+            {
+                switch (T.GetValue(mente))
+                {
+                    case TipoCaratteristicaEnum.Kapha:
+                        Kcounter++;
+                        break;
+                    case TipoCaratteristicaEnum.Pitta:
+                        Pcounter++;
+                        break;
+                    case TipoCaratteristicaEnum.Vata:
+                        Vcounter++;
+                        break;
+                }
+            }
+            return $"Kapha: {Kcounter}\t Pitta: {Pcounter}\t Vata: {Vcounter}";
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace Data.Models
 {
     public class Prakriti : BaseNotifyPropertyChanged
     {
+        #region private properties
         private TipoCaratteristicaEnum corporatura;
         private TipoCaratteristicaEnum struttOssea;
         private TipoCaratteristicaEnum mani;
@@ -23,6 +24,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum denti;
         private TipoCaratteristicaEnum collo;
         private TipoCaratteristicaEnum mento;
+        #endregion
 
         public TipoCaratteristicaEnum Corporatura
         {

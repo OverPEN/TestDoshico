@@ -9,12 +9,14 @@ namespace Data.Models
 {
     public class Cliente : BaseNotifyPropertyChanged
     {
+        #region private properties
         private string nomeCognome;
         private int età;
         private string costituzione;
         private string squilibrio;
         private string note;
         private string inestetismi;
+        #endregion
 
         public string NomeCognome
         {
