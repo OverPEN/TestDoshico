@@ -1,5 +1,6 @@
 ﻿using CommonClasses.BaseClasses;
 using CommonClasses.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum gengive;
         private TipoCaratteristicaEnum articolazioni;
         #endregion
-
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Peso
         {
             get { return peso; }
@@ -39,6 +40,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Temperatura
         {
             get { return temperatura; }
@@ -49,6 +51,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum TendPelle
         {
             get { return tendPelle; }
@@ -59,6 +62,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Labbra
         {
             get { return labbra; }
@@ -69,6 +73,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Capelli
         {
             get { return capelli; }
@@ -79,6 +84,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Luoghi
         {
             get { return luoghi; }
@@ -89,6 +95,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Lingua
         {
             get { return lingua; }
@@ -99,6 +106,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum BiancoOcchi
         {
             get { return biancoOcchi; }
@@ -109,6 +117,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Evacuazione
         {
             get { return evacuazione; }
@@ -119,6 +128,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Malattie
         {
             get { return malattie; }
@@ -129,6 +139,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum InteresseSessuale
         {
             get { return interesseSessuale; }
@@ -139,6 +150,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Mestruazioni
         {
             get { return mestruazioni; }
@@ -149,6 +161,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Cibo
         {
             get { return cibo; }
@@ -159,6 +172,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Gengive
         {
             get { return gengive; }
@@ -169,6 +183,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TipoCaratteristicaEnum Articolazioni
         {
             get { return articolazioni; }
@@ -179,6 +194,7 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
+        [JsonIgnore]
         public String TotDosha => CalculateTotDosha(this);
 
 

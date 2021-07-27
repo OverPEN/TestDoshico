@@ -8,8 +8,9 @@ namespace CommonClasses.Enums
 {
     public enum TipoCaratteristicaEnum : byte
     {
-        Vata = 0,
-        Pitta = 1,
-        Kapha = 2
+        Nessuna_Selezione = 0,
+        Vata = 1,
+        Pitta = 2,
+        Kapha = 3
     }
 }

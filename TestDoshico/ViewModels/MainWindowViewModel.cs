@@ -1,11 +1,6 @@
 ﻿using CommonClasses.BaseClasses;
 using Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using Data.Services;
 using System.Windows.Controls;
 using System.Windows.Input;
 using TestDoshico.Views;
@@ -33,10 +28,10 @@ namespace TestDoshico.ViewModels
         }
         public Emozioni Emozioni
         {
-            get { return emozioni; }
+            get { return this.emozioni; }
             set
             {
-                emozioni = value;
+                this.emozioni = value;
                 OnPropertyChanged();
             }
         }
@@ -45,13 +40,13 @@ namespace TestDoshico.ViewModels
             get { return mente; }
             set
             {
-                mente = value;
+                this.mente = value;
                 OnPropertyChanged();
             }
         }
         public Prakriti Prakriti
         {
-            get { return prakriti; }
+            get { return this.prakriti; }
             set
             {
                 this.prakriti = value;
@@ -60,10 +55,10 @@ namespace TestDoshico.ViewModels
         }
         public Vikriti Vikriti
         {
-            get { return vikriti; }
+            get { return this.vikriti; }
             set
             {
-                vikriti = value;
+                this.vikriti = value;
                 OnPropertyChanged();
             }
         }
@@ -72,6 +67,7 @@ namespace TestDoshico.ViewModels
 
         public MainWindowViewModel()
         {
+            
             Cliente = new Cliente();
             TestDoshico = new Test();
             AvantiCommand = new BaseCommand(AvantiButtonPressed);
@@ -82,36 +78,37 @@ namespace TestDoshico.ViewModels
             Page page = obj as Page;
 
             if(page.GetType() == typeof(DatiPersonali)){
-                TestDoshico.Cliente = Cliente;
+                DataManager.WriteClienteToJsonFile(cliente);
+                TestDoshico.IDCliente = Cliente.ID;
                 if(Prakriti == null)
                     Prakriti = new Prakriti();
-                page.NavigationService.Navigate(new QuesitiPrakriti());
+                page.NavigationService.Navigate(new QuesitiPrakriti(this));
             }
-            if (page.GetType() == typeof(QuesitiPrakriti))
+            else if (page.GetType() == typeof(QuesitiPrakriti))
             {
                 TestDoshico.QuesitiPrakriti = Prakriti;
                 if (Vikriti == null)
                     Vikriti = new Vikriti();
-                page.NavigationService.Navigate(new QuesitiVikriti());
+                page.NavigationService.Navigate(new QuesitiVikriti(this));
             }
-            if (page.GetType() == typeof(QuesitiVikriti))
+            else if (page.GetType() == typeof(QuesitiVikriti))
             {
                 TestDoshico.QuesitiVikriti = Vikriti;
                 if (Mente == null)
                     Mente = new Mente();
-                page.NavigationService.Navigate(new QuesitiMente());
+                page.NavigationService.Navigate(new QuesitiMente(this));
             }
-            if (page.GetType() == typeof(QuesitiMente))
+            else if (page.GetType() == typeof(QuesitiMente))
             {
                 TestDoshico.QuesitiMente = Mente;
                 if (Emozioni == null)
                     Emozioni = new Emozioni();
-                page.NavigationService.Navigate(new QuesitiEmozioni());
+                page.NavigationService.Navigate(new QuesitiEmozioni(this));
             }
-            if (page.GetType() == typeof(QuesitiEmozioni))
+            else if (page.GetType() == typeof(QuesitiEmozioni))
             {
                 TestDoshico.QuesitiEmozioni = Emozioni;
-                //page.NavigationService.Navigate(new QuesitiPt4());
+                DataManager.WriteTestToJsonFile(TestDoshico);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using CommonClasses.BaseClasses;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,9 @@ namespace Data.Models
         private string inestetismi;
         #endregion
 
+        [JsonRequired]
+        public Guid ID { get; set; } = Guid.NewGuid();
+        [JsonProperty]
         public string NomeCognome
         {
             get { return nomeCognome; }
@@ -27,6 +31,7 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
+        [JsonProperty]
         public int Età
         {
             get { return età; }
@@ -36,6 +41,7 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
+        [JsonProperty]
         public string Costituzione
         {
             get { return costituzione; }
@@ -45,6 +51,7 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
+        [JsonProperty]
         public string Squilibrio
         {
             get { return squilibrio; }
@@ -54,6 +61,7 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
+        [JsonProperty]
         public string Note
         {
             get { return note; }
@@ -63,6 +71,7 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
+        [JsonProperty]
         public string Inestetismi
         {
             get { return inestetismi; }

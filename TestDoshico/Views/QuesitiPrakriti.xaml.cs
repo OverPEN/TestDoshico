@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestDoshico.ViewModels;
 
 namespace TestDoshico.Views
 {
@@ -20,8 +21,9 @@ namespace TestDoshico.Views
     /// </summary>
     public partial class QuesitiPrakriti : Page
     {
-        public QuesitiPrakriti()
+        public QuesitiPrakriti(MainWindowViewModel viewModel)
         {
+            this.DataContext = viewModel;
             InitializeComponent();
         }
     }

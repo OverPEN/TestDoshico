@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Data.Models
 {
     public class Test
     {
-        public Cliente Cliente { get; set; }
+        [JsonRequired, JsonProperty]
+        public Guid ID { get; set; } = Guid.NewGuid();
+        [JsonProperty]
+        public Guid IDCliente { get; set; }
+        [JsonProperty]
         public Prakriti QuesitiPrakriti { get; set; }
+        [JsonProperty]
         public Vikriti QuesitiVikriti { get; set; }
+        [JsonProperty]
         public Mente QuesitiMente { get; set; }
+        [JsonProperty]
         public Emozioni QuesitiEmozioni { get; set; }
+        [JsonProperty]
         public DateTime DataTest { get; set; } = DateTime.Today;
-
     }
 }
