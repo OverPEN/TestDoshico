@@ -3,10 +3,9 @@ using CommonClasses.Enums;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Models
 {
@@ -26,6 +25,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum sogni;
         #endregion
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Sentimento")]
         public TipoCaratteristicaEnum Sentimento
         {
             get { return sentimento; }
@@ -37,6 +37,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Indole")]
         public TipoCaratteristicaEnum Indole
         {
             get { return indole; }
@@ -48,6 +49,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Istinto")]
         public TipoCaratteristicaEnum Istinto
         {
             get { return istinto; }
@@ -59,6 +61,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Reazione allo Stress")]
         public TipoCaratteristicaEnum ReazStress
         {
             get { return reazStress; }
@@ -70,6 +73,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Vizio")]
         public TipoCaratteristicaEnum Vizio
         {
             get { return vizio; }
@@ -81,6 +85,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Tendenza Emozionale")]
         public TipoCaratteristicaEnum TendEmozionale
         {
             get { return tendEmozionale; }
@@ -92,6 +97,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Virtù")]
         public TipoCaratteristicaEnum Virtù
         {
             get { return virtù; }
@@ -103,6 +109,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Gestione Emozioni")]
         public TipoCaratteristicaEnum GestioneEmozioni
         {
             get { return gestioneEmozioni; }
@@ -114,6 +121,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Punti di Forza")]
         public TipoCaratteristicaEnum PuntoDiForza
         {
             get { return puntoDiForza; }
@@ -125,6 +133,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Reazione")]
         public TipoCaratteristicaEnum Reazione
         {
             get { return reazione; }
@@ -136,6 +145,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Sogni")]
         public TipoCaratteristicaEnum Sogni
         {
             get { return sogni; }

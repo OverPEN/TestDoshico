@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace Data.Models
 {
@@ -23,6 +24,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum denaro;
         #endregion
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Memoria")]
         public TipoCaratteristicaEnum Memoria
         {
             get { return memoria; }
@@ -34,6 +36,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Rotuine")]
         public TipoCaratteristicaEnum Routine
         {
             get { return routine; }
@@ -45,6 +48,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Decisioni")]
         public TipoCaratteristicaEnum Decisioni
         {
             get { return decisioni; }
@@ -56,6 +60,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Carattere")]
         public TipoCaratteristicaEnum Carattere
         {
             get { return carattere; }
@@ -67,6 +72,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Pensiero")]
         public TipoCaratteristicaEnum Pensiero
         {
             get { return pensiero; }
@@ -78,6 +84,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Organizzazione")]
         public TipoCaratteristicaEnum Organizzazione
         {
             get { return organizzazione; }
@@ -89,6 +96,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Amicizia")]
         public TipoCaratteristicaEnum Amicizia
         {
             get { return amicizia; }
@@ -100,6 +108,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Denaro")]
         public TipoCaratteristicaEnum Denaro
         {
             get { return denaro; }

@@ -377,9 +377,9 @@
         <Style TargetType="{x:Type TextBlock}" x:Key="GridTextBlock">
             <Setter Property="IsEnabled" Value="False"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="1,1,1,1"/>
+            <Setter Property="Margin" Value="10,5,10,5"/>
         </Style>
         <Style TargetType="{x:Type TextBlock}" x:Key="GridHeaderTextBlock" BasedOn="{StaticResource GridTextBlock}">
             <Setter Property="Margin" Value="10,0,0,0"/>

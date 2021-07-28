@@ -1,8 +1,14 @@
 ﻿using CommonClasses.BaseClasses;
+using CommonClasses.Enums;
 using Data.Models;
 using Data.Services;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using TestDoshico.Views;
 
 namespace TestDoshico.ViewModels
@@ -24,6 +30,7 @@ namespace TestDoshico.ViewModels
             {
                 this.cliente = value;
                 this.OnPropertyChanged();
+                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
         public Emozioni Emozioni
@@ -33,6 +40,7 @@ namespace TestDoshico.ViewModels
             {
                 this.emozioni = value;
                 OnPropertyChanged();
+                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
         public Mente Mente
@@ -42,6 +50,7 @@ namespace TestDoshico.ViewModels
             {
                 this.mente = value;
                 OnPropertyChanged();
+                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
         public Prakriti Prakriti
@@ -51,6 +60,7 @@ namespace TestDoshico.ViewModels
             {
                 this.prakriti = value;
                 this.OnPropertyChanged();
+                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
         public Vikriti Vikriti
@@ -60,17 +70,17 @@ namespace TestDoshico.ViewModels
             {
                 this.vikriti = value;
                 OnPropertyChanged();
+                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
 
-        public ICommand AvantiCommand { get; set; }
+        public BaseCommand AvantiCommand { get; set; }
 
         public MainWindowViewModel()
         {
-            
+            AvantiCommand = new BaseCommand(AvantiButtonPressed, CanAvantiButton);
             Cliente = new Cliente();
             TestDoshico = new Test();
-            AvantiCommand = new BaseCommand(AvantiButtonPressed);
         }
 
         private void AvantiButtonPressed(object obj)
@@ -110,6 +120,84 @@ namespace TestDoshico.ViewModels
                 TestDoshico.QuesitiEmozioni = Emozioni;
                 DataManager.WriteTestToJsonFile(TestDoshico);
             }
+        }
+        private bool CanAvantiButton(object obj)
+        {
+            Page page = obj as Page;
+            bool result = true;
+            string errorMessage = String.Empty;
+
+            if(page!= null)
+            {
+                if (page.GetType() == typeof(DatiPersonali))
+                {
+                    List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w => w.PropertyType == typeof(string) || w.PropertyType == typeof(int)).ToList();
+                    foreach (PropertyInfo T in props)
+                    {
+                        if (T.GetValue(Cliente) == null)
+                        {
+                            var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
+                            result = false;
+                            errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
+                        }
+                    }
+                }
+                else if (page.GetType() == typeof(QuesitiPrakriti))
+                {
+                    List<PropertyInfo> props = typeof(Prakriti).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+                    foreach (PropertyInfo T in props)
+                    {
+                        if ((TipoCaratteristicaEnum)T.GetValue(Prakriti) == TipoCaratteristicaEnum.Selezionare)
+                        {
+                            var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
+                            result = false;
+                            errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
+                        }
+                    }
+                }
+                else if (page.GetType() == typeof(QuesitiVikriti))
+                {
+                    List<PropertyInfo> props = typeof(Vikriti).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+                    foreach (PropertyInfo T in props)
+                    {
+                        if ((TipoCaratteristicaEnum)T.GetValue(Vikriti) == TipoCaratteristicaEnum.Selezionare)
+                        {
+                            var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
+                            result = false;
+                            errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
+                        }
+                    }
+                }
+                else if (page.GetType() == typeof(QuesitiMente))
+                {
+                    List<PropertyInfo> props = typeof(Mente).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+                    foreach (PropertyInfo T in props)
+                    {
+                        if ((TipoCaratteristicaEnum)T.GetValue(Mente) == TipoCaratteristicaEnum.Selezionare)
+                        {
+                            var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
+                            result = false;
+                            errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
+                        }
+                    }
+                }
+                else if (page.GetType() == typeof(QuesitiEmozioni))
+                {
+                    List<PropertyInfo> props = typeof(Emozioni).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+                    foreach (PropertyInfo T in props)
+                    {
+                        if ((TipoCaratteristicaEnum)T.GetValue(Emozioni) == TipoCaratteristicaEnum.Selezionare)
+                        {
+                            var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
+                            result = false;
+                            errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
+                        }
+                    }
+                }
+            }
+            if (errorMessage != String.Empty)
+                Xceed.Wpf.Toolkit.MessageBox.Show(errorMessage, "Errore di compilazione", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return result;
         }
     }
 }

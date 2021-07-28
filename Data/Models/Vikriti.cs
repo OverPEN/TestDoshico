@@ -3,10 +3,9 @@ using CommonClasses.Enums;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Models
 {
@@ -30,6 +29,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum articolazioni;
         #endregion
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Peso")]
         public TipoCaratteristicaEnum Peso
         {
             get { return peso; }
@@ -41,6 +41,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Temperatura")]
         public TipoCaratteristicaEnum Temperatura
         {
             get { return temperatura; }
@@ -52,6 +53,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Tendenza Pelle")]
         public TipoCaratteristicaEnum TendPelle
         {
             get { return tendPelle; }
@@ -63,6 +65,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Labbra")]
         public TipoCaratteristicaEnum Labbra
         {
             get { return labbra; }
@@ -74,6 +77,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Capelli")]
         public TipoCaratteristicaEnum Capelli
         {
             get { return capelli; }
@@ -85,6 +89,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Luoghi")]
         public TipoCaratteristicaEnum Luoghi
         {
             get { return luoghi; }
@@ -96,6 +101,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Lingua")]
         public TipoCaratteristicaEnum Lingua
         {
             get { return lingua; }
@@ -107,6 +113,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Bianco degli Occhi")]
         public TipoCaratteristicaEnum BiancoOcchi
         {
             get { return biancoOcchi; }
@@ -118,6 +125,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Evacuazione")]
         public TipoCaratteristicaEnum Evacuazione
         {
             get { return evacuazione; }
@@ -129,6 +137,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Malattie")]
         public TipoCaratteristicaEnum Malattie
         {
             get { return malattie; }
@@ -140,6 +149,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Interesse Sessuale")]
         public TipoCaratteristicaEnum InteresseSessuale
         {
             get { return interesseSessuale; }
@@ -151,6 +161,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Mestruazioni")]
         public TipoCaratteristicaEnum Mestruazioni
         {
             get { return mestruazioni; }
@@ -162,6 +173,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Cibo")]
         public TipoCaratteristicaEnum Cibo
         {
             get { return cibo; }
@@ -173,6 +185,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Gengive")]
         public TipoCaratteristicaEnum Gengive
         {
             get { return gengive; }
@@ -184,6 +197,7 @@ namespace Data.Models
             }
         }
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [DisplayName("Articolazioni")]
         public TipoCaratteristicaEnum Articolazioni
         {
             get { return articolazioni; }

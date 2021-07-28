@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Data.Models
         [JsonRequired]
         public Guid ID { get; set; } = Guid.NewGuid();
         [JsonProperty]
+        [DisplayName("Nome e Cognome")]
         public string NomeCognome
         {
             get { return nomeCognome; }
@@ -32,6 +34,7 @@ namespace Data.Models
             }
         }
         [JsonProperty]
+        [DisplayName("Età")]
         public int Età
         {
             get { return età; }
@@ -42,6 +45,7 @@ namespace Data.Models
             }
         }
         [JsonProperty]
+        [DisplayName("Costituzione")]
         public string Costituzione
         {
             get { return costituzione; }
@@ -52,6 +56,7 @@ namespace Data.Models
             }
         }
         [JsonProperty]
+        [DisplayName("Squilibrio")]
         public string Squilibrio
         {
             get { return squilibrio; }
@@ -62,6 +67,7 @@ namespace Data.Models
             }
         }
         [JsonProperty]
+        [DisplayName("Note")]
         public string Note
         {
             get { return note; }
@@ -72,6 +78,7 @@ namespace Data.Models
             }
         }
         [JsonProperty]
+        [DisplayName("Inestetismi")]
         public string Inestetismi
         {
             get { return inestetismi; }

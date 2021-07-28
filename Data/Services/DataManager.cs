@@ -38,7 +38,7 @@ namespace Data.Services
             {
                 if(SavedTests.Exists(e=>e.ID == test.ID))
                 {
-                    MessageBoxResult result = MessageBox.Show("Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", "Salvataggio Test Doshico", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show("Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", "Salvataggio Test Doshico", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if(result == MessageBoxResult.Yes)
                     {
                         Test t = SavedTests.FirstOrDefault(f => f.ID == test.ID);
@@ -47,10 +47,12 @@ namespace Data.Services
                             SavedTests.Remove(t);
                             SavedTests.Add(test);
                             File.WriteAllText(TestPath, JsonConvert.SerializeObject(SavedTests, settings));
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Test Doshico Aggiornato!", "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Information);
+                            return true;
                         }
                         catch(Exception ex)
                         {
-                            MessageBox.Show("Errore nell'aggiornamento del Test Doshico!" + Environment.NewLine + ex.Message, "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Error);
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Errore nell'aggiornamento del Test Doshico!" + Environment.NewLine + ex.Message, "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Error);
                             SavedTests.Remove(test);
                             SavedTests.Add(t);
                             return false;
@@ -59,7 +61,7 @@ namespace Data.Services
                     }
                     else
                     {
-                        MessageBox.Show("Operazione annullata!", "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Operazione annullata!", "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Information);
                         return true;
                     }
                         
@@ -74,11 +76,11 @@ namespace Data.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Errore nel salvataggio del Test Doshico!" + Environment.NewLine + ex.Message, "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Error);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Errore nel salvataggio del Test Doshico!" + Environment.NewLine + ex.Message, "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Error);
                 SavedTests.Remove(test);
                 return false;
             }
-            MessageBox.Show("Test Doshico aggiunto al Sistema!", "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Information);
+            Xceed.Wpf.Toolkit.MessageBox.Show("Test Doshico aggiunto al Sistema!", "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Information);
             return true;
         }
 
@@ -88,7 +90,7 @@ namespace Data.Services
             {
                 if (SavedClienti.Exists(e => e.ID == cliente.ID))
                 {
-                    MessageBoxResult result = MessageBox.Show("Cliente già presente nel sistema!" + Environment.NewLine + "Aggiornare il Cliente con i nuovi dati?", "Salvataggio Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show("Cliente già presente nel sistema!" + Environment.NewLine + "Aggiornare il Cliente con i nuovi dati?", "Salvataggio Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (result == MessageBoxResult.Yes)
                     {
                         Cliente c = SavedClienti.FirstOrDefault(f => f.ID == cliente.ID);
@@ -97,10 +99,12 @@ namespace Data.Services
                             SavedClienti.Remove(c);
                             SavedClienti.Add(cliente);
                             File.WriteAllText(Clientipath, JsonConvert.SerializeObject(SavedClienti, settings));
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Dati Cliente aggiornati!", "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
+                            return true;
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Errore nell'aggiornamento dei dati Cliente!" + Environment.NewLine + ex.Message, "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Error);
+                            Xceed.Wpf.Toolkit.MessageBox.Show("Errore nell'aggiornamento dei dati Cliente!" + Environment.NewLine + ex.Message, "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Error);
                             SavedClienti.Remove(cliente);
                             SavedClienti.Add(c);
                             return false;
@@ -109,7 +113,7 @@ namespace Data.Services
                     }
                     else
                     {
-                        MessageBox.Show("Operazione annullata!", "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Xceed.Wpf.Toolkit.MessageBox.Show("Operazione annullata!", "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
                         return true;
                     }
                         
@@ -123,11 +127,11 @@ namespace Data.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Errore nel salvataggio del Cliente!" + Environment.NewLine + ex.Message, "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Error);
+                Xceed.Wpf.Toolkit.MessageBox.Show("Errore nel salvataggio del Cliente!" + Environment.NewLine + ex.Message, "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Error);
                 SavedClienti.Remove(cliente);
                 return false;
             }
-            MessageBox.Show("Cliente aggiunto al Sistema!", "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
+            Xceed.Wpf.Toolkit.MessageBox.Show("Cliente aggiunto al Sistema!", "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
             return true;
         }
 
