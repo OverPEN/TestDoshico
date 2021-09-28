@@ -70,6 +70,15 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Visualizza Grafico.
+        /// </summary>
+        public static string BtnGrafico {
+            get {
+                return ResourceManager.GetString("BtnGrafico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a COSTITUZIONE:.
         /// </summary>
         public static string DatiPersonali_Costituzione {

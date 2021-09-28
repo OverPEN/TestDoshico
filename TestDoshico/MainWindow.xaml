@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight">
+        Title="MainWindow" Height="600" Width="800" SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,6 +16,6 @@
         <Label Grid.Row="0" Grid.ColumnSpan="4" Content="PRAKRITI TEST"/>
         <Label Grid.Row="1" Grid.ColumnSpan="4" Content="COSTITUZIONE INDIVIDUALE AYURVEDICA"/>
         <StackPanel Grid.Row="2"/>
-        <Frame Name="Main" Grid.Row="3" NavigationUIVisibility="Visible" Style="{DynamicResource FrameNewNavigationUI}"/>
+        <Frame Grid.Row="3" Name="Main" NavigationUIVisibility="Visible" Style="{DynamicResource FrameNewNavigationUI}" Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
     </Grid>
 </Window>

@@ -723,4 +723,7 @@
   <data name="QuesitiPt4_VizioV" xml:space="preserve">
     <value>Vile</value>
   </data>
+  <data name="BtnGrafico" xml:space="preserve">
+    <value>Visualizza Grafico</value>
+  </data>
 </root>

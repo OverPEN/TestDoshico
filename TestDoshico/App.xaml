@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TestDoshico"
              xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="TestDoshico.App"
+             xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
              StartupUri="MainWindow.xaml">
 
     <Application.Resources>
@@ -391,6 +392,108 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="5,5,5,5"/>
+        </Style>
+        <!--#endregion-->
+        <!--#region DataPoint-->
+        <Style TargetType="{x:Type DVC:PieDataPoint}" x:Key="PieDataPoint">
+            <Setter Property="Background" Value="Orange"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="RatioStringFormat" Value="{}{0:p2}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DVC:PieDataPoint}">
+                        <Grid
+                        x:Name="Root"
+                        Opacity="0">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.1"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                            Storyboard.TargetName="MouseOverHighlight"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.6"
+                                            Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.1"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Unselected"/>
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                            Storyboard.TargetName="SelectionHighlight"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.6"
+                                            Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="RevealStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.5"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Shown">
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                            Storyboard.TargetName="Root"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Hidden">
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                            Storyboard.TargetName="Root"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Path
+                            x:Name="Slice"
+                            Data="{TemplateBinding Geometry}"
+                            Fill="{TemplateBinding Background}"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeMiterLimit="1">
+                                <ToolTipService.ToolTip>
+                                    <StackPanel>
+                                        <ContentControl Content="{TemplateBinding IndependentValue}"/>
+                                        <ContentControl Content="{TemplateBinding DependentValue}" ContentStringFormat="Quantità: {0}"/>
+                                        <ContentControl Content="{TemplateBinding FormattedRatio}" ContentStringFormat="Percentuale: {0}"/>
+                                    </StackPanel>
+                                </ToolTipService.ToolTip>
+                            </Path>
+                            <Path
+                            x:Name="SelectionHighlight"
+                            Data="{TemplateBinding GeometrySelection}"
+                            Fill="Red"
+                            StrokeMiterLimit="1"
+                            IsHitTestVisible="False"
+                            Opacity="0"/>
+                            <Path
+                            x:Name="MouseOverHighlight"
+                            Data="{TemplateBinding GeometryHighlight}"
+                            Fill="White"
+                            StrokeMiterLimit="1"
+                            IsHitTestVisible="False"
+                            Opacity="0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <!--#endregion-->
     </Application.Resources>

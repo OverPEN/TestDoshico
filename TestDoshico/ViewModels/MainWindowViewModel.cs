@@ -75,59 +75,23 @@ namespace TestDoshico.ViewModels
         }
 
         public BaseCommand AvantiCommand { get; set; }
+        public BaseCommand GraficoCommand { get; set; }
 
         public MainWindowViewModel()
         {
-            AvantiCommand = new BaseCommand(AvantiButtonPressed, CanAvantiButton);
+            AvantiCommand = new BaseCommand(AvantiButtonPressed, CanUseButton);
+            GraficoCommand = new BaseCommand(GraficoButtonPressed, CanUseButton);
             Cliente = new Cliente();
             TestDoshico = new Test();
         }
 
-        private void AvantiButtonPressed(object obj)
-        {
-            Page page = obj as Page;
-
-            if(page.GetType() == typeof(DatiPersonali)){
-                DataManager.WriteClienteToJsonFile(cliente);
-                TestDoshico.IDCliente = Cliente.ID;
-                if(Prakriti == null)
-                    Prakriti = new Prakriti();
-                page.NavigationService.Navigate(new QuesitiPrakriti(this));
-            }
-            else if (page.GetType() == typeof(QuesitiPrakriti))
-            {
-                TestDoshico.QuesitiPrakriti = Prakriti;
-                if (Vikriti == null)
-                    Vikriti = new Vikriti();
-                page.NavigationService.Navigate(new QuesitiVikriti(this));
-            }
-            else if (page.GetType() == typeof(QuesitiVikriti))
-            {
-                TestDoshico.QuesitiVikriti = Vikriti;
-                if (Mente == null)
-                    Mente = new Mente();
-                page.NavigationService.Navigate(new QuesitiMente(this));
-            }
-            else if (page.GetType() == typeof(QuesitiMente))
-            {
-                TestDoshico.QuesitiMente = Mente;
-                if (Emozioni == null)
-                    Emozioni = new Emozioni();
-                page.NavigationService.Navigate(new QuesitiEmozioni(this));
-            }
-            else if (page.GetType() == typeof(QuesitiEmozioni))
-            {
-                TestDoshico.QuesitiEmozioni = Emozioni;
-                DataManager.WriteTestToJsonFile(TestDoshico);
-            }
-        }
-        private bool CanAvantiButton(object obj)
+        private bool CanUseButton(object obj)
         {
             Page page = obj as Page;
             bool result = true;
             string errorMessage = String.Empty;
 
-            if(page!= null)
+            if (page != null)
             {
                 if (page.GetType() == typeof(DatiPersonali))
                 {
@@ -199,5 +163,75 @@ namespace TestDoshico.ViewModels
                 Xceed.Wpf.Toolkit.MessageBox.Show(errorMessage, "Errore di compilazione", MessageBoxButton.OK, MessageBoxImage.Warning);
             return result;
         }
+
+        private void AvantiButtonPressed(object obj)
+        {
+            Page page = obj as Page;
+
+            if(page.GetType() == typeof(DatiPersonali)){
+                DataManager.WriteClienteToJsonFile(cliente);
+                TestDoshico.IDCliente = Cliente.ID;
+                if(Prakriti == null)
+                    Prakriti = new Prakriti();
+                page.NavigationService.Navigate(new QuesitiPrakriti(this));
+            }
+            else if (page.GetType() == typeof(QuesitiPrakriti))
+            {
+                TestDoshico.QuesitiPrakriti = Prakriti;
+                if (Vikriti == null)
+                    Vikriti = new Vikriti();
+                page.NavigationService.Navigate(new QuesitiVikriti(this));
+            }
+            else if (page.GetType() == typeof(QuesitiVikriti))
+            {
+                TestDoshico.QuesitiVikriti = Vikriti;
+                if (Mente == null)
+                    Mente = new Mente();
+                page.NavigationService.Navigate(new QuesitiMente(this));
+            }
+            else if (page.GetType() == typeof(QuesitiMente))
+            {
+                TestDoshico.QuesitiMente = Mente;
+                if (Emozioni == null)
+                    Emozioni = new Emozioni();
+                page.NavigationService.Navigate(new QuesitiEmozioni(this));
+            }
+            else if (page.GetType() == typeof(QuesitiEmozioni))
+            {
+                TestDoshico.QuesitiEmozioni = Emozioni;
+                DataManager.WriteTestToJsonFile(TestDoshico);
+            }
+        }
+
+        private void GraficoButtonPressed(object obj)
+        {
+            Page page = obj as Page;
+
+            if (page.GetType() == typeof(QuesitiPrakriti))
+            {
+                GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel(Prakriti, "Grafico Prakriti", "Legenda");
+                GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
+                grafico.Show();
+            }
+            if (page.GetType() == typeof(QuesitiVikriti))
+            {
+                GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel(Vikriti, "Grafico Vikriti", "Legenda");
+                GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
+                grafico.Show();
+            }
+            if (page.GetType() == typeof(QuesitiEmozioni))
+            {
+                GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel(Emozioni, "Grafico Emozioni", "Legenda");
+                GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
+                grafico.Show();
+            }
+            if (page.GetType() == typeof(QuesitiMente))
+            {
+                GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel(Mente, "Grafico Mente", "Legenda");
+                GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
+                grafico.Show();
+            }
+        }
+        
     }
 }

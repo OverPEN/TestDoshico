@@ -72,6 +72,7 @@
     <Compile Include="Models\Prakriti.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataManager.cs" />
+    <Compile Include="Services\GraficiServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonClasses\CommonClasses.csproj">

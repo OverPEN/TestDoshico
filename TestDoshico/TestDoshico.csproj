@@ -79,9 +79,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\GraficoQuesitiViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\DatiPersonali.xaml.cs">
       <DependentUpon>DatiPersonali.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraficoQuesiti.xaml.cs">
+      <DependentUpon>GraficoQuesiti.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\QuesitiEmozioni.xaml.cs">
       <DependentUpon>QuesitiEmozioni.xaml</DependentUpon>
@@ -108,6 +112,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\DatiPersonali.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GraficoQuesiti.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
