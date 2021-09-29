@@ -8,7 +8,7 @@ namespace TestDoshico.Views
     /// </summary>
     public partial class QuesitiVikriti : Page
     {
-        public QuesitiVikriti(MainWindowViewModel viewModel)
+        public QuesitiVikriti(QuesitiMainFrameViewModel viewModel)
         {
             this.DataContext = viewModel;
             InitializeComponent();

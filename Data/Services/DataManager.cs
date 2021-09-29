@@ -14,21 +14,21 @@ namespace Data.Services
         private static readonly List<Test> SavedTests = new List<Test>();
         private static readonly List<Cliente> SavedClienti = new List<Cliente>();
         private static JsonSerializerSettings settings = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Objects };
-        private static readonly string TestPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Tests.json";
-        private static readonly string Clientipath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Clienti.json";
+        private static readonly string SavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TestDoshicoData");
+        private static readonly string TestPath = Path.Combine(SavePath, "Tests.json");
+        private static readonly string Clientipath = Path.Combine(SavePath, "Clienti.json");
 
 
         static DataManager()
         {
+            if (!Directory.Exists(SavePath))
+                Directory.CreateDirectory(SavePath);
+
             if (File.Exists(TestPath))
-            {
                 SavedTests = JsonConvert.DeserializeObject<List<Test>>(File.ReadAllText(TestPath));
-            }
 
             if (File.Exists(Clientipath))
-            {
                 SavedClienti = JsonConvert.DeserializeObject<List<Cliente>>(File.ReadAllText(Clientipath));
-            }
         }
 
 
@@ -38,8 +38,7 @@ namespace Data.Services
             {
                 if(SavedTests.Exists(e=>e.ID == test.ID))
                 {
-                    MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show("Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", "Salvataggio Test Doshico", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if(result == MessageBoxResult.Yes)
+                    if(MessageServices.ShowYesNoMessage("Salvataggio Test Doshico", "Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", MessageBoxResult.Yes))
                     {
                         Test t = SavedTests.FirstOrDefault(f => f.ID == test.ID);
                         try
@@ -47,12 +46,12 @@ namespace Data.Services
                             SavedTests.Remove(t);
                             SavedTests.Add(test);
                             File.WriteAllText(TestPath, JsonConvert.SerializeObject(SavedTests, settings));
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Test Doshico Aggiornato!", "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Test Doshico Aggiornato!");
                             return true;
                         }
                         catch(Exception ex)
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Errore nell'aggiornamento del Test Doshico!" + Environment.NewLine + ex.Message, "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageServices.ShowErrorMessage("Salvataggio Test Doshico", "Errore nell'aggiornamento del Test Doshico!", ex);
                             SavedTests.Remove(test);
                             SavedTests.Add(t);
                             return false;
@@ -61,7 +60,7 @@ namespace Data.Services
                     }
                     else
                     {
-                        Xceed.Wpf.Toolkit.MessageBox.Show("Operazione annullata!", "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Operazione annullata!");
                         return true;
                     }
                         
@@ -76,11 +75,11 @@ namespace Data.Services
             }
             catch (Exception ex)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Errore nel salvataggio del Test Doshico!" + Environment.NewLine + ex.Message, "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageServices.ShowErrorMessage("Salvataggio Test Doshico", "Errore nel salvataggio del Test Doshico!", ex);
                 SavedTests.Remove(test);
                 return false;
             }
-            Xceed.Wpf.Toolkit.MessageBox.Show("Test Doshico aggiunto al Sistema!", "Salvataggio Test Doshico", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Test Doshico aggiunto al Sistema!");
             return true;
         }
 
@@ -90,8 +89,7 @@ namespace Data.Services
             {
                 if (SavedClienti.Exists(e => e.ID == cliente.ID))
                 {
-                    MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show("Cliente già presente nel sistema!" + Environment.NewLine + "Aggiornare il Cliente con i nuovi dati?", "Salvataggio Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if (result == MessageBoxResult.Yes)
+                    if (MessageServices.ShowYesNoMessage("Salvataggio Cliente", "Cliente già presente nel sistema!" + Environment.NewLine + "Aggiornare il Cliente con i nuovi dati?", MessageBoxResult.Yes))
                     {
                         Cliente c = SavedClienti.FirstOrDefault(f => f.ID == cliente.ID);
                         try
@@ -99,12 +97,12 @@ namespace Data.Services
                             SavedClienti.Remove(c);
                             SavedClienti.Add(cliente);
                             File.WriteAllText(Clientipath, JsonConvert.SerializeObject(SavedClienti, settings));
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Dati Cliente aggiornati!", "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageServices.ShowInformationMessage("Salvataggio Cliente", "Dati Cliente aggiornati!");
                             return true;
                         }
                         catch (Exception ex)
                         {
-                            Xceed.Wpf.Toolkit.MessageBox.Show("Errore nell'aggiornamento dei dati Cliente!" + Environment.NewLine + ex.Message, "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageServices.ShowErrorMessage("Salvataggio Cliente", "Errore nell'aggiornamento dei dati Cliente!", ex);
                             SavedClienti.Remove(cliente);
                             SavedClienti.Add(c);
                             return false;
@@ -113,7 +111,7 @@ namespace Data.Services
                     }
                     else
                     {
-                        Xceed.Wpf.Toolkit.MessageBox.Show("Operazione annullata!", "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageServices.ShowInformationMessage("Salvataggio Cliente", "Operazione annullata!");
                         return true;
                     }
                         
@@ -127,11 +125,11 @@ namespace Data.Services
             }
             catch (Exception ex)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Errore nel salvataggio del Cliente!" + Environment.NewLine + ex.Message, "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageServices.ShowErrorMessage("Salvataggio Cliente", "Errore nel salvataggio del Cliente!", ex);
                 SavedClienti.Remove(cliente);
                 return false;
             }
-            Xceed.Wpf.Toolkit.MessageBox.Show("Cliente aggiunto al Sistema!", "Salvataggio Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageServices.ShowInformationMessage("Salvataggio Cliente", "Cliente aggiunto al Sistema!");
             return true;
         }
 

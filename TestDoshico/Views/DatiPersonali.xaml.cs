@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using TestDoshico.ViewModels;
 
 namespace TestDoshico.Views
 {
@@ -7,8 +8,9 @@ namespace TestDoshico.Views
     /// </summary>
     public partial class DatiPersonali : Page
     {
-        public DatiPersonali()
+        public DatiPersonali(QuesitiMainFrameViewModel viewModel)
         {
+            this.DataContext = viewModel;
             InitializeComponent();       
         }
     }

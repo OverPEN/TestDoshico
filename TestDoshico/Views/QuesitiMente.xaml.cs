@@ -8,7 +8,7 @@ namespace TestDoshico.Views
     /// </summary>
     public partial class QuesitiMente : Page
     {
-        public QuesitiMente(MainWindowViewModel viewModel)
+        public QuesitiMente(QuesitiMainFrameViewModel viewModel)
         {
             this.DataContext = viewModel;
             InitializeComponent();

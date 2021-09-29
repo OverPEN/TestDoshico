@@ -3,19 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestDoshico"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" SizeToContent="WidthAndHeight">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.ColumnSpan="4" Content="PRAKRITI TEST"/>
-        <Label Grid.Row="1" Grid.ColumnSpan="4" Content="COSTITUZIONE INDIVIDUALE AYURVEDICA"/>
-        <StackPanel Grid.Row="2"/>
-        <Frame Grid.Row="3" Name="Main" NavigationUIVisibility="Visible" Style="{DynamicResource FrameNewNavigationUI}" Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <Label Grid.Row="0" Content="TEST DOSHICO" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="bt_NuovoTest" Grid.Row="1" Content="Nuovo Test Doshico" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Bt_NuovoTest_Click"/>
+        <Button x:Name="bt_ListaClienti" Grid.Row="2" Content="Clienti Registrati" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="bt_ListaTest" Grid.Row="3" Content="Test Effettuati" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

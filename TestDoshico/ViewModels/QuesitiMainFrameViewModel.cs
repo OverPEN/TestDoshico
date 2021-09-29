@@ -13,7 +13,7 @@ using TestDoshico.Views;
 
 namespace TestDoshico.ViewModels
 {
-    public class MainWindowViewModel : BaseNotifyPropertyChanged
+    public class QuesitiMainFrameViewModel : BaseNotifyPropertyChanged
     {
         #region Private Values
         private Cliente cliente;
@@ -76,11 +76,13 @@ namespace TestDoshico.ViewModels
 
         public BaseCommand AvantiCommand { get; set; }
         public BaseCommand GraficoCommand { get; set; }
+        public BaseCommand MenuPrincipaleCommand { get; set; }
 
-        public MainWindowViewModel()
+        public QuesitiMainFrameViewModel()
         {
             AvantiCommand = new BaseCommand(AvantiButtonPressed, CanUseButton);
             GraficoCommand = new BaseCommand(GraficoButtonPressed, CanUseButton);
+            MenuPrincipaleCommand = new BaseCommand(MenuPrincipaleButtonPressed);
             Cliente = new Cliente();
             TestDoshico = new Test();
         }
@@ -230,6 +232,18 @@ namespace TestDoshico.ViewModels
                 GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel(Mente, "Grafico Mente", "Legenda");
                 GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
                 grafico.Show();
+            }
+        }
+
+        private void MenuPrincipaleButtonPressed(object obj)
+        {
+            Window currentWindow = obj as Window;
+
+            if (MessageServices.ShowYesNoMessage("Test Doshico", $"Tornare al Menù Principale? {Environment.NewLine} Eventuali dati inseriti o modificati sul Test Doshico in corso verranno persi!", MessageBoxResult.Yes))
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                currentWindow.Close();
             }
         }
         
