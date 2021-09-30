@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Emozioni.cs" />
+    <Compile Include="Interfaces\IQuesiti.cs" />
     <Compile Include="Models\Mente.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\Vikriti.cs" />

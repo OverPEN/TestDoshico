@@ -171,7 +171,7 @@ namespace TestDoshico.ViewModels
             Page page = obj as Page;
 
             if(page.GetType() == typeof(DatiPersonali)){
-                DataManager.WriteClienteToJsonFile(cliente);
+                DataManager.WriteClienteToXMLFile(cliente);
                 TestDoshico.IDCliente = Cliente.ID;
                 if(Prakriti == null)
                     Prakriti = new Prakriti();
@@ -201,7 +201,7 @@ namespace TestDoshico.ViewModels
             else if (page.GetType() == typeof(QuesitiEmozioni))
             {
                 TestDoshico.QuesitiEmozioni = Emozioni;
-                DataManager.WriteTestToJsonFile(TestDoshico);
+                DataManager.WriteTestToXMLFile(TestDoshico);
             }
         }
 

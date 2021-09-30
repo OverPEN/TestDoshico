@@ -1,17 +1,10 @@
 ﻿using CommonClasses.Enums;
-using CommonClasses.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
-using Newtonsoft.Json;
 using System.ComponentModel;
+using Data.Interfaces;
 
 namespace Data.Models
 {
-    public class Mente : BaseNotifyPropertyChanged
+    public class Mente : IQuesiti
     {
         #region Private properties
         private TipoCaratteristicaEnum memoria;
@@ -23,7 +16,6 @@ namespace Data.Models
         private TipoCaratteristicaEnum amicizia;
         private TipoCaratteristicaEnum denaro;
         #endregion
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Memoria")]
         public TipoCaratteristicaEnum Memoria
         {
@@ -35,7 +27,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Rotuine")]
         public TipoCaratteristicaEnum Routine
         {
@@ -47,7 +38,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Decisioni")]
         public TipoCaratteristicaEnum Decisioni
         {
@@ -59,7 +49,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Carattere")]
         public TipoCaratteristicaEnum Carattere
         {
@@ -71,7 +60,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Pensiero")]
         public TipoCaratteristicaEnum Pensiero
         {
@@ -83,7 +71,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Organizzazione")]
         public TipoCaratteristicaEnum Organizzazione
         {
@@ -95,7 +82,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Amicizia")]
         public TipoCaratteristicaEnum Amicizia
         {
@@ -107,7 +93,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Denaro")]
         public TipoCaratteristicaEnum Denaro
         {
@@ -118,33 +103,6 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonIgnore]
-        public String TotDosha => CalculateTotDosha(this);
-
-
-        private static String CalculateTotDosha(Mente mente)
-        {
-            int Kcounter = 0;
-            int Pcounter = 0;
-            int Vcounter = 0;
-            List<PropertyInfo> props = typeof(Mente).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
-            foreach (PropertyInfo T in props)
-            {
-                switch (T.GetValue(mente))
-                {
-                    case TipoCaratteristicaEnum.Kapha:
-                        Kcounter++;
-                        break;
-                    case TipoCaratteristicaEnum.Pitta:
-                        Pcounter++;
-                        break;
-                    case TipoCaratteristicaEnum.Vata:
-                        Vcounter++;
-                        break;
-                }
-            }
-            return $"Kapha: {Kcounter}\t Pitta: {Pcounter}\t Vata: {Vcounter}";
         }
     }
 }

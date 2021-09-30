@@ -1,16 +1,11 @@
-﻿using CommonClasses.BaseClasses;
-using CommonClasses.Enums;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using CommonClasses.Enums;
+using Data.Interfaces;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
 
 namespace Data.Models
 {
-    
-    public class Prakriti : BaseNotifyPropertyChanged
+
+    public class Prakriti : IQuesiti
     {
         #region private properties
         private TipoCaratteristicaEnum corporatura;
@@ -26,8 +21,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum collo;
         private TipoCaratteristicaEnum mento;
         #endregion
-
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+ 
         [DisplayName("Corporatura")]
         public TipoCaratteristicaEnum Corporatura
         {
@@ -38,8 +32,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }       
         [DisplayName("Struttura Ossea")]
         public TipoCaratteristicaEnum StruttOssea
         {
@@ -50,8 +43,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }        
         [DisplayName("Mani")]
         public TipoCaratteristicaEnum Mani
         {
@@ -62,8 +54,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }        
         [DisplayName("Corporatura in Fanciullezza")]
         public TipoCaratteristicaEnum CorporaturaFanc
         {
@@ -74,8 +65,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }        
         [DisplayName("Accumulo")]
         public TipoCaratteristicaEnum Accumulo
         {
@@ -86,8 +76,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }        
         [DisplayName("Pelle")]
         public TipoCaratteristicaEnum Pelle
         {
@@ -98,8 +87,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }        
         [DisplayName("Capelli in Fanciullezza")]
         public TipoCaratteristicaEnum CapelliFanc
         {
@@ -110,8 +98,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }        
         [DisplayName("Fronte")]
         public TipoCaratteristicaEnum Fronte
         {
@@ -122,8 +109,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }        
         [DisplayName("Occhi")]
         public TipoCaratteristicaEnum Occhi
         {
@@ -133,8 +119,7 @@ namespace Data.Models
                 occhi = value;
                 OnPropertyChanged();
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }       
         [DisplayName("Denti")]
         public TipoCaratteristicaEnum Denti
         {
@@ -146,7 +131,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Collo")]
         public TipoCaratteristicaEnum Collo
         {
@@ -156,8 +140,7 @@ namespace Data.Models
                 collo = value;
                 OnPropertyChanged();
             }
-        }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        }        
         [DisplayName("Mento")]
         public TipoCaratteristicaEnum Mento
         {
@@ -169,32 +152,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonIgnore]
-        public String TotDosha => CalculateTotDosha(this);
-
-
-        private static String CalculateTotDosha(Prakriti prakriti)
-        {
-            int Kcounter = 0;
-            int Pcounter = 0;
-            int Vcounter = 0;
-            List<PropertyInfo> props = typeof(Prakriti).GetProperties().Where(w=>w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
-            foreach(PropertyInfo T in props)
-            {
-                switch (T.GetValue(prakriti))
-                {
-                    case TipoCaratteristicaEnum.Kapha:
-                        Kcounter++;
-                        break;
-                    case TipoCaratteristicaEnum.Pitta:
-                        Pcounter++;
-                        break;
-                    case TipoCaratteristicaEnum.Vata:
-                        Vcounter++;
-                        break;
-                }
-            }
-            return $"Kapha: {Kcounter}\t Pitta: {Pcounter}\t Vata: {Vcounter}";
-        }
+        
     }
 }

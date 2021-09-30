@@ -1,15 +1,10 @@
-﻿using CommonClasses.BaseClasses;
-using CommonClasses.Enums;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using CommonClasses.Enums;
+using Data.Interfaces;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
 
 namespace Data.Models
 {
-    public class Emozioni : BaseNotifyPropertyChanged
+    public class Emozioni : IQuesiti
     {
         #region Private properties
         private TipoCaratteristicaEnum sentimento;
@@ -24,7 +19,6 @@ namespace Data.Models
         private TipoCaratteristicaEnum reazione;
         private TipoCaratteristicaEnum sogni;
         #endregion
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Sentimento")]
         public TipoCaratteristicaEnum Sentimento
         {
@@ -36,7 +30,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Indole")]
         public TipoCaratteristicaEnum Indole
         {
@@ -48,7 +41,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Istinto")]
         public TipoCaratteristicaEnum Istinto
         {
@@ -60,7 +52,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Reazione allo Stress")]
         public TipoCaratteristicaEnum ReazStress
         {
@@ -72,7 +63,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Vizio")]
         public TipoCaratteristicaEnum Vizio
         {
@@ -84,7 +74,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Tendenza Emozionale")]
         public TipoCaratteristicaEnum TendEmozionale
         {
@@ -96,7 +85,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Virtù")]
         public TipoCaratteristicaEnum Virtù
         {
@@ -108,7 +96,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Gestione Emozioni")]
         public TipoCaratteristicaEnum GestioneEmozioni
         {
@@ -120,7 +107,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Punti di Forza")]
         public TipoCaratteristicaEnum PuntoDiForza
         {
@@ -132,7 +118,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Reazione")]
         public TipoCaratteristicaEnum Reazione
         {
@@ -144,7 +129,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [DisplayName("Sogni")]
         public TipoCaratteristicaEnum Sogni
         {
@@ -155,33 +139,6 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }
-        [JsonIgnore]
-        public String TotDosha => CalculateTotDosha(this);
-
-
-        private static String CalculateTotDosha(Emozioni emozioni)
-        {
-            int Kcounter = 0;
-            int Pcounter = 0;
-            int Vcounter = 0;
-            List<PropertyInfo> props = typeof(Emozioni).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
-            foreach (PropertyInfo T in props)
-            {
-                switch (T.GetValue(emozioni))
-                {
-                    case TipoCaratteristicaEnum.Kapha:
-                        Kcounter++;
-                        break;
-                    case TipoCaratteristicaEnum.Pitta:
-                        Pcounter++;
-                        break;
-                    case TipoCaratteristicaEnum.Vata:
-                        Vcounter++;
-                        break;
-                }
-            }
-            return $"Kapha: {Kcounter}\t Pitta: {Pcounter}\t Vata: {Vcounter}";
         }
     }
 }

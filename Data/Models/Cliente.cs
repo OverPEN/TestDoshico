@@ -1,11 +1,11 @@
 ﻿using CommonClasses.BaseClasses;
-using Newtonsoft.Json;
+using Data.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Xml;
 
 namespace Data.Models
 {
@@ -20,9 +20,7 @@ namespace Data.Models
         private string inestetismi;
         #endregion
 
-        [JsonRequired]
         public Guid ID { get; set; } = Guid.NewGuid();
-        [JsonProperty]
         [DisplayName("Nome e Cognome")]
         public string NomeCognome
         {
@@ -33,7 +31,6 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
-        [JsonProperty]
         [DisplayName("Età")]
         public int Età
         {
@@ -44,7 +41,6 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
-        [JsonProperty]
         [DisplayName("Costituzione")]
         public string Costituzione
         {
@@ -55,7 +51,6 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
-        [JsonProperty]
         [DisplayName("Squilibrio")]
         public string Squilibrio
         {
@@ -66,7 +61,6 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
-        [JsonProperty]
         [DisplayName("Note")]
         public string Note
         {
@@ -77,7 +71,6 @@ namespace Data.Models
                 OnPropertyChanged();
             }
         }
-        [JsonProperty]
         [DisplayName("Inestetismi")]
         public string Inestetismi
         {
@@ -87,6 +80,26 @@ namespace Data.Models
                 inestetismi = value;
                 OnPropertyChanged();
             }
+        }
+
+        public static XmlElement ToXML(Cliente cliente, ref XmlDocument xmlDocument, XmlElement quesitoInTest)
+        {
+            try
+            {
+                XmlElement xmlElement;
+                List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w=>w.PropertyType != typeof(Guid)).ToList();
+                foreach (PropertyInfo prop in props)
+                {
+                    xmlElement = xmlDocument.CreateElement(prop.Name);
+                    xmlElement.InnerText = prop.GetValue(cliente).ToString();
+                    quesitoInTest.AppendChild(xmlElement);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageServices.ShowErrorMessage("Test Doshico", "Errore nella serializzazione dei dati Cliente!", ex);
+            }
+            return quesitoInTest;
         }
     }
 }
