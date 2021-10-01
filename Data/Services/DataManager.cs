@@ -56,7 +56,7 @@ namespace Data.Services
                     {
                         try
                         {
-                            XmlElement newClienteNode = CreateClienteNode(cliente);
+                            XmlElement newClienteNode = Cliente.ToXML(cliente, ref SavedClienti);
                             if(newClienteNode != null)
                             {
                                 XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
@@ -85,7 +85,7 @@ namespace Data.Services
                 }
                 else
                 {
-                    XmlElement newClienteNode = CreateClienteNode(cliente);
+                    XmlElement newClienteNode = Cliente.ToXML(cliente, ref SavedClienti);
                     if(newClienteNode != null)
                     {
                         XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
@@ -113,14 +113,14 @@ namespace Data.Services
         {
             try
             {
-                XmlNode existingTestNode = SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}={test.ID}]");
+                XmlNode existingTestNode = SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{test.ID}']");
                 if (existingTestNode != null)
                 {
                     if (MessageServices.ShowYesNoMessage("Salvataggio Test Doshico", "Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", MessageBoxResult.Yes))
                     {
                         try
                         {
-                            XmlElement newTest = CreateTestNode(test);
+                            XmlElement newTest = Test.ToXML(test, ref SavedTests);
                             if(newTest != null)
                             {
                                 XmlNode importedTestNode = SavedTests.DocumentElement.OwnerDocument.ImportNode(newTest, true);
@@ -149,7 +149,7 @@ namespace Data.Services
                 }
                 else
                 {
-                    XmlElement testNode = CreateTestNode(test);
+                    XmlElement testNode = Test.ToXML(test, ref SavedTests);
                     if(testNode != null)
                     {
                         XmlNode importedTestNode = SavedTests.DocumentElement.OwnerDocument.ImportNode(testNode, true);
@@ -175,6 +175,13 @@ namespace Data.Services
         public static List<Test> GetAllTests()
         {
             List<Test> tests = new List<Test>();
+            Test test;
+            foreach(XmlElement testElement in SavedTests.DocumentElement.SelectNodes(nameof(Test)))
+            {
+                test = Test.FromXML(testElement);
+                if (test != null)
+                    tests.Add(test);
+            }
 
             return tests;
         }
@@ -182,119 +189,25 @@ namespace Data.Services
         public static List<Cliente> GetAllClienti()
         {
             List<Cliente> clienti = new List<Cliente>();
+            Cliente cliente;
+            foreach(XmlElement clienteElement in SavedClienti.DocumentElement.SelectNodes(nameof(Cliente)))
+            {
+                cliente = Cliente.FromXML(clienteElement);
+                if (cliente != null)
+                    clienti.Add(cliente);
+            }
 
             return clienti;
         }
 
-        //public static Test GetTestByID(Guid id)
-        //{
-        //    return SavedTests.FirstOrDefault(f => f.ID == id);
-        //}
-
-        //public static Cliente GetClienteByID(Guid id)
-        //{
-        //    return SavedClienti.FirstOrDefault(f => f.ID == id);
-        //}
-
-        private static XmlElement CreateTestNode(Test test)
+        public static Test GetTestByID(Guid id)
         {
-            XmlElement testNode = SavedTests.CreateElement(nameof(Test));
-            try
-            {
-                //Assegnazione attributi
-                testNode.SetAttribute(nameof(Test.ID), test.ID.ToString());
-                testNode.SetAttribute(nameof(Test.IDCliente), test.IDCliente.ToString());
-                testNode.SetAttribute(nameof(Test.DataTest), test.DataTest.ToString());
-
-                //Creazione nodo Prakriti
-                XmlElement testInnerNode = SavedTests.CreateElement(nameof(Test.QuesitiPrakriti));
-                testInnerNode = Prakriti.ToXML(test.QuesitiPrakriti, ref SavedTests, testInnerNode);
-                //Creazione nodo Vikriti
-                testInnerNode = SavedTests.CreateElement(nameof(Test.QuesitiVikriti));
-                testInnerNode = Vikriti.ToXML(test.QuesitiVikriti, ref SavedTests, testInnerNode);
-                //Creazione nodo Emozioni
-                testInnerNode = SavedTests.CreateElement(nameof(Test.QuesitiEmozioni));
-                testInnerNode = Vikriti.ToXML(test.QuesitiEmozioni, ref SavedTests, testInnerNode);
-                //Creazione nodo Mente
-                testInnerNode = SavedTests.CreateElement(nameof(Test.QuesitiMente));
-                testInnerNode = Vikriti.ToXML(test.QuesitiMente, ref SavedTests, testInnerNode);
-
-                //XmlElement quesitiNode = SavedTests.CreateElement(nameof(Prakriti.Accumulo));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.Accumulo.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.CapelliFanc));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.CapelliFanc.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.Collo));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.Collo.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.Corporatura));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.Corporatura.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.CorporaturaFanc));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.CorporaturaFanc.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.Denti));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.Denti.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.Fronte));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.Fronte.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.Mani));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.Mani.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.Mento));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.Mento.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.Occhi));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.Occhi.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.Pelle));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.Pelle.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                //quesitiNode = SavedTests.CreateElement(nameof(Prakriti.StruttOssea));
-                //quesitiNode.InnerText = test.QuesitiPrakriti.StruttOssea.ToString();
-                //testInnerNode.AppendChild(quesitiNode);
-
-                testNode.AppendChild(testInnerNode);
-
-                return testNode;
-            }
-            catch(Exception ex)
-            {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore nella serializzazione del Test Doshico!", ex);
-                return null;
-            }
+            return Test.FromXML(SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{id}']") as XmlElement);
         }
 
-        private static XmlElement CreateClienteNode(Cliente cliente)
+        public static Cliente GetClienteByID(Guid id)
         {
-            XmlElement clienteNode = SavedTests.CreateElement(nameof(Cliente));
-            try
-            {
-                //Assegnazione attributi
-                clienteNode.SetAttribute(nameof(Cliente.ID), cliente.ID.ToString());
-                //Creazione nodo 
-                clienteNode = Cliente.ToXML(cliente, ref SavedTests, clienteNode);
-
-                return clienteNode;
-            }
-            catch (Exception ex)
-            {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore nella serializzazione dei dati Cliente!", ex);
-                return null;
-            }
+            return Cliente.FromXML(SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{id}']") as XmlElement);
         }
     }
 }

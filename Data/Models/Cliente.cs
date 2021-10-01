@@ -82,24 +82,69 @@ namespace Data.Models
             }
         }
 
-        public static XmlElement ToXML(Cliente cliente, ref XmlDocument xmlDocument, XmlElement quesitoInTest)
+        public static XmlElement ToXML(Cliente cliente, ref XmlDocument xmlDocument)
         {
-            try
+            if(cliente != null && xmlDocument != null)
             {
-                XmlElement xmlElement;
-                List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w=>w.PropertyType != typeof(Guid)).ToList();
-                foreach (PropertyInfo prop in props)
+                try
                 {
-                    xmlElement = xmlDocument.CreateElement(prop.Name);
-                    xmlElement.InnerText = prop.GetValue(cliente).ToString();
-                    quesitoInTest.AppendChild(xmlElement);
+                    XmlElement clienteXml = xmlDocument.CreateElement(nameof(Cliente));
+                    clienteXml.SetAttribute(nameof(ID), cliente.ID.ToString());
+
+                    XmlElement clienteNode;
+                    List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w => w.PropertyType != typeof(Guid)).ToList();
+                    foreach (PropertyInfo prop in props)
+                    {
+                        clienteNode = xmlDocument.CreateElement(prop.Name);
+                        clienteNode.InnerText = prop.GetValue(cliente).ToString();
+                        clienteXml.AppendChild(clienteNode);
+                    }
+                    return clienteXml;
+                }
+                catch (Exception ex)
+                {
+                    MessageServices.ShowErrorMessage("Test Doshico", "Errore nella serializzazione dei dati Cliente!", ex);
+                    return null;
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore nella serializzazione dei dati Cliente!", ex);
+                MessageServices.ShowWarningMessage("Test Doshico", "Impossibile serializzare i Dati Cliente: Cliente o Percorso di Salvataggio non validi!");
+                return null;
             }
-            return quesitoInTest;
+        }
+
+        public static Cliente FromXML(XmlElement clienteElement)
+        {
+            if (clienteElement != null & clienteElement.HasChildNodes)
+            {
+                try
+                {
+                    Cliente cliente = new Cliente() { ID = Guid.Parse(clienteElement.GetAttribute(nameof(ID))) };
+                    List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w => w.PropertyType != typeof(Guid)).ToList();
+
+                    XmlNode clienteNode;
+                    foreach (PropertyInfo prop in props)
+                    {
+                        clienteNode = clienteElement.SelectSingleNode(prop.Name);
+                        if (prop.PropertyType == typeof(int))
+                            prop.SetValue(cliente, Convert.ToInt32(clienteNode.InnerText));
+                        else
+                            prop.SetValue(cliente, clienteNode.InnerText);
+                    }
+                    return cliente;
+                }
+                catch(Exception ex)
+                {
+                    MessageServices.ShowErrorMessage("Test Doshico", "Errore nella deserializzazione dei dati Cliente!", ex);
+                    return null;
+                }
+            }
+            else
+            {
+                MessageServices.ShowWarningMessage("Test Doshico", "Nodo Cliente vuoto, impossibile deserializzare!");
+                return null;
+            }
         }
     }
 }

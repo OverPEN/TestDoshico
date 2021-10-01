@@ -39,22 +39,74 @@ namespace Data.Interfaces
 
         public static XmlElement ToXML<T>(T quesito, ref XmlDocument xmlDocument, XmlElement quesitoInTest)
         {
-            try
+            if(quesito != null && xmlDocument != null && quesitoInTest != null)
             {
-                XmlElement xmlElement;
-                List<PropertyInfo> props = typeof(T).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
-                foreach (PropertyInfo prop in props)
+                try
                 {
-                    xmlElement = xmlDocument.CreateElement(prop.Name);
-                    xmlElement.InnerText = prop.GetValue(quesito).ToString();
-                    quesitoInTest.AppendChild(xmlElement);
+                    XmlElement xmlElement;
+                    List<PropertyInfo> props = typeof(T).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+                    foreach (PropertyInfo prop in props)
+                    {
+                        xmlElement = xmlDocument.CreateElement(prop.Name);
+                        xmlElement.InnerText = prop.GetValue(quesito) != null ? prop.GetValue(quesito).ToString() : String.Empty;
+                        quesitoInTest.AppendChild(xmlElement);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageServices.ShowErrorMessage("Test Doshico", $"Errore nella serializzazione del Test Doshico nei quesiti {typeof(T).Name}!", ex);
                 }
             }
-            catch(Exception ex)
+            else
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore nella serializzazione del Test Doshico!", ex);
+                MessageServices.ShowWarningMessage("Test Doshico", "Impossibile serializzare il Test Doshico: Test o Percorso di Salvataggio non validi!");
+                return null;
             }
-                return quesitoInTest;
+            return quesitoInTest;
+        }
+
+        public static T FromXML<T>(XmlElement quesitoElement)
+        {
+            if(quesitoElement != null & quesitoElement.HasChildNodes)
+            {
+                try
+                {
+                    T quesito = (T)Activator.CreateInstance(typeof(T));
+                    List<PropertyInfo> props = typeof(T).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+
+                    XmlNode quesitoNode;
+                    foreach (PropertyInfo prop in props)
+                    {
+                        quesitoNode = quesitoElement.SelectSingleNode(prop.Name);
+                        TipoCaratteristicaEnum quesitoValore = TipoCaratteristicaEnum.Selezionare;
+
+                        switch (quesitoNode.InnerText)
+                        {
+                            case "Vata":
+                                quesitoValore = TipoCaratteristicaEnum.Vata;
+                                break;
+                            case "Pitta":
+                                quesitoValore = TipoCaratteristicaEnum.Pitta;
+                                break;
+                            case "Kapha":
+                                quesitoValore = TipoCaratteristicaEnum.Kapha;
+                                break;
+                        }
+                        prop.SetValue(quesito, quesitoValore);
+                    }
+                    return quesito;
+                }
+                catch (Exception ex)
+                {
+                    MessageServices.ShowErrorMessage("Test Doshico", $"Errore nella deserializzazione dei quesiti {nameof(T)}!", ex);
+                    return default;
+                }
+            }
+            else
+            {
+                MessageServices.ShowWarningMessage("Test Doshico", $"Nodo Quesiti {quesitoElement.Name} vuoto, impossibile deserializzare!");
+                return default;
+            }
         }
     }
 }
