@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using TestDoshico.ViewModels;
+using TestDoshico.ViewModels.Quesiti;
 
-namespace TestDoshico.Views
+namespace TestDoshico.Views.Quesiti
 {
     /// <summary>
     /// Logica di interazione per GraficoQuesiti.xaml

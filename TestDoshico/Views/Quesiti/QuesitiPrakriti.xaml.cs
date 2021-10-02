@@ -1,14 +1,14 @@
 ﻿using System.Windows.Controls;
-using TestDoshico.ViewModels;
+using TestDoshico.ViewModels.Quesiti;
 
-namespace TestDoshico.Views
+namespace TestDoshico.Views.Quesiti
 {
     /// <summary>
     /// Logica di interazione per QuesttPt1.xaml
     /// </summary>
-    public partial class QuesitiEmozioni : Page
+    public partial class QuesitiPrakriti : Page
     {
-        public QuesitiEmozioni(QuesitiMainFrameViewModel viewModel)
+        public QuesitiPrakriti(QuesitiMainFrameViewModel viewModel)
         {
             this.DataContext = viewModel;
             InitializeComponent();

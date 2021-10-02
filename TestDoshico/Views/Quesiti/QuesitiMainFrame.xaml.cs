@@ -1,8 +1,8 @@
 ﻿using System.Windows;
-using TestDoshico.ViewModels;
-using TestDoshico.Views;
+using TestDoshico.ViewModels.Quesiti;
+using TestDoshico.Views.Quesiti;
 
-namespace TestDoshico
+namespace TestDoshico.View.Quesiti
 {
     /// <summary>
     /// Logica di interazione per MainWindow.xaml

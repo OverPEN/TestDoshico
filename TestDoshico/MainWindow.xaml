@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="TEST DOSHICO" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="bt_NuovoTest" Grid.Row="1" Content="Nuovo Test Doshico" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Bt_NuovoTest_Click"/>
-        <Button x:Name="bt_ListaClienti" Grid.Row="2" Content="Clienti Registrati" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="bt_ListaClienti" Grid.Row="2" Content="Clienti Registrati" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Bt_ListaClienti_Click"/>
         <Button x:Name="bt_ListaTest" Grid.Row="3" Content="Test Effettuati" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

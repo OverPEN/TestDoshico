@@ -726,4 +726,16 @@
   <data name="BtnGrafico" xml:space="preserve">
     <value>Visualizza Grafico</value>
   </data>
+  <data name="BtnMenuPrincipale" xml:space="preserve">
+    <value>Ritorna al Menù Principale</value>
+  </data>
+  <data name="ListaClienti_Titolo" xml:space="preserve">
+    <value>Clienti Registrati a Sistema</value>
+  </data>
+  <data name="ListaTests_Titolo" xml:space="preserve">
+    <value>Test Registrati a Sistema</value>
+  </data>
+  <data name="BtnCerca" xml:space="preserve">
+    <value>Cerca</value>
+  </data>
 </root>

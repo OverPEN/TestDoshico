@@ -70,11 +70,29 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Cerca.
+        /// </summary>
+        public static string BtnCerca {
+            get {
+                return ResourceManager.GetString("BtnCerca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Visualizza Grafico.
         /// </summary>
         public static string BtnGrafico {
             get {
                 return ResourceManager.GetString("BtnGrafico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ritorna al Menù Principale.
+        /// </summary>
+        public static string BtnMenuPrincipale {
+            get {
+                return ResourceManager.GetString("BtnMenuPrincipale", resourceCulture);
             }
         }
         
@@ -147,6 +165,24 @@ namespace TestDoshico.Properties {
         public static string DatiPersonali_Titolo {
             get {
                 return ResourceManager.GetString("DatiPersonali_Titolo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Clienti Registrati a Sistema.
+        /// </summary>
+        public static string ListaClienti_Titolo {
+            get {
+                return ResourceManager.GetString("ListaClienti_Titolo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Test Registrati a Sistema.
+        /// </summary>
+        public static string ListaTests_Titolo {
+            get {
+                return ResourceManager.GetString("ListaTests_Titolo", resourceCulture);
             }
         }
         

@@ -1,4 +1,4 @@
-﻿<Page x:Class="TestDoshico.Views.QuesitiPrakriti"
+﻿<Page x:Class="TestDoshico.Views.Quesiti.QuesitiPrakriti"
       x:Name="QuesitiPrakritiPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
