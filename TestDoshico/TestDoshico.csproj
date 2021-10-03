@@ -55,9 +55,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WPFToolkit">
-      <HintPath>bin\WPFToolkit.dll</HintPath>
-    </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>..\packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
@@ -85,6 +82,7 @@
     <Compile Include="ViewModels\Clienti\ListaClientiViewModel.cs" />
     <Compile Include="ViewModels\Quesiti\GraficoQuesitiViewModel.cs" />
     <Compile Include="ViewModels\Quesiti\QuesitiMainFrameViewModel.cs" />
+    <Compile Include="ViewModels\Tests\ListaTestsViewModel.cs" />
     <Compile Include="Views\Clienti\ListaClienti.xaml.cs">
       <DependentUpon>ListaClienti.xaml</DependentUpon>
     </Compile>
@@ -105,6 +103,9 @@
     </Compile>
     <Compile Include="Views\Quesiti\QuesitiPrakriti.xaml.cs">
       <DependentUpon>QuesitiPrakriti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tests\ListaTests.xaml.cs">
+      <DependentUpon>ListaTests.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -149,6 +150,10 @@
     <Page Include="Views\Quesiti\QuesitiPrakriti.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tests\ListaTests.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

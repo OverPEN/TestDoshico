@@ -80,8 +80,8 @@ namespace TestDoshico.ViewModels.Quesiti
 
         public QuesitiMainFrameViewModel()
         {
-            AvantiCommand = new BaseCommand(AvantiButtonPressed, CanUseButton);
-            GraficoCommand = new BaseCommand(GraficoButtonPressed, CanUseButton);
+            AvantiCommand = new BaseCommand(AvantiButtonPressed);
+            GraficoCommand = new BaseCommand(GraficoButtonPressed);
             MenuPrincipaleCommand = new BaseCommand(MenuPrincipaleButtonPressed);
             Cliente = new Cliente();
             TestDoshico = new Test();
@@ -163,11 +163,6 @@ namespace TestDoshico.ViewModels.Quesiti
                         }
                     }
                 }
-                else
-                {
-                    MessageServices.ShowWarningMessage("Test Doshico", "Errore nella validazione campi!");
-                    return false;
-                }
 
                 if (errorMessage != String.Empty)
                     MessageServices.ShowWarningMessage("Test Doshico", errorMessage);
@@ -184,43 +179,48 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             try
             {
-                Page page = obj as Page;
-                if (page != null)
+                if(CanUseButton(obj))
                 {
-                    if (page.GetType() == typeof(DatiPersonali))
+                    Page page = obj as Page;
+                    if (page != null)
                     {
-                        DataManager.WriteClienteToXMLFile(cliente);
-                        TestDoshico.IDCliente = Cliente.ID;
-                        if (Prakriti == null)
-                            Prakriti = new Prakriti();
-                        page.NavigationService.Navigate(new QuesitiPrakriti(this));
+                        if (page.GetType() == typeof(DatiPersonali))
+                        {
+                            DataManager.WriteClienteToXMLFile(cliente);
+                            TestDoshico.IDCliente = Cliente.ID;
+                            if (Prakriti == null)
+                                Prakriti = new Prakriti();
+                            page.NavigationService.Navigate(new QuesitiPrakriti(this));
+                        }
+                        else if (page.GetType() == typeof(QuesitiPrakriti))
+                        {
+                            TestDoshico.QuesitiPrakriti = Prakriti;
+                            if (Vikriti == null)
+                                Vikriti = new Vikriti();
+                            page.NavigationService.Navigate(new QuesitiVikriti(this));
+                        }
+                        else if (page.GetType() == typeof(QuesitiVikriti))
+                        {
+                            TestDoshico.QuesitiVikriti = Vikriti;
+                            if (Mente == null)
+                                Mente = new Mente();
+                            page.NavigationService.Navigate(new QuesitiMente(this));
+                        }
+                        else if (page.GetType() == typeof(QuesitiMente))
+                        {
+                            TestDoshico.QuesitiMente = Mente;
+                            if (Emozioni == null)
+                                Emozioni = new Emozioni();
+                            page.NavigationService.Navigate(new QuesitiEmozioni(this));
+                        }
+                        else if (page.GetType() == typeof(QuesitiEmozioni))
+                        {
+                            TestDoshico.QuesitiEmozioni = Emozioni;
+                            DataManager.WriteTestToXMLFile(TestDoshico);
+                        }
                     }
-                    else if (page.GetType() == typeof(QuesitiPrakriti))
-                    {
-                        TestDoshico.QuesitiPrakriti = Prakriti;
-                        if (Vikriti == null)
-                            Vikriti = new Vikriti();
-                        page.NavigationService.Navigate(new QuesitiVikriti(this));
-                    }
-                    else if (page.GetType() == typeof(QuesitiVikriti))
-                    {
-                        TestDoshico.QuesitiVikriti = Vikriti;
-                        if (Mente == null)
-                            Mente = new Mente();
-                        page.NavigationService.Navigate(new QuesitiMente(this));
-                    }
-                    else if (page.GetType() == typeof(QuesitiMente))
-                    {
-                        TestDoshico.QuesitiMente = Mente;
-                        if (Emozioni == null)
-                            Emozioni = new Emozioni();
-                        page.NavigationService.Navigate(new QuesitiEmozioni(this));
-                    }
-                    else if (page.GetType() == typeof(QuesitiEmozioni))
-                    {
-                        TestDoshico.QuesitiEmozioni = Emozioni;
-                        DataManager.WriteTestToXMLFile(TestDoshico);
-                    }
+                    else
+                        MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
                 }
             }
             catch(Exception ex)
@@ -233,26 +233,27 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             try
             {
-                Page page = obj as Page;
-                if(page != null)
+                if (CanUseButton(obj))
                 {
-                    GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel();
+                    Page page = obj as Page;
+                    if (page != null)
+                    {
+                        GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel();
 
-                    if (page.GetType() == typeof(QuesitiPrakriti))
-                        graficoViewModel = new GraficoQuesitiViewModel(Prakriti, "Grafico Prakriti", "Legenda");
-                    else if (page.GetType() == typeof(QuesitiVikriti))
-                        graficoViewModel = new GraficoQuesitiViewModel(Vikriti, "Grafico Vikriti", "Legenda");
-                    else if (page.GetType() == typeof(QuesitiEmozioni))
-                        graficoViewModel = new GraficoQuesitiViewModel(Emozioni, "Grafico Emozioni", "Legenda");
-                    else if (page.GetType() == typeof(QuesitiMente))
-                        graficoViewModel = new GraficoQuesitiViewModel(Mente, "Grafico Mente", "Legenda");
-                    GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
-                    grafico.Owner = Window.GetWindow(page);
-                    grafico.Show();
-                }
-                else
-                {
-                    MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
+                        if (page.GetType() == typeof(QuesitiPrakriti))
+                            graficoViewModel = new GraficoQuesitiViewModel(Prakriti, "Grafico Prakriti", "Legenda");
+                        else if (page.GetType() == typeof(QuesitiVikriti))
+                            graficoViewModel = new GraficoQuesitiViewModel(Vikriti, "Grafico Vikriti", "Legenda");
+                        else if (page.GetType() == typeof(QuesitiEmozioni))
+                            graficoViewModel = new GraficoQuesitiViewModel(Emozioni, "Grafico Emozioni", "Legenda");
+                        else if (page.GetType() == typeof(QuesitiMente))
+                            graficoViewModel = new GraficoQuesitiViewModel(Mente, "Grafico Mente", "Legenda");
+                        GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
+                        grafico.Owner = Window.GetWindow(page);
+                        grafico.Show();
+                    }
+                    else
+                        MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
                 }
             }
             catch(Exception ex)
