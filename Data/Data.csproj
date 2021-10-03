@@ -61,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\GuidToNomeClienteConverter.cs" />
+    <Compile Include="Enums\TipoCaratteristicaEnum.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Emozioni.cs" />
     <Compile Include="Interfaces\IQuesiti.cs" />
@@ -74,13 +76,13 @@
     <Compile Include="Services\MessageServices.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CommonClasses\CommonClasses.csproj">
       <Project>{D1EEB7DD-AD6A-4647-A877-C0A00D9F7FF6}</Project>
       <Name>CommonClasses</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:prop="clr-namespace:TestDoshico.Properties"
       xmlns:baseclasses="clr-namespace:CommonClasses.BaseClasses;assembly=CommonClasses"
-      xmlns:enums="clr-namespace:CommonClasses.Enums;assembly=CommonClasses"
+      xmlns:enums="clr-namespace:Data.Enums;assembly=Data"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Parte 2: La Vikriti Mutevole"

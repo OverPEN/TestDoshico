@@ -45,9 +45,13 @@ namespace TestDoshico.ViewModels.Clienti
 
         private void CercaButtonPressed(object obj)
         {
-            if(String.IsNullOrEmpty(Filtro))
-                ListaClienti = DataManager.GetAllClienti().Where(w=>w.NomeCognome.ToLower().Contains(Filtro.ToLower())).ToList();
-            ListaClienti = DataManager.GetAllClienti();
+            IList<Cliente> lst = new List<Cliente>();
+            if(!String.IsNullOrEmpty(Filtro))
+                lst = DataManager.GetAllClienti().Where(w=>w.NomeCognome.ToLower().Contains(Filtro.ToLower())).ToList();
+            else
+                lst = DataManager.GetAllClienti();
+            if(lst.Count>0)
+                ListaClienti = lst;
         }
 
         private void MenuPrincipaleButtonPressed(object obj)

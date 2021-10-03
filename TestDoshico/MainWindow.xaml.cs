@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using TestDoshico.View.Quesiti;
 using TestDoshico.Views.Clienti;
+using TestDoshico.Views.Tests;
 
 namespace TestDoshico
 {
@@ -27,6 +28,14 @@ namespace TestDoshico
             e.Handled = true;
             ListaClienti listaClienti = new ListaClienti();
             listaClienti.Show();
+            this.Close();
+        }
+
+        private void Bt_ListaTest_Click(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            ListaTests listaTest = new ListaTests();
+            listaTest.Show();
             this.Close();
         }
     }

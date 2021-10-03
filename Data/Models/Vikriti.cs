@@ -1,4 +1,4 @@
-﻿using CommonClasses.Enums;
+﻿using Data.Enums;
 using Data.Interfaces;
 using System.ComponentModel;
 

@@ -1,5 +1,5 @@
 ﻿using CommonClasses.BaseClasses;
-using CommonClasses.Enums;
+using Data.Enums;
 using Data.Services;
 using System;
 using System.Collections.Generic;
@@ -107,6 +107,11 @@ namespace Data.Interfaces
                 MessageServices.ShowWarningMessage("Test Doshico", $"Nodo Quesiti {quesitoElement.Name} vuoto, impossibile deserializzare!");
                 return default;
             }
+        }
+
+        public override string ToString()
+        {
+            return TotDosha;
         }
     }
 }

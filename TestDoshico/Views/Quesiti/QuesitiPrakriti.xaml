@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:prop="clr-namespace:TestDoshico.Properties"
       xmlns:baseclasses="clr-namespace:CommonClasses.BaseClasses;assembly=CommonClasses"
-      xmlns:enums="clr-namespace:CommonClasses.Enums;assembly=CommonClasses"
+      xmlns:enums="clr-namespace:Data.Enums;assembly=Data"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Parte 1: La Prakriti Fisica Originale"
@@ -35,76 +35,6 @@
             <ColumnDefinition MaxWidth="250"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <!--#region Borders-->
-        <!--
-        <Rectangle Grid.Row="0" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="0" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="0" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="0" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="0" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="1" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="1" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="1" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="1" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="1" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="2" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="2" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="2" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="2" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="2" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="3" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="3" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="3" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="3" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="3" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="4" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="4" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="4" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="4" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="4" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="5" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="5" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="5" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="5" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="5" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="6" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="6" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="6" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="6" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="6" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="7" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="7" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="7" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="7" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="7" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="8" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="8" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="8" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="8" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="8" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="9" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="9" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="9" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="9" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="9" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="10" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="10" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="10" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="10" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="10" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="11" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="11" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="11" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="11" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="11" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="12" Grid.Column="0" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="12" Grid.Column="1" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="12" Grid.Column="2" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="12" Grid.Column="3" Stroke="Black" StrokeThickness="0.5"/>
-        <Rectangle Grid.Row="12" Grid.Column="4" Stroke="Black" StrokeThickness="0.5"/>
-
-        -->
-        <!--#endregion-->
 
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_PrakritiHeader}" AutomationProperties.IsColumnHeader="True"/>
         <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_VataHeader}"  FontWeight="Bold" AutomationProperties.IsColumnHeader="True"/>

@@ -24,6 +24,13 @@
             <TextBox Text="{Binding Filtro}" MinWidth="100"/>
             <Button Content="{x:Static prop:Resources.BtnCerca}" Command="{Binding CercaCommand}"/>
         </StackPanel>
-        <DataGrid Grid.Row="2" ItemsSource="{Binding ListaClienti}" HeadersVisibility="Column" AutoGenerateColumns="True"/>
+        <DataGrid Grid.Row="2" ItemsSource="{Binding ListaClienti}" HeadersVisibility="Column" AutoGenerateColumns="False">
+            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Signora}" Binding="{Binding NomeCognome}" IsReadOnly="True" Width="Auto"/>
+            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Eta}" Binding="{Binding Età}" IsReadOnly="True" Width="Auto"/>
+            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Costituzione}" Binding="{Binding Costituzione}" IsReadOnly="True" Width="Auto"/>
+            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" Binding="{Binding Squilibrio}" IsReadOnly="True" Width="Auto"/>
+            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_EvNote}" Binding="{Binding Note}" IsReadOnly="True" Width="Auto"/>
+            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Inestetismi}" Binding="{Binding Inestetismi}" IsReadOnly="True" Width="Auto"/>
+        </DataGrid>
     </Grid>
 </Window>

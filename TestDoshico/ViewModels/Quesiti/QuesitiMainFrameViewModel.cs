@@ -1,5 +1,5 @@
 ﻿using CommonClasses.BaseClasses;
-using CommonClasses.Enums;
+using Data.Enums;
 using Data.Models;
 using Data.Services;
 using System;

@@ -7,11 +7,15 @@
         xmlns:local="clr-namespace:TestDoshico.Views.Tests"
         xmlns:ViewModels="clr-namespace:TestDoshico.ViewModels.Tests"
         xmlns:prop="clr-namespace:TestDoshico.Properties"
+        xmlns:converters="clr-namespace:Data.Converters;assembly=Data"
         mc:Ignorable="d"
         Title="Lista Test" Height="450" Width="800">
     <Window.DataContext>
         <ViewModels:ListaTestsViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <converters:GuidToNomeClienteConverter x:Key="GuidToNomeClienteConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -24,6 +28,15 @@
             <TextBox Text="{Binding Filtro}" MinWidth="100"/>
             <Button Content="{x:Static prop:Resources.BtnCerca}" Command="{Binding CercaCommand}"/>
         </StackPanel>
-        <DataGrid Grid.Row="2" ItemsSource="{Binding ListaTests}" HeadersVisibility="Column" AutoGenerateColumns="True"/>
+        <DataGrid Grid.Row="2" ItemsSource="{Binding ListaTests}" HeadersVisibility="Column" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data:" Binding="{Binding DataTest}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Cliente:" Binding="{Binding IDCliente, Converter={StaticResource GuidToNomeClienteConverter}}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Prakriti:" Binding="{Binding QuesitiPrakriti}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Vikriti:" Binding="{Binding QuesitiVikriti}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Mente:" Binding="{Binding QuesitiMente}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Emozioni:" Binding="{Binding QuesitiEmozioni}" Width="Auto" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
