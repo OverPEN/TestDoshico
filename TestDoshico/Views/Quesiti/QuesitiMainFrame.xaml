@@ -7,7 +7,7 @@
         xmlns:ViewModels="clr-namespace:TestDoshico.ViewModels.Quesiti"
         xmlns:prop="clr-namespace:TestDoshico.Properties"
         mc:Ignorable="d"
-        Title="Test Doshico" Height="600" Width="800">
+        Title="Test Doshico" Height="Auto" Width="Auto">
     <Window.DataContext>
         <ViewModels:QuesitiMainFrameViewModel/>
     </Window.DataContext>
@@ -16,12 +16,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="PRAKRITI TEST"/>
         <Label Grid.Row="1" Content="COSTITUZIONE INDIVIDUALE AYURVEDICA"/>
         <Button Grid.Row="2" Content="{x:Static prop:Resources.BtnMenuPrincipale}" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding MenuPrincipaleCommand}" CommandParameter="{Binding ElementName=QuesitiMainFrameWindow}"/>
-        <Frame Grid.Row="3" Name="Main" NavigationUIVisibility="Visible" Style="{DynamicResource FrameNewNavigationUI}" Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
+            <Frame Name="Main" NavigationUIVisibility="Visible" Style="{DynamicResource FrameNewNavigationUI}" ScrollViewer.CanContentScroll="True"/>
+        </ScrollViewer>
     </Grid>
 </Window>

@@ -11,14 +11,14 @@ namespace Data.Interfaces
 {
     public abstract class IQuesiti : BaseNotifyPropertyChanged
     {
-        String TotDosha => CalculateTotDosha(this);
+        public String TotDosha => CalculateTotDosha(this);
 
         public static String CalculateTotDosha<T>(T quesito)
         {
             int Kcounter = 0;
             int Pcounter = 0;
             int Vcounter = 0;
-            List<PropertyInfo> props = typeof(T).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+            List<PropertyInfo> props = quesito.GetType().GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
             foreach (PropertyInfo prop in props)
             {
                 switch (prop.GetValue(quesito))
@@ -79,18 +79,20 @@ namespace Data.Interfaces
                     {
                         quesitoNode = quesitoElement.SelectSingleNode(prop.Name);
                         TipoCaratteristicaEnum quesitoValore = TipoCaratteristicaEnum.Selezionare;
-
-                        switch (quesitoNode.InnerText)
+                        if(quesitoNode != null)
                         {
-                            case "Vata":
-                                quesitoValore = TipoCaratteristicaEnum.Vata;
-                                break;
-                            case "Pitta":
-                                quesitoValore = TipoCaratteristicaEnum.Pitta;
-                                break;
-                            case "Kapha":
-                                quesitoValore = TipoCaratteristicaEnum.Kapha;
-                                break;
+                            switch (quesitoNode.InnerText)
+                            {
+                                case "Vata":
+                                    quesitoValore = TipoCaratteristicaEnum.Vata;
+                                    break;
+                                case "Pitta":
+                                    quesitoValore = TipoCaratteristicaEnum.Pitta;
+                                    break;
+                                case "Kapha":
+                                    quesitoValore = TipoCaratteristicaEnum.Kapha;
+                                    break;
+                            }
                         }
                         prop.SetValue(quesito, quesitoValore);
                     }

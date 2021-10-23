@@ -36,23 +36,21 @@ namespace TestDoshico.ViewModels.Tests
 
         public BaseCommand CercaCommand { get; set; }
         public BaseCommand MenuPrincipaleCommand { get; set; }
+        public BaseCommand EliminaTestCommand { get; set; }
 
         public ListaTestsViewModel()
         {
             CercaCommand = new BaseCommand(CercaButtonPressed);
             MenuPrincipaleCommand = new BaseCommand(MenuPrincipaleButtonPressed);
+            EliminaTestCommand = new BaseCommand(EliminaTestButtonPressed);
         }
 
         private void CercaButtonPressed(object obj)
         {
-            IList<Test> lst = new List<Test>();
             if(!String.IsNullOrEmpty(Filtro))
-                lst = DataManager.GetAllTests().Where(w=>DataManager.GetClienteByID(w.IDCliente).NomeCognome.ToLower().Contains(Filtro.ToLower())).ToList();
+                ListaTests = DataManager.GetAllTests().Where(w=>DataManager.GetClienteByID(w.IDCliente).NomeCognome.ToLower().Contains(Filtro.ToLower())).ToList();
             else
-                lst = DataManager.GetAllTests();
-
-            if (lst.Count > 0)
-                ListaTests = lst;
+                ListaTests = DataManager.GetAllTests();
         }
 
         private void MenuPrincipaleButtonPressed(object obj)
@@ -73,6 +71,32 @@ namespace TestDoshico.ViewModels.Tests
             {
                 MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nel ritorno al Menù Principale!", ex);
             }
+        }
+
+        private void EliminaTestButtonPressed(object obj)
+        {
+            if (MessageServices.ShowYesNoMessage("Test Doshico", "Eliminare il Test selezionato?", MessageBoxResult.No))
+            {
+                try
+                {
+                    Guid id = obj != null ? Guid.Parse(obj.ToString()) : Guid.Empty;
+
+                    if (id != Guid.Empty)
+                    {
+                        DataManager.EliminaTestByID(id);
+                        MessageServices.ShowInformationMessage("TestDoshico", "Test eliminato con successo!");
+                        CercaButtonPressed(null);
+                    }
+                    else
+                        MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'eliminazione del Test selezionato!");
+                }
+                catch (Exception ex)
+                {
+                    MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'eliminazione del Test selezionato!", ex);
+                }
+            }
+            else
+                MessageServices.ShowInformationMessage("Test Doshico", "Eliminazione annullata!");
         }
     }
 }

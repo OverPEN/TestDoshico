@@ -8,7 +8,6 @@
         xmlns:ViewModels="clr-namespace:TestDoshico.ViewModels.Tests"
         xmlns:prop="clr-namespace:TestDoshico.Properties"
         xmlns:converters="clr-namespace:Data.Converters;assembly=Data"
-        xmlns:wpftk="http://schemas.microsoft.com/wpf/2008/toolkit"
         mc:Ignorable="d"
         Title="Lista Test" Height="450" Width="800">
     <Window.DataContext>
@@ -29,15 +28,22 @@
             <TextBox Text="{Binding Filtro}" MinWidth="100"/>
             <Button Content="{x:Static prop:Resources.BtnCerca}" Command="{Binding CercaCommand}"/>
         </StackPanel>
-        <wpftk:DataGrid Grid.Row="2" ItemsSource="{Binding ListaTests}" HeadersVisibility="Column" AutoGenerateColumns="False">
-            <wpftk:DataGrid.Columns>
-                <wpftk:DataGridTextColumn Header="Data:" Binding="{Binding DataTest}" Width="Auto" IsReadOnly="True"/>
-                <wpftk:DataGridTextColumn Header="Cliente:" Binding="{Binding IDCliente, Converter={StaticResource GuidToNomeClienteConverter}}" Width="Auto" IsReadOnly="True"/>
-                <wpftk:DataGridTextColumn Header="Prakriti:" Binding="{Binding QuesitiPrakriti}" Width="Auto" IsReadOnly="True"/>
-                <wpftk:DataGridTextColumn Header="Vikriti:" Binding="{Binding QuesitiVikriti}" Width="Auto" IsReadOnly="True"/>
-                <wpftk:DataGridTextColumn Header="Mente:" Binding="{Binding QuesitiMente}" Width="Auto" IsReadOnly="True"/>
-                <wpftk:DataGridTextColumn Header="Emozioni:" Binding="{Binding QuesitiEmozioni}" Width="Auto" IsReadOnly="True"/>
-            </wpftk:DataGrid.Columns>
-        </wpftk:DataGrid>
+        <DataGrid Grid.Row="2" ItemsSource="{Binding ListaTests}" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button ToolTip="Elimina Test" Content="Elimina" Command="{Binding DataContext.EliminaTestCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=ID}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Data:" Binding="{Binding DataTest}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Cliente:" Binding="{Binding IDCliente, Converter={StaticResource GuidToNomeClienteConverter}}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Prakriti:" Binding="{Binding QuesitiPrakriti}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Vikriti:" Binding="{Binding QuesitiVikriti}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Mente:" Binding="{Binding QuesitiMente}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Emozioni:" Binding="{Binding QuesitiEmozioni}" Width="Auto" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

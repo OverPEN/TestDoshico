@@ -8,10 +8,9 @@
       xmlns:baseclasses="clr-namespace:CommonClasses.BaseClasses;assembly=CommonClasses"
       xmlns:enums="clr-namespace:Data.Enums;assembly=Data"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="Parte 2: La Vikriti Mutevole"
-      Height="Auto" Width="Auto" HorizontalAlignment="Stretch">
-    <Grid>
+      Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>

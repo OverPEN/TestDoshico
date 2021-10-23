@@ -74,21 +74,26 @@ namespace Data.Models
                     foreach(PropertyInfo prop in props)
                     {
                         testNode = testElement.SelectSingleNode(prop.Name);
-                        switch (prop.Name)
+                        if (testNode != null)
                         {
-                            case nameof(QuesitiPrakriti):
-                                prop.SetValue(test, Prakriti.FromXML<Prakriti>(testNode as XmlElement));
-                                break;
-                            case nameof(QuesitiVikriti):
-                                prop.SetValue(test, Vikriti.FromXML<Vikriti>(testNode as XmlElement));
-                                break;
-                            case nameof(QuesitiMente):
-                                prop.SetValue(test, Mente.FromXML<Mente>(testNode as XmlElement));
-                                break;
-                            case nameof(QuesitiEmozioni):
-                                prop.SetValue(test, Emozioni.FromXML<Emozioni>(testNode as XmlElement));
-                                break;
+                            switch (prop.Name)
+                            {
+                                case nameof(QuesitiPrakriti):
+                                    prop.SetValue(test, Prakriti.FromXML<Prakriti>(testNode as XmlElement));
+                                    break;
+                                case nameof(QuesitiVikriti):
+                                    prop.SetValue(test, Vikriti.FromXML<Vikriti>(testNode as XmlElement));
+                                    break;
+                                case nameof(QuesitiMente):
+                                    prop.SetValue(test, Mente.FromXML<Mente>(testNode as XmlElement));
+                                    break;
+                                case nameof(QuesitiEmozioni):
+                                    prop.SetValue(test, Emozioni.FromXML<Emozioni>(testNode as XmlElement));
+                                    break;
+                            }
                         }
+                        else
+                            prop.SetValue(test, null);
                     }
                     return test;
                 }

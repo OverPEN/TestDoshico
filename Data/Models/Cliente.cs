@@ -127,10 +127,15 @@ namespace Data.Models
                     foreach (PropertyInfo prop in props)
                     {
                         clienteNode = clienteElement.SelectSingleNode(prop.Name);
-                        if (prop.PropertyType == typeof(int))
-                            prop.SetValue(cliente, Convert.ToInt32(clienteNode.InnerText));
+                        if(clienteNode != null)
+                        {
+                            if (prop.PropertyType == typeof(int))
+                                prop.SetValue(cliente, Convert.ToInt32(clienteNode.InnerText));
+                            else if (prop.PropertyType == typeof(string))
+                                prop.SetValue(cliente, clienteNode.InnerText);
+                        }
                         else
-                            prop.SetValue(cliente, clienteNode.InnerText);
+                            prop.SetValue(cliente, null);
                     }
                     return cliente;
                 }

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
         mc:Ignorable="d"
-        Title="Grafico Quesiti" Height="450" Width="800">
-    <Grid>
+        Title="Grafico Quesiti" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <DVC:Chart Title="{Binding TitoloGrafico}" LegendTitle="{Binding TitoloLegenda}">
             <DVC:Chart.Series>
                 <DVC:PieSeries ItemsSource="{Binding QuesitiValuePair}" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}"/>

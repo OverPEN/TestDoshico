@@ -8,10 +8,9 @@
       xmlns:baseclasses="clr-namespace:CommonClasses.BaseClasses;assembly=CommonClasses"
       xmlns:enums="clr-namespace:Data.Enums;assembly=Data"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="Parte 1: La Prakriti Fisica Originale"
-      Height="Auto" Width="Auto" HorizontalAlignment="Stretch">
-    <Grid>
+      Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -35,7 +34,6 @@
             <ColumnDefinition MaxWidth="250"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_PrakritiHeader}" AutomationProperties.IsColumnHeader="True"/>
         <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_VataHeader}"  FontWeight="Bold" AutomationProperties.IsColumnHeader="True"/>
         <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_PittaHeader}" FontWeight="Bold" AutomationProperties.IsColumnHeader="True"/>

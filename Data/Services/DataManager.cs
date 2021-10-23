@@ -209,5 +209,27 @@ namespace Data.Services
         {
             return Cliente.FromXML(SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{id}']") as XmlElement);
         }
+
+        public static void EliminaClienteByID(Guid id)
+        {
+            SavedClienti.DocumentElement.RemoveChild(SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{id}']"));
+            SavedClienti.Save(ClientiPath);
+            if(MessageServices.ShowYesNoMessage("Test Doshico", "Eliminare tutti i Test Doshici effettuati dal Cliente?", MessageBoxResult.No))
+            {
+                XmlNodeList lstNodi = SavedTests.DocumentElement.SelectNodes($"{nameof(Test)}[@{nameof(Test.IDCliente)}='{id}']");
+                foreach(XmlNode nodo in lstNodi)
+                {
+                    SavedTests.DocumentElement.RemoveChild(nodo);
+                }
+                SavedTests.Save(TestPath);
+                MessageServices.ShowInformationMessage("Test Doshico", "Test Doshici per il Cliente selezionato eliminati!");
+            }
+        }
+
+        public static void EliminaTestByID(Guid id)
+        {
+            SavedTests.DocumentElement.RemoveChild(SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{id}']"));
+            SavedTests.Save(TestPath);
+        }
     }
 }
