@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:TestDoshico.Views.Clienti"
         xmlns:ViewModels="clr-namespace:TestDoshico.ViewModels.Clienti"
         xmlns:prop="clr-namespace:TestDoshico.Properties"
+        xmlns:wpftk="http://schemas.microsoft.com/wpf/2008/toolkit"
         mc:Ignorable="d"
         Title="Lista Clienti" Height="450" Width="800">
     <Window.DataContext>
@@ -24,13 +25,15 @@
             <TextBox Text="{Binding Filtro}" MinWidth="100"/>
             <Button Content="{x:Static prop:Resources.BtnCerca}" Command="{Binding CercaCommand}"/>
         </StackPanel>
-        <DataGrid Grid.Row="2" ItemsSource="{Binding ListaClienti}" HeadersVisibility="Column" AutoGenerateColumns="False">
-            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Signora}" Binding="{Binding NomeCognome}" IsReadOnly="True" Width="Auto"/>
-            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Eta}" Binding="{Binding Età}" IsReadOnly="True" Width="Auto"/>
-            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Costituzione}" Binding="{Binding Costituzione}" IsReadOnly="True" Width="Auto"/>
-            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" Binding="{Binding Squilibrio}" IsReadOnly="True" Width="Auto"/>
-            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_EvNote}" Binding="{Binding Note}" IsReadOnly="True" Width="Auto"/>
-            <DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Inestetismi}" Binding="{Binding Inestetismi}" IsReadOnly="True" Width="Auto"/>
-        </DataGrid>
+        <wpftk:DataGrid Grid.Row="2" ItemsSource="{Binding ListaClienti}" HeadersVisibility="Column" AutoGenerateColumns="False">
+            <wpftk:DataGrid.Columns>
+                <wpftk:DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Signora}" Binding="{Binding NomeCognome}" IsReadOnly="True" Width="Auto"/>
+                <wpftk:DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Eta}" Binding="{Binding Età}" IsReadOnly="True" Width="Auto"/>
+                <wpftk:DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Costituzione}" Binding="{Binding Costituzione}" IsReadOnly="True" Width="Auto"/>
+                <wpftk:DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" Binding="{Binding Squilibrio}" IsReadOnly="True" Width="Auto"/>
+                <wpftk:DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_EvNote}" Binding="{Binding Note}" IsReadOnly="True" Width="Auto"/>
+                <wpftk:DataGridTextColumn Header="{x:Static prop:Resources.DatiPersonali_Inestetismi}" Binding="{Binding Inestetismi}" IsReadOnly="True" Width="Auto"/>
+            </wpftk:DataGrid.Columns>
+        </wpftk:DataGrid>
     </Grid>
 </Window>
