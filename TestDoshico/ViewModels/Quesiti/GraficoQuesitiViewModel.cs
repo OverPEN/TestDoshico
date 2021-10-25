@@ -49,5 +49,15 @@ namespace TestDoshico.ViewModels.Quesiti
             if (!String.IsNullOrEmpty(titoloLegenda))
                 TitoloLegenda = titoloLegenda;
         }
+
+        public GraficoQuesitiViewModel(Test test, string titoloGrafico = "", string titoloLegenda = "")
+        {
+            QuesitiValuePair = GraficiServices.GetDatiComplessiviForGrafico(test);
+
+            if (!String.IsNullOrEmpty(titoloGrafico))
+                TitoloGrafico = titoloGrafico;
+            if (!String.IsNullOrEmpty(titoloLegenda))
+                TitoloLegenda = titoloLegenda;
+        }
     }
 }

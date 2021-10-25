@@ -741,4 +741,10 @@
   <data name="SelezionaClienteEsistente" xml:space="preserve">
     <value>Cliente già Registrato:</value>
   </data>
+  <data name="BtnGraficoComplessivo" xml:space="preserve">
+    <value>Grafico Complessivo</value>
+  </data>
+  <data name="BtnFine" xml:space="preserve">
+    <value>Fine</value>
+  </data>
 </root>

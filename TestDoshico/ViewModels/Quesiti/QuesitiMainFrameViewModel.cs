@@ -92,6 +92,7 @@ namespace TestDoshico.ViewModels.Quesiti
         #region Commands
         public BaseCommand AvantiCommand { get; set; }
         public BaseCommand GraficoCommand { get; set; }
+        public BaseCommand GraficoComplessivoCommand { get; set; }
         public BaseCommand MenuPrincipaleCommand { get; set; }
         public BaseCommand AnnullaSelezioneCommand { get; set; }
         public BaseCommand SelectedItemChangedCommand { get; set; }
@@ -101,6 +102,7 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             AvantiCommand = new BaseCommand(AvantiButtonPressed);
             GraficoCommand = new BaseCommand(GraficoButtonPressed);
+            GraficoComplessivoCommand = new BaseCommand(GraficoComplessivoButtonPressed);
             MenuPrincipaleCommand = new BaseCommand(MenuPrincipaleButtonPressed);
             AnnullaSelezioneCommand = new BaseCommand(AnnullaSelezioneButtonPressed);
             SelectedItemChangedCommand = new BaseCommand(SelectedItemChangedFired);
@@ -255,7 +257,7 @@ namespace TestDoshico.ViewModels.Quesiti
                         }
                     }
                     else
-                        MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
+                        MessageServices.ShowWarningMessage("Test Doshico", "Errore durante il cambio pagina del Test Doshico");
                 }
             }
             catch(Exception ex)
@@ -292,6 +294,35 @@ namespace TestDoshico.ViewModels.Quesiti
                 }
             }
             catch(Exception ex)
+            {
+                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nell'apertura del grafico!", ex);
+            }
+        }
+
+        private void GraficoComplessivoButtonPressed(object obj)
+        {
+            try
+            {
+                if (CanUseButton(obj))
+                {
+                    Page page = obj as Page;
+                    if (page != null)
+                    {
+                        GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel();
+
+                        if (TestDoshico.QuesitiEmozioni == null && Emozioni != null)
+                            TestDoshico.QuesitiEmozioni = Emozioni;
+                        
+                        graficoViewModel = new GraficoQuesitiViewModel(TestDoshico, "Grafico Complessivo", "Legenda");
+                        GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
+                        grafico.Owner = Window.GetWindow(page);
+                        grafico.Show();
+                    }
+                    else
+                        MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
+                }
+            }
+            catch (Exception ex)
             {
                 MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nell'apertura del grafico!", ex);
             }

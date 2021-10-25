@@ -151,5 +151,16 @@ namespace Data.Models
                 return null;
             }
         }
+
+        public static bool CompareClienti(Cliente cliente1, Cliente cliente2)
+        {
+            List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w => w.PropertyType != typeof(Guid)).ToList();
+            foreach (PropertyInfo prop in props)
+            {
+                if (prop.GetValue(cliente1).ToString() != prop.GetValue(cliente2).ToString())
+                    return false;
+            }
+            return true;
+        }
     }
 }

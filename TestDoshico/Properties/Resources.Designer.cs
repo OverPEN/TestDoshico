@@ -79,11 +79,29 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Fine.
+        /// </summary>
+        public static string BtnFine {
+            get {
+                return ResourceManager.GetString("BtnFine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Visualizza Grafico.
         /// </summary>
         public static string BtnGrafico {
             get {
                 return ResourceManager.GetString("BtnGrafico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Grafico Complessivo.
+        /// </summary>
+        public static string BtnGraficoComplessivo {
+            get {
+                return ResourceManager.GetString("BtnGraficoComplessivo", resourceCulture);
             }
         }
         

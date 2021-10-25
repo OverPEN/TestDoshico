@@ -52,36 +52,42 @@ namespace Data.Services
                 XmlNode existingClienteNode = SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{cliente.ID}']");
                 if (existingClienteNode != null)
                 {
-                    if (MessageServices.ShowYesNoMessage("Salvataggio Cliente", "Cliente già presente nel sistema!" + Environment.NewLine + "Aggiornare il Cliente con i nuovi dati?", MessageBoxResult.Yes))
+                    Cliente existingCliente = Cliente.FromXML(existingClienteNode as XmlElement);
+                    if (!Cliente.CompareClienti(existingCliente, cliente))
                     {
-                        try
+                        if (MessageServices.ShowYesNoMessage("Salvataggio Cliente", "Cliente già presente nel sistema!" + Environment.NewLine + "Aggiornare il Cliente con i nuovi dati?", MessageBoxResult.Yes))
                         {
-                            XmlElement newClienteNode = Cliente.ToXML(cliente, ref SavedClienti);
-                            if(newClienteNode != null)
+                            try
                             {
-                                XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
-                                SavedClienti.DocumentElement.ReplaceChild(importedClienteNode, existingClienteNode);
-                                SavedClienti.Save(ClientiPath);
-                                MessageServices.ShowInformationMessage("Salvataggio Cliente", "Dati Cliente aggiornati!");
-                                return true;
+                                XmlElement newClienteNode = Cliente.ToXML(cliente, ref SavedClienti);
+                                if (newClienteNode != null)
+                                {
+                                    XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
+                                    SavedClienti.DocumentElement.ReplaceChild(importedClienteNode, existingClienteNode);
+                                    SavedClienti.Save(ClientiPath);
+                                    MessageServices.ShowInformationMessage("Salvataggio Cliente", "Dati Cliente aggiornati!");
+                                    return true;
+                                }
+                                else
+                                {
+                                    MessageServices.ShowWarningMessage("Salvataggio Cliente", "Impossibile salvare i dati Cliente!");
+                                    return false;
+                                }
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                MessageServices.ShowWarningMessage("Salvataggio Cliente", "Impossibile salvare i dati Cliente!");
+                                MessageServices.ShowErrorMessage("Salvataggio Cliente", "Errore nell'aggiornamento dei dati Cliente!", ex);
                                 return false;
                             }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            MessageServices.ShowErrorMessage("Salvataggio Cliente", "Errore nell'aggiornamento dei dati Cliente!", ex);
-                            return false;
+                            MessageServices.ShowInformationMessage("Salvataggio Cliente", "Dati non aggiornati!");
+                            return true;
                         }
                     }
                     else
-                    {
-                        MessageServices.ShowInformationMessage("Salvataggio Cliente", "Operazione annullata!");
                         return true;
-                    }
                 }
                 else
                 {
