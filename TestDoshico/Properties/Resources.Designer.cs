@@ -1922,5 +1922,14 @@ namespace TestDoshico.Properties {
                 return ResourceManager.GetString("QuesitiPt4_VizioV", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Cliente già Registrato:.
+        /// </summary>
+        public static string SelezionaClienteEsistente {
+            get {
+                return ResourceManager.GetString("SelezionaClienteEsistente", resourceCulture);
+            }
+        }
     }
 }

@@ -738,4 +738,7 @@
   <data name="BtnCerca" xml:space="preserve">
     <value>Cerca</value>
   </data>
+  <data name="SelezionaClienteEsistente" xml:space="preserve">
+    <value>Cliente già Registrato:</value>
+  </data>
 </root>

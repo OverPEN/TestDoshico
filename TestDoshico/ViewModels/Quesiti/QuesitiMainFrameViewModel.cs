@@ -22,6 +22,8 @@ namespace TestDoshico.ViewModels.Quesiti
         private Prakriti prakriti;
         private Vikriti vikriti;
         private Test TestDoshico;
+        private IList<Cliente> listaClienti;
+        private bool canAnnullaSelezione;
         #endregion
 
         public Cliente Cliente {
@@ -30,7 +32,6 @@ namespace TestDoshico.ViewModels.Quesiti
             {
                 this.cliente = value;
                 this.OnPropertyChanged();
-                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
         public Emozioni Emozioni
@@ -40,7 +41,6 @@ namespace TestDoshico.ViewModels.Quesiti
             {
                 this.emozioni = value;
                 OnPropertyChanged();
-                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
         public Mente Mente
@@ -50,7 +50,6 @@ namespace TestDoshico.ViewModels.Quesiti
             {
                 this.mente = value;
                 OnPropertyChanged();
-                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
         public Prakriti Prakriti
@@ -60,7 +59,6 @@ namespace TestDoshico.ViewModels.Quesiti
             {
                 this.prakriti = value;
                 this.OnPropertyChanged();
-                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
         public Vikriti Vikriti
@@ -70,21 +68,58 @@ namespace TestDoshico.ViewModels.Quesiti
             {
                 this.vikriti = value;
                 OnPropertyChanged();
-                AvantiCommand.RaiseCanExecuteChanged();
             }
         }
-
+        public IList<Cliente> ListaClienti
+        {
+            get { return this.listaClienti; }
+            set
+            {
+                this.listaClienti = value;
+                this.OnPropertyChanged();
+            }
+        }
+        public bool CanAnnullaSelezione
+        {
+            get { return this.canAnnullaSelezione; }
+            set
+            {
+                this.canAnnullaSelezione = value;
+                this.OnPropertyChanged();
+            }
+        }
+        
+        #region Commands
         public BaseCommand AvantiCommand { get; set; }
         public BaseCommand GraficoCommand { get; set; }
         public BaseCommand MenuPrincipaleCommand { get; set; }
+        public BaseCommand AnnullaSelezioneCommand { get; set; }
+        public BaseCommand SelectedItemChangedCommand { get; set; }
+        #endregion
 
         public QuesitiMainFrameViewModel()
         {
             AvantiCommand = new BaseCommand(AvantiButtonPressed);
             GraficoCommand = new BaseCommand(GraficoButtonPressed);
             MenuPrincipaleCommand = new BaseCommand(MenuPrincipaleButtonPressed);
+            AnnullaSelezioneCommand = new BaseCommand(AnnullaSelezioneButtonPressed);
+            SelectedItemChangedCommand = new BaseCommand(SelectedItemChangedFired);
             Cliente = new Cliente();
             TestDoshico = new Test();
+            ListaClienti = DataManager.GetAllClienti();
+        }
+
+        public void SelectedItemChangedFired(object obj)
+        {
+            SelectionChangedEventArgs eventArgs = (SelectionChangedEventArgs)obj;
+            eventArgs.Handled = true;
+            
+            ComboBox cmbCliente = eventArgs.Source as ComboBox;
+            
+            if (cmbCliente.SelectedItem != null)
+                CanAnnullaSelezione = true;
+            else
+                CanAnnullaSelezione = false;
         }
 
         private bool CanUseButton(object obj)
@@ -284,6 +319,13 @@ namespace TestDoshico.ViewModels.Quesiti
                 MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nel ritorno al Menù Principale!", ex);
             }
         }
-        
+
+        private void AnnullaSelezioneButtonPressed(object obj)
+        {
+            ComboBox cmbCliente = obj as ComboBox;
+            cmbCliente.SelectedItem = null;
+            Cliente = new Cliente();
+        }
+
     }
 }
