@@ -9,6 +9,9 @@
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       mc:Ignorable="d" 
       Title="Dati Personali" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
     <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -26,8 +29,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="{x:Static prop:Resources.DatiPersonali_Titolo}" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="{x:Static prop:Resources.SelezionaClienteEsistente}" VerticalAlignment="Center" FontWeight="Bold"/>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+        <Label Grid.Row="1" Grid.Column="0" Content="{x:Static prop:Resources.SelezionaClienteEsistente}" VerticalAlignment="Center" FontWeight="Bold" Visibility="{Binding PresentiClientiRegistrati, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Visibility="{Binding PresentiClientiRegistrati, Converter={StaticResource BooleanToVisibilityConverter}}">
             <ComboBox x:Name="comboBox" VerticalAlignment="Center" Margin="0,0,10,0" ItemsSource="{Binding ListaClienti, Mode=TwoWay}" DisplayMemberPath="NomeCognome" SelectedItem="{Binding Cliente}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged" SourceObject="{Binding ElementName=comboBox}">

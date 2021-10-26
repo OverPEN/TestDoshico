@@ -115,6 +115,24 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Salva.
+        /// </summary>
+        public static string BtnSalva {
+            get {
+                return ResourceManager.GetString("BtnSalva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Dati Cliente.
+        /// </summary>
+        public static string DatiCliente_Titolo {
+            get {
+                return ResourceManager.GetString("DatiCliente_Titolo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a COSTITUZIONE:.
         /// </summary>
         public static string DatiPersonali_Costituzione {

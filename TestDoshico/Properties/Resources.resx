@@ -747,4 +747,10 @@
   <data name="BtnFine" xml:space="preserve">
     <value>Fine</value>
   </data>
+  <data name="BtnSalva" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="DatiCliente_Titolo" xml:space="preserve">
+    <value>Dati Cliente</value>
+  </data>
 </root>

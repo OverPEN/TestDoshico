@@ -26,6 +26,7 @@ namespace TestDoshico.ViewModels.Quesiti
         private bool canAnnullaSelezione;
         #endregion
 
+        #region Public Values
         public Cliente Cliente {
             get { return this.cliente; }
             set
@@ -88,7 +89,9 @@ namespace TestDoshico.ViewModels.Quesiti
                 this.OnPropertyChanged();
             }
         }
-        
+        public bool PresentiClientiRegistrati => ListaClienti.Count > 0;
+        #endregion
+
         #region Commands
         public BaseCommand AvantiCommand { get; set; }
         public BaseCommand GraficoCommand { get; set; }

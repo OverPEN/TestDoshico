@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Data;
+using TestDoshico.Views.Clienti;
 
 namespace TestDoshico.ViewModels.Clienti
 {
@@ -37,12 +39,14 @@ namespace TestDoshico.ViewModels.Clienti
         public BaseCommand CercaCommand { get; set; }
         public BaseCommand MenuPrincipaleCommand { get; set; }
         public BaseCommand EliminaClienteCommand { get; set; }
+        public BaseCommand EditClienteCommand { get; set; }
 
         public ListaClientiViewModel()
         {
             CercaCommand = new BaseCommand(CercaButtonPressed);
             MenuPrincipaleCommand = new BaseCommand(MenuPrincipaleButtonPressed);
             EliminaClienteCommand = new BaseCommand(EliminaClienteButtonPressed);
+            EditClienteCommand = new BaseCommand(EditClienteButtonPressed);
         }
 
         private void CercaButtonPressed(object obj)
@@ -84,8 +88,8 @@ namespace TestDoshico.ViewModels.Clienti
                     if (id != Guid.Empty)
                     {
                         DataManager.EliminaClienteByID(id);
-                        MessageServices.ShowInformationMessage("TestDoshico", "Cliente eliminato con successo!");
-                        CercaButtonPressed(null);
+                        ListaClienti.Remove(ListaClienti.FirstOrDefault(f => f.ID == id));
+                        CollectionViewSource.GetDefaultView(ListaClienti).Refresh();
                     }
                     else
                         MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'eliminazione del Cliente selezionato!");
@@ -97,6 +101,32 @@ namespace TestDoshico.ViewModels.Clienti
             }
             else
                 MessageServices.ShowInformationMessage("Test Doshico", "Eliminazione annullata!");
+        }
+
+        private void EditClienteButtonPressed(object obj)
+        {
+            try
+            {
+                var parameters = (object[])obj;
+
+                Guid id = parameters[0] != null ? Guid.Parse(parameters[0].ToString()) : Guid.Empty;
+                ListaClienti listaClientiWindow = parameters[1] != null ? parameters[1] as ListaClienti : null;
+
+                if (id != Guid.Empty && listaClientiWindow != null)
+                {
+                    Cliente clienteInEdit = ListaClienti.FirstOrDefault(f => f.ID == id);
+                    DatiClienteViewModel viewModel = new DatiClienteViewModel(ref clienteInEdit);
+                    DatiCliente datiClienteWindow = new DatiCliente(viewModel);
+                    datiClienteWindow.Owner = listaClientiWindow;
+                    datiClienteWindow.ShowDialog();
+                }
+                else
+                    MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'apertura della finestra di modifica!");
+            }
+            catch (Exception ex)
+            {
+                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'apertura della finestra di modifica!", ex);
+            }
         }
     }
 }
