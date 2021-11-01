@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
 
@@ -45,7 +46,7 @@ namespace Data.Services
             }
         }
 
-        public static bool WriteClienteToXMLFile(Cliente cliente)
+        public static async Task<bool> WriteClienteToXMLFile(Cliente cliente)
         {
             try
             {
@@ -55,7 +56,7 @@ namespace Data.Services
                     Cliente existingCliente = Cliente.FromXML(existingClienteNode as XmlElement);
                     if (!Cliente.CompareClienti(existingCliente, cliente))
                     {
-                        if (MessageServices.ShowYesNoMessage("Salvataggio Cliente", $"Cliente {cliente.NomeCognome} già presente nel sistema!" + Environment.NewLine + "Aggiornare le informazioni con i nuovi dati?", MessageBoxResult.Yes))
+                        if (await MessageServices.ShowYesNoMessage("Salvataggio Cliente", $"Cliente {cliente.NomeCognome} già presente nel sistema!" + Environment.NewLine + "Aggiornare le informazioni con i nuovi dati?", ModernWpf.Controls.ContentDialogButton.Close))
                         {
                             try
                             {
@@ -87,6 +88,7 @@ namespace Data.Services
                         XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
                         SavedClienti.DocumentElement.AppendChild(importedClienteNode);
                         SavedClienti.Save(ClientiPath);
+                        MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Cliente {cliente.NomeCognome} aggiunto al Sistema!");
                     }
                     else
                     {
@@ -101,18 +103,17 @@ namespace Data.Services
                 MessageServices.ShowErrorMessage("Salvataggio Cliente", $"Errore grave durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!", ex);
                 return false;
             }
-            MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Cliente {cliente.NomeCognome} aggiunto al Sistema!");
             return true;
         }
 
-        public static bool WriteTestToXMLFile(Test test)
+        public static async Task<bool> WriteTestToXMLFile(Test test)
         {
             try
             {
                 XmlNode existingTestNode = SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{test.ID}']");
                 if (existingTestNode != null)
                 {
-                    if (MessageServices.ShowYesNoMessage("Salvataggio Test Doshico", "Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", MessageBoxResult.Yes))
+                    if (await MessageServices.ShowYesNoMessage("Salvataggio Test Doshico", "Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", ModernWpf.Controls.ContentDialogButton.Close))
                     {
                         try
                         {
@@ -206,7 +207,7 @@ namespace Data.Services
             return Cliente.FromXML(SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{id}']") as XmlElement);
         }
 
-        public static void EliminaClienteByID(Guid id)
+        public static async void EliminaClienteByID(Guid id)
         {
             Cliente cliente = new Cliente();
             try
@@ -220,7 +221,7 @@ namespace Data.Services
                     XmlNodeList lstNodiTest = SavedTests.DocumentElement.SelectNodes($"{nameof(Test)}[@{nameof(Test.IDCliente)}='{id}']");
                     if(lstNodiTest.Count > 0)
                     {
-                        if (MessageServices.ShowYesNoMessage("Test Doshico", $"Eliminare tutti i Test Doshici effettuati dal Cliente {cliente.NomeCognome}?", MessageBoxResult.No))
+                        if (await MessageServices.ShowYesNoMessage("Test Doshico", $"Eliminare tutti i Test Doshici effettuati dal Cliente {cliente.NomeCognome}?", ModernWpf.Controls.ContentDialogButton.Close))
                         {
                             foreach (XmlNode nodo in lstNodiTest)
                             {

@@ -1,37 +1,39 @@
 ﻿using System;
-using Xceed.Wpf.Toolkit;
+using System.Threading.Tasks;
+using ModernWpf.Controls;
 
 namespace Data.Services
 {
     public static class MessageServices
     {
-        private static System.Windows.Style style = new System.Windows.Style();
-
-        static MessageServices()
+        static ContentDialog contentDialog;
+        public static async void ShowInformationMessage(string Header, string Text)
         {
-            style.Setters.Add(new System.Windows.Setter(MessageBox.YesButtonContentProperty, "Sì"));
-            style.Setters.Add(new System.Windows.Setter(MessageBox.NoButtonContentProperty, "No"));
-            style.Setters.Add(new System.Windows.Setter(MessageBox.CancelButtonContentProperty, "Annulla"));
+            contentDialog = new ContentDialog() { Title = Header, Content = Text, CloseButtonText = "Ok", DefaultButton = ContentDialogButton.Close};
+            await contentDialog.ShowAsync();
+            contentDialog = null;
         }
 
-        public static void ShowInformationMessage(string Header, string Text)
+        public static async void ShowWarningMessage(string Header, string Text)
         {
-            MessageBox.Show(Text, Header, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+            contentDialog = new ContentDialog() { Title = Header, Content = Text, CloseButtonText = "Ok", DefaultButton = ContentDialogButton.Close };
+            await contentDialog.ShowAsync();
+            contentDialog = null;
         }
 
-        public static void ShowWarningMessage(string Header, string Text)
+        public static async void ShowErrorMessage(string Header, string Text, Exception ex)
         {
-            MessageBox.Show(Text, Header, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+            contentDialog = new ContentDialog() { Title = Header, Content = Text + Environment.NewLine + ex.Message, CloseButtonText = "Ok", DefaultButton = ContentDialogButton.Close };
+            await contentDialog.ShowAsync();
+            contentDialog = null;
         }
 
-        public static void ShowErrorMessage(string Header, string Text, Exception ex)
+        public static async Task<bool> ShowYesNoMessage(string Header, string Text, ContentDialogButton defaultButton)
         {
-            MessageBox.Show(Text + Environment.NewLine + ex.Message, Header, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
-        }
-
-        public static bool ShowYesNoMessage(string Header, string Text, System.Windows.MessageBoxResult defaultResult)
-        {
-            if (MessageBox.Show(Text, Header, System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Question, defaultResult, style) == System.Windows.MessageBoxResult.Yes)
+            contentDialog = new ContentDialog() { Title = Header, Content = Text, PrimaryButtonText = "Si", CloseButtonText = "No", DefaultButton = ContentDialogButton.Close };
+            ContentDialogResult dialogResult = await contentDialog.ShowAsync();
+            contentDialog.Hide();
+            if (dialogResult == ContentDialogResult.Primary)
                 return true;
             else
                 return false;

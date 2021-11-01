@@ -1,4 +1,4 @@
-﻿using System.Windows.Controls;
+﻿using ModernWpf.Controls;
 using TestDoshico.ViewModels.Quesiti;
 
 namespace TestDoshico.Views.Quesiti
@@ -8,7 +8,7 @@ namespace TestDoshico.Views.Quesiti
     /// </summary>
     public partial class QuesitiPrakriti : Page
     {
-        public QuesitiPrakriti(QuesitiMainFrameViewModel viewModel)
+        public QuesitiPrakriti(QuesitiViewModel viewModel)
         {
             this.DataContext = viewModel;
             InitializeComponent();

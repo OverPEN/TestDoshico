@@ -1,6 +1,7 @@
 ﻿using System.Windows;
-using TestDoshico.View.Quesiti;
+using TestDoshico.ViewModels.Quesiti;
 using TestDoshico.Views.Clienti;
+using TestDoshico.Views.Quesiti;
 using TestDoshico.Views.Tests;
 
 namespace TestDoshico
@@ -15,28 +16,24 @@ namespace TestDoshico
             InitializeComponent();
         }
 
-        private void Bt_NuovoTest_Click(object sender, RoutedEventArgs e)
+        private void NavigationView_SelectionChanged(ModernWpf.Controls.NavigationView sender, ModernWpf.Controls.NavigationViewSelectionChangedEventArgs args)
         {
-            e.Handled = true;
-            QuesitiMainFrame quesitiMain = new QuesitiMainFrame();
-            quesitiMain.Show();
-            this.Close();
-        }
-
-        private void Bt_ListaClienti_Click(object sender, RoutedEventArgs e)
-        {
-            e.Handled = true;
-            ListaClienti listaClienti = new ListaClienti();
-            listaClienti.Show();
-            this.Close();
-        }
-
-        private void Bt_ListaTest_Click(object sender, RoutedEventArgs e)
-        {
-            e.Handled = true;
-            ListaTests listaTest = new ListaTests();
-            listaTest.Show();
-            this.Close();
+            if(args.SelectedItem == bt_NuovoTest)
+            {
+                QuesitiViewModel quesitiViewModel = new QuesitiViewModel();
+                DatiPersonali datiPersonali = new DatiPersonali(quesitiViewModel);
+                Main.NavigationService.Navigate(datiPersonali);
+            }
+            else if (args.SelectedItem == bt_ListaClienti)
+            {
+                ListaClienti listaClienti = new ListaClienti();
+                Main.NavigationService.Navigate(listaClienti);
+            }
+            else if (args.SelectedItem == bt_ListaTest)
+            {
+                ListaTests listaTest = new ListaTests();
+                Main.NavigationService.Navigate(listaTest);
+            }
         }
     }
 }

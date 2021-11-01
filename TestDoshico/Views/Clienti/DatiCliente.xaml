@@ -6,7 +6,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       xmlns:prop="clr-namespace:TestDoshico.Properties"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      ui:WindowHelper.UseModernWindowStyle="True"
       Title="Dati Cliente" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
     <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
@@ -27,7 +29,7 @@
         <Label Grid.Row="1" Content="{x:Static prop:Resources.DatiPersonali_Signora}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
         <TextBox Grid.Row="1" Grid.Column="1"  Margin="0,5,10,0" Text="{Binding Cliente.NomeCognome}" AutomationProperties.IsRequiredForForm="True"/>
         <Label Grid.Row="2" Content="{x:Static prop:Resources.DatiPersonali_Eta}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <xctk:IntegerUpDown Grid.Row="2" Grid.Column="1" Margin="0,5,10,0" Value="{Binding Cliente.Età}" AutomationProperties.IsRequiredForForm="True"/>
+        <ui:NumberBox Grid.Row="2" Grid.Column="1" Margin="0,5,10,0" Value="{Binding Cliente.Età}" AutomationProperties.IsRequiredForForm="True" SpinButtonPlacementMode="Inline"/>
         <Label Grid.Row="3" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
         <TextBox Grid.Row="3" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Costituzione}" AutomationProperties.IsRequiredForForm="True"/>
         <Label Grid.Row="4" Content="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>

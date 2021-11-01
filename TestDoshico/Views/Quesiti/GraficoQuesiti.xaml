@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
         mc:Ignorable="d"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="True"
         Title="Grafico Quesiti" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
     <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <DVC:Chart Title="{Binding TitoloGrafico}" LegendTitle="{Binding TitoloLegenda}">
+        <DVC:Chart Title="{Binding TitoloGrafico}" LegendTitle="{Binding TitoloLegenda}" Background="White" Foreground="Black">
             <DVC:Chart.Series>
-                <DVC:PieSeries ItemsSource="{Binding QuesitiValuePair}" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}"/>
+                <DVC:PieSeries ItemsSource="{Binding QuesitiValuePair}" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}" Background="Black" Foreground="White"/>
             </DVC:Chart.Series>
         </DVC:Chart>
     </Grid>

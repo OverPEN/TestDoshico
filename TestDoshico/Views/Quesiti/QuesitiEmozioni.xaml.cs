@@ -1,4 +1,4 @@
-﻿using System.Windows.Controls;
+﻿using ModernWpf.Controls;
 using TestDoshico.ViewModels.Quesiti;
 
 namespace TestDoshico.Views.Quesiti
@@ -8,7 +8,7 @@ namespace TestDoshico.Views.Quesiti
     /// </summary>
     public partial class QuesitiEmozioni : Page
     {
-        public QuesitiEmozioni(QuesitiMainFrameViewModel viewModel)
+        public QuesitiEmozioni(QuesitiViewModel viewModel)
         {
             this.DataContext = viewModel;
             InitializeComponent();

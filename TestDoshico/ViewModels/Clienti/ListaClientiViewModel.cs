@@ -37,14 +37,12 @@ namespace TestDoshico.ViewModels.Clienti
         }
 
         public BaseCommand CercaCommand { get; set; }
-        public BaseCommand MenuPrincipaleCommand { get; set; }
         public BaseCommand EliminaClienteCommand { get; set; }
         public BaseCommand EditClienteCommand { get; set; }
 
         public ListaClientiViewModel()
         {
             CercaCommand = new BaseCommand(CercaButtonPressed);
-            MenuPrincipaleCommand = new BaseCommand(MenuPrincipaleButtonPressed);
             EliminaClienteCommand = new BaseCommand(EliminaClienteButtonPressed);
             EditClienteCommand = new BaseCommand(EditClienteButtonPressed);
         }
@@ -56,30 +54,10 @@ namespace TestDoshico.ViewModels.Clienti
             else
                 ListaClienti = DataManager.GetAllClienti();
         }
-
-        private void MenuPrincipaleButtonPressed(object obj)
-        {
-            try
-            {
-                Window currentWindow = obj as Window;
-                if (currentWindow != null)
-                {
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    currentWindow.Close();
-                }
-                else
-                    MessageServices.ShowWarningMessage("Test Doshico", "Errore nel ritorno al Menù Principale!");
-            }
-            catch (Exception ex)
-            {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nel ritorno al Menù Principale!", ex);
-            }
-        }
         
-        private void EliminaClienteButtonPressed(object obj)
+        private async void EliminaClienteButtonPressed(object obj)
         {
-            if (MessageServices.ShowYesNoMessage("Test Doshico", "Eliminare il Cliente selezionato?", MessageBoxResult.No))
+            if (await MessageServices.ShowYesNoMessage("Test Doshico", "Eliminare il Cliente selezionato?", ModernWpf.Controls.ContentDialogButton.Close))
             {
                 try
                 {
@@ -110,14 +88,14 @@ namespace TestDoshico.ViewModels.Clienti
                 var parameters = (object[])obj;
 
                 Guid id = parameters[0] != null ? Guid.Parse(parameters[0].ToString()) : Guid.Empty;
-                ListaClienti listaClientiWindow = parameters[1] != null ? parameters[1] as ListaClienti : null;
+                ListaClienti listaClientiPage = parameters[1] != null ? parameters[1] as ListaClienti : null;
 
-                if (id != Guid.Empty && listaClientiWindow != null)
+                if (id != Guid.Empty && listaClientiPage != null)
                 {
                     Cliente clienteInEdit = ListaClienti.FirstOrDefault(f => f.ID == id);
                     DatiClienteViewModel viewModel = new DatiClienteViewModel(ref clienteInEdit);
                     DatiCliente datiClienteWindow = new DatiCliente(viewModel);
-                    datiClienteWindow.Owner = listaClientiWindow;
+                    datiClienteWindow.Owner = Window.GetWindow(listaClientiPage);
                     datiClienteWindow.ShowDialog();
                 }
                 else

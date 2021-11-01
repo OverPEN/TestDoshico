@@ -13,7 +13,7 @@ using TestDoshico.Views.Quesiti;
 
 namespace TestDoshico.ViewModels.Quesiti
 {
-    public class QuesitiMainFrameViewModel : BaseNotifyPropertyChanged
+    public class QuesitiViewModel : BaseNotifyPropertyChanged
     {
         #region Private Values
         private Cliente cliente;
@@ -96,17 +96,15 @@ namespace TestDoshico.ViewModels.Quesiti
         public BaseCommand AvantiCommand { get; set; }
         public BaseCommand GraficoCommand { get; set; }
         public BaseCommand GraficoComplessivoCommand { get; set; }
-        public BaseCommand MenuPrincipaleCommand { get; set; }
         public BaseCommand AnnullaSelezioneCommand { get; set; }
         public BaseCommand SelectedItemChangedCommand { get; set; }
         #endregion
 
-        public QuesitiMainFrameViewModel()
+        public QuesitiViewModel()
         {
             AvantiCommand = new BaseCommand(AvantiButtonPressed);
             GraficoCommand = new BaseCommand(GraficoButtonPressed);
             GraficoComplessivoCommand = new BaseCommand(GraficoComplessivoButtonPressed);
-            MenuPrincipaleCommand = new BaseCommand(MenuPrincipaleButtonPressed);
             AnnullaSelezioneCommand = new BaseCommand(AnnullaSelezioneButtonPressed);
             SelectedItemChangedCommand = new BaseCommand(SelectedItemChangedFired);
             Cliente = new Cliente();
@@ -215,7 +213,7 @@ namespace TestDoshico.ViewModels.Quesiti
             return result;
         }
 
-        private void AvantiButtonPressed(object obj)
+        private async void AvantiButtonPressed(object obj)
         {
             try
             {
@@ -226,7 +224,7 @@ namespace TestDoshico.ViewModels.Quesiti
                     {
                         if (page.GetType() == typeof(DatiPersonali))
                         {
-                            DataManager.WriteClienteToXMLFile(cliente);
+                            await DataManager.WriteClienteToXMLFile(cliente);
                             TestDoshico.IDCliente = Cliente.ID;
                             if (Prakriti == null)
                                 Prakriti = new Prakriti();
@@ -256,7 +254,7 @@ namespace TestDoshico.ViewModels.Quesiti
                         else if (page.GetType() == typeof(QuesitiEmozioni))
                         {
                             TestDoshico.QuesitiEmozioni = Emozioni;
-                            DataManager.WriteTestToXMLFile(TestDoshico);
+                            await DataManager.WriteTestToXMLFile(TestDoshico);
                         }
                     }
                     else
@@ -328,29 +326,6 @@ namespace TestDoshico.ViewModels.Quesiti
             catch (Exception ex)
             {
                 MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nell'apertura del grafico!", ex);
-            }
-        }
-
-        private void MenuPrincipaleButtonPressed(object obj)
-        {
-            try
-            {
-                Window currentWindow = obj as Window;
-                if (currentWindow != null)
-                {
-                    if (MessageServices.ShowYesNoMessage("Test Doshico", $"Tornare al Menù Principale? {Environment.NewLine} Eventuali dati inseriti o modificati sul Test Doshico in corso verranno persi!", MessageBoxResult.Yes))
-                    {
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        currentWindow.Close();
-                    }
-                }
-                else
-                    MessageServices.ShowWarningMessage("Test Doshico", "Errore nel ritorno al Menù Principale!");
-            }
-            catch(Exception ex)
-            {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nel ritorno al Menù Principale!", ex);
             }
         }
 

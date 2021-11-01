@@ -5,17 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestDoshico"
         mc:Ignorable="d"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="True"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="TEST DOSHICO" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button x:Name="bt_NuovoTest" Grid.Row="1" Content="Nuovo Test Doshico" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Bt_NuovoTest_Click"/>
-        <Button x:Name="bt_ListaClienti" Grid.Row="2" Content="Clienti Registrati" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Bt_ListaClienti_Click"/>
-        <Button x:Name="bt_ListaTest" Grid.Row="3" Content="Test Effettuati" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Bt_ListaTest_Click"/>
+        <ui:NavigationView Grid.Row="0" PaneDisplayMode="Top" SelectionChanged="NavigationView_SelectionChanged" IsSettingsVisible="False" IsBackButtonVisible="Collapsed">
+            <ui:NavigationView.MenuItems>
+                <ui:NavigationViewItem Content="Nuovo Test Doshico" x:Name="bt_NuovoTest"/>
+                <ui:NavigationViewItem Content="Clienti Registrati" x:Name="bt_ListaClienti"/>
+                <ui:NavigationViewItem Content="Test Effettuati" x:Name="bt_ListaTest"/>
+            </ui:NavigationView.MenuItems>
+        </ui:NavigationView>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ui:Frame Name="Main" ScrollViewer.CanContentScroll="True"/>
+        </ScrollViewer>
     </Grid>
 </Window>

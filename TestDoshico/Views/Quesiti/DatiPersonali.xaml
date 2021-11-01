@@ -1,4 +1,4 @@
-﻿<Page x:Class="TestDoshico.Views.Quesiti.DatiPersonali"
+﻿<ui:Page x:Class="TestDoshico.Views.Quesiti.DatiPersonali"
       x:Name="DatiPersonaliPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,11 +7,12 @@
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       xmlns:prop="clr-namespace:TestDoshico.Properties"
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
       Title="Dati Personali" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-    <Page.Resources>
+    <ui:Page.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-    </Page.Resources>
+    </ui:Page.Resources>
     <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -43,7 +44,7 @@
         <Label Grid.Row="2" Content="{x:Static prop:Resources.DatiPersonali_Signora}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
         <TextBox Grid.Row="2" Grid.Column="1"  Margin="0,5,10,0" Text="{Binding Cliente.NomeCognome}" AutomationProperties.IsRequiredForForm="True"/>
         <Label Grid.Row="3" Content="{x:Static prop:Resources.DatiPersonali_Eta}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <xctk:IntegerUpDown Grid.Row="3" Grid.Column="1" Margin="0,5,10,0" Value="{Binding Cliente.Età}" AutomationProperties.IsRequiredForForm="True"/>
+        <ui:NumberBox Grid.Row="3" Grid.Column="1" Margin="0,5,10,0" Value="{Binding Cliente.Età}" AutomationProperties.IsRequiredForForm="True" SpinButtonPlacementMode="Inline"/>
         <Label Grid.Row="4" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
         <TextBox Grid.Row="4" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Costituzione}" AutomationProperties.IsRequiredForForm="True"/>
         <Label Grid.Row="5" Content="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
@@ -54,4 +55,4 @@
         <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Inestetismi}" AutomationProperties.IsRequiredForForm="True"/>
         <Button Grid.Row="8"  Grid.Column="1" Content="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=DatiPersonaliPage}"/>
     </Grid>
-</Page>
+</ui:Page>
