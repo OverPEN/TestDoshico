@@ -96,8 +96,9 @@
         <ComboBox Grid.Row="11" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Emozioni.Sogni}"/>
         <TextBlock Grid.Row="12" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.Quesiti_Tot}" AutomationProperties.IsRowHeader="True"/>
         <TextBlock Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource GridTextBlock}" Text="{Binding Emozioni.TotDosha}"/>
-        <Button Grid.Row="12" Grid.Column="2"  Content="{x:Static prop:Resources.BtnGraficoComplessivo}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding GraficoComplessivoCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
-        <Button Grid.Row="12" Grid.Column="3"  Content="{x:Static prop:Resources.BtnGrafico}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding GraficoCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
+        <Button Grid.Row="12" Grid.Column="1"  Content="{x:Static prop:Resources.BtnGraficoComplessivo}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding GraficoComplessivoCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
+        <Button Grid.Row="12" Grid.Column="2"  Content="{x:Static prop:Resources.BtnGrafico}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding GraficoCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
+        <Button Grid.Row="12" Grid.Column="3"  Content="{x:Static prop:Resources.BtnIndietro}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,0" Command="{Binding IndietroCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
         <Button Grid.Row="12" Grid.Column="4" Content="{x:Static prop:Resources.BtnFine}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
     </Grid>
 </ui:Page>

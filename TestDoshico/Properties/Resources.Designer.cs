@@ -106,6 +106,15 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Indietro.
+        /// </summary>
+        public static string BtnIndietro {
+            get {
+                return ResourceManager.GetString("BtnIndietro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Ritorna al Menù Principale.
         /// </summary>
         public static string BtnMenuPrincipale {

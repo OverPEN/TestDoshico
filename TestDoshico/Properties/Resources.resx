@@ -753,4 +753,7 @@
   <data name="DatiCliente_Titolo" xml:space="preserve">
     <value>Dati Cliente</value>
   </data>
+  <data name="BtnIndietro" xml:space="preserve">
+    <value>Indietro</value>
+  </data>
 </root>
