@@ -20,64 +20,64 @@ namespace TestDoshico
 
         private async void NavigationView_SelectionChanged(ModernWpf.Controls.NavigationView sender, ModernWpf.Controls.NavigationViewSelectionChangedEventArgs args)
         {
-            while (Main.NavigationService.CanGoBack)
-            {
-                try
+            try {
+                while (Main.NavigationService.CanGoBack)
                 {
                     Main.NavigationService.RemoveBackEntry();
                 }
-                catch
-                {
-                    break;
-                }
-            }
 
-            if(args.SelectedItem == bt_NuovoTest)
-            {
-                QuesitiViewModel quesitiViewModel = new QuesitiViewModel();
-                DatiPersonali datiPersonali = new DatiPersonali(quesitiViewModel);
-                Main.Content = datiPersonali;
-                this.Title = $"Test Doshico - {datiPersonali.Title}";
-            }
-            else if (args.SelectedItem == bt_ListaClienti)
-            {
-                if(Main.Content == null || (Main.Content.GetType() != typeof(DatiPersonali) && Main.Content.GetType() != typeof(QuesitiPrakriti) && Main.Content.GetType() != typeof(QuesitiVikriti) && Main.Content.GetType() != typeof(QuesitiMente) && Main.Content.GetType() != typeof(QuesitiEmozioni)))
+                if (args.SelectedItem == bt_NuovoTest)
                 {
-                    ListaClienti listaClienti = new ListaClienti();
-                    Main.Content = listaClienti;
-                    this.Title = $"Test Doshico - {listaClienti.Title}";
+                    QuesitiViewModel quesitiViewModel = new QuesitiViewModel();
+                    DatiPersonali datiPersonali = new DatiPersonali(quesitiViewModel);
+                    Main.Content = datiPersonali;
+                    this.Title = $"Test Doshico - {datiPersonali.Title}";
                 }
-                else
+                else if (args.SelectedItem == bt_ListaClienti)
                 {
-                    if(await MessageServices.ShowYesNoMessage("Test Doshico","Abbandonare l'esecuzione del test per aprire la Lista Clienti? I dati non salvati verranno persi!", ModernWpf.Controls.ContentDialogButton.Primary))
+                    if (Main.Content == null || (Main.Content.GetType() != typeof(DatiPersonali) && Main.Content.GetType() != typeof(QuesitiPrakriti) && Main.Content.GetType() != typeof(QuesitiVikriti) && Main.Content.GetType() != typeof(QuesitiMente) && Main.Content.GetType() != typeof(QuesitiEmozioni)))
                     {
                         ListaClienti listaClienti = new ListaClienti();
                         Main.Content = listaClienti;
                         this.Title = $"Test Doshico - {listaClienti.Title}";
                     }
+                    else
+                    {
+                        if (await MessageServices.ShowYesNoMessage("Test Doshico", "Abbandonare l'esecuzione del test per aprire la Lista Clienti? I dati non salvati verranno persi!", ModernWpf.Controls.ContentDialogButton.Primary))
+                        {
+                            ListaClienti listaClienti = new ListaClienti();
+                            Main.Content = listaClienti;
+                            this.Title = $"Test Doshico - {listaClienti.Title}";
+                        }
 
+                    }
                 }
-            }
-            else if (args.SelectedItem == bt_ListaTest)
-            {
+                else if (args.SelectedItem == bt_ListaTest)
+                {
 
-                if (Main.Content == null || (Main.Content.GetType() != typeof(DatiPersonali) && Main.Content.GetType() != typeof(QuesitiPrakriti) && Main.Content.GetType() != typeof(QuesitiVikriti) && Main.Content.GetType() != typeof(QuesitiMente) && Main.Content.GetType() != typeof(QuesitiEmozioni)))
-                {
-                    ListaTests listaTest = new ListaTests();
-                    Main.Content = listaTest;
-                    this.Title = $"Test Doshico - {listaTest.Title}";
-                }
-                else
-                {
-                    if (await MessageServices.ShowYesNoMessage("Test Doshico", "Abbandonare l'esecuzione del test per aprire la Lista Clienti? I dati non salvati verranno persi!", ModernWpf.Controls.ContentDialogButton.Primary))
+                    if (Main.Content == null || (Main.Content.GetType() != typeof(DatiPersonali) && Main.Content.GetType() != typeof(QuesitiPrakriti) && Main.Content.GetType() != typeof(QuesitiVikriti) && Main.Content.GetType() != typeof(QuesitiMente) && Main.Content.GetType() != typeof(QuesitiEmozioni)))
                     {
                         ListaTests listaTest = new ListaTests();
                         Main.Content = listaTest;
                         this.Title = $"Test Doshico - {listaTest.Title}";
                     }
+                    else
+                    {
+                        if (await MessageServices.ShowYesNoMessage("Test Doshico", "Abbandonare l'esecuzione del test per aprire la Lista Clienti? I dati non salvati verranno persi!", ModernWpf.Controls.ContentDialogButton.Primary))
+                        {
+                            ListaTests listaTest = new ListaTests();
+                            Main.Content = listaTest;
+                            this.Title = $"Test Doshico - {listaTest.Title}";
+                        }
 
+                    }
                 }
             }
+            catch
+            {
+                ;
+            }
+            
         }
 
         private async void NavigationView_ItemInvoked(ModernWpf.Controls.NavigationView sender, ModernWpf.Controls.NavigationViewItemInvokedEventArgs args)

@@ -57,10 +57,11 @@ namespace TestDoshico.ViewModels.Clienti
         
         private async void EliminaClienteButtonPressed(object obj)
         {
-            if (await MessageServices.ShowYesNoMessage("Test Doshico", "Eliminare il Cliente selezionato?", ModernWpf.Controls.ContentDialogButton.Close))
+            try
             {
-                try
+                if (await MessageServices.ShowYesNoMessage("Test Doshico", "Eliminare il Cliente selezionato?", ModernWpf.Controls.ContentDialogButton.Close))
                 {
+
                     Guid id = obj != null ? Guid.Parse(obj.ToString()) : Guid.Empty;
 
                     if (id != Guid.Empty)
@@ -72,13 +73,13 @@ namespace TestDoshico.ViewModels.Clienti
                     else
                         MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'eliminazione del Cliente selezionato!");
                 }
-                catch (Exception ex)
-                {
-                    MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'eliminazione del Cliente selezionato!", ex);
-                }
+                else
+                    MessageServices.ShowInformationMessage("Test Doshico", "Eliminazione annullata!");
             }
-            else
-                MessageServices.ShowInformationMessage("Test Doshico", "Eliminazione annullata!");
+            catch (Exception ex)
+            {
+                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'eliminazione del Cliente selezionato!", ex);
+            }
         }
 
         private void EditClienteButtonPressed(object obj)

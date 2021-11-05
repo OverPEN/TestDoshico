@@ -61,6 +61,16 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Icon simile a (Icona).
+        /// </summary>
+        public static System.Drawing.Icon ApplicationIcon {
+            get {
+                object obj = ResourceManager.GetObject("ApplicationIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Avanti.
         /// </summary>
         public static string BtnAvanti {

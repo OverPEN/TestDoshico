@@ -1,7 +1,7 @@
 ﻿<Application
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="TestDoshico.App"
+             x:Class="TestDoshico.App"
              xmlns:ui="http://schemas.modernwpf.com/2019"
              StartupUri="MainWindow.xaml">
 
