@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
-        Title="Test Doshico" Height="450" Width="800">
+        Title="Test Doshico" Height="Auto" Width="Auto">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -21,7 +21,7 @@
                 <ui:NavigationViewItem Content="Test Effettuati" x:Name="bt_ListaTest"/>
             </ui:NavigationView.MenuItems>
         </ui:NavigationView>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10,0,10,10">
             <ui:Frame Name="Main" ScrollViewer.CanContentScroll="True"/>
         </ScrollViewer>
     </Grid>
