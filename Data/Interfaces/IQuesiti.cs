@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace Data.Interfaces
@@ -37,7 +38,7 @@ namespace Data.Interfaces
             return $"Kapha: {Kcounter}\t Pitta: {Pcounter}\t Vata: {Vcounter}";
         }
 
-        public static XmlElement ToXML<T>(T quesito, ref XmlDocument xmlDocument, XmlElement quesitoInTest)
+        public static async Task<XmlElement> ToXML<T>(T quesito, XmlDocument xmlDocument, XmlElement quesitoInTest)
         {
             if(quesito != null && xmlDocument != null && quesitoInTest != null)
             {
@@ -54,18 +55,18 @@ namespace Data.Interfaces
                 }
                 catch (Exception ex)
                 {
-                    MessageServices.ShowErrorMessage("Test Doshico", $"Errore nella serializzazione del Test Doshico nei quesiti {typeof(T).Name}!", ex);
+                    await MessageServices.ShowErrorMessage("Test Doshico", $"Errore nella serializzazione del Test Doshico nei quesiti {typeof(T).Name}!", ex);
                 }
             }
             else
             {
-                MessageServices.ShowWarningMessage("Test Doshico", "Impossibile serializzare il Test Doshico: Test o Percorso di Salvataggio non validi!");
+                await MessageServices.ShowWarningMessage("Test Doshico", "Impossibile serializzare il Test Doshico: Test o Percorso di Salvataggio non validi!");
                 return null;
             }
             return quesitoInTest;
         }
 
-        public static T FromXML<T>(XmlElement quesitoElement)
+        public static async Task<T> FromXML<T>(XmlElement quesitoElement)
         {
             if(quesitoElement != null & quesitoElement.HasChildNodes)
             {
@@ -100,14 +101,14 @@ namespace Data.Interfaces
                 }
                 catch (Exception ex)
                 {
-                    MessageServices.ShowErrorMessage("Test Doshico", $"Errore nella deserializzazione dei quesiti {nameof(T)}!", ex);
-                    return default;
+                    await MessageServices.ShowErrorMessage("Test Doshico", $"Errore nella deserializzazione dei quesiti {nameof(T)}!", ex);
+                    return default(T);
                 }
             }
             else
             {
-                MessageServices.ShowWarningMessage("Test Doshico", $"Nodo Quesiti {quesitoElement.Name} vuoto, impossibile deserializzare!");
-                return default;
+                await MessageServices.ShowWarningMessage("Test Doshico", $"Nodo Quesiti {quesitoElement.Name} vuoto, impossibile deserializzare!");
+                return default(T);
             }
         }
 

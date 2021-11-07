@@ -7,25 +7,28 @@ namespace Data.Services
     public static class MessageServices
     {
         static ContentDialog contentDialog;
-        public static async void ShowInformationMessage(string Header, string Text)
+        public static async Task<bool> ShowInformationMessage(string Header, string Text)
         {
             contentDialog = new ContentDialog() { Title = Header, Content = Text, CloseButtonText = "Ok", DefaultButton = ContentDialogButton.Close};
             await contentDialog.ShowAsync();
-            contentDialog = null;
+            contentDialog.Hide();
+            return true;
         }
 
-        public static async void ShowWarningMessage(string Header, string Text)
+        public static async Task<bool> ShowWarningMessage(string Header, string Text)
         {
             contentDialog = new ContentDialog() { Title = Header, Content = Text, CloseButtonText = "Ok", DefaultButton = ContentDialogButton.Close };
             await contentDialog.ShowAsync();
-            contentDialog = null;
+            contentDialog.Hide();
+            return true;
         }
 
-        public static async void ShowErrorMessage(string Header, string Text, Exception ex)
+        public static async Task<bool> ShowErrorMessage(string Header, string Text, Exception ex)
         {
             contentDialog = new ContentDialog() { Title = Header, Content = Text + Environment.NewLine + ex.Message, CloseButtonText = "Ok", DefaultButton = ContentDialogButton.Close };
             await contentDialog.ShowAsync();
-            contentDialog = null;
+            contentDialog.Hide();
+            return true;
         }
 
         public static async Task<bool> ShowYesNoMessage(string Header, string Text, ContentDialogButton defaultButton)

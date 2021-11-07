@@ -53,33 +53,33 @@ namespace Data.Services
                 XmlNode existingClienteNode = SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{cliente.ID}']");
                 if (existingClienteNode != null)
                 {
-                    Cliente existingCliente = Cliente.FromXML(existingClienteNode as XmlElement);
+                    Cliente existingCliente = await Cliente .FromXML(existingClienteNode as XmlElement);
                     if (!Cliente.CompareClienti(existingCliente, cliente))
                     {
                         if (await MessageServices.ShowYesNoMessage("Salvataggio Cliente", $"Cliente {cliente.NomeCognome} già presente nel sistema!" + Environment.NewLine + "Aggiornare le informazioni con i nuovi dati?", ModernWpf.Controls.ContentDialogButton.Close))
                         {
                             try
                             {
-                                if(AggiornaClienteInternal(cliente, existingClienteNode))
+                                if(await AggiornaClienteInternal(cliente, existingClienteNode))
                                 {
-                                    MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Dati Cliente di {cliente.NomeCognome} aggiornati!");
+                                    await MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Dati Cliente di {cliente.NomeCognome} aggiornati!");
                                     return true;
                                 }
                                 else
                                 {
-                                    MessageServices.ShowWarningMessage("Salvataggio Cliente", $"Errore durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!");
+                                    await MessageServices.ShowWarningMessage("Salvataggio Cliente", $"Errore durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!");
                                     return false;
                                 }
                             }
                             catch (Exception ex)
                             {
-                                MessageServices.ShowErrorMessage("Salvataggio Cliente", $"Errore grave durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!", ex);
+                                await MessageServices.ShowErrorMessage("Salvataggio Cliente", $"Errore grave durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!", ex);
                                 return false;
                             }
                         }
                         else
                         {
-                            MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Dati Cliente di {cliente.NomeCognome} non aggiornati!");
+                            await MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Dati Cliente di {cliente.NomeCognome} non aggiornati!");
                             return true;
                         }
                     }
@@ -88,17 +88,17 @@ namespace Data.Services
                 }
                 else
                 {
-                    XmlElement newClienteNode = Cliente.ToXML(cliente, ref SavedClienti);
+                    XmlElement newClienteNode = await Cliente.ToXML(cliente, SavedClienti);
                     if(newClienteNode != null)
                     {
                         XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
                         SavedClienti.DocumentElement.AppendChild(importedClienteNode);
                         SavedClienti.Save(ClientiPath);
-                        MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Cliente {cliente.NomeCognome} aggiunto al Sistema!");
+                        await MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Cliente {cliente.NomeCognome} aggiunto al Sistema!");
                     }
                     else
                     {
-                        MessageServices.ShowWarningMessage("Salvataggio Cliente", $"Errore durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!");
+                        await MessageServices.ShowWarningMessage("Salvataggio Cliente", $"Errore durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!");
                         return false;
                     }
                 }
@@ -106,7 +106,7 @@ namespace Data.Services
             }
             catch (Exception ex)
             {
-                MessageServices.ShowErrorMessage("Salvataggio Cliente", $"Errore grave durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!", ex);
+                await MessageServices.ShowErrorMessage("Salvataggio Cliente", $"Errore grave durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!", ex);
                 return false;
             }
             return true;
@@ -119,33 +119,33 @@ namespace Data.Services
                 XmlNode existingTestNode = SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{test.ID}']");
                 if (existingTestNode != null)
                 {
-                    Test existingTest = Test.FromXML(existingTestNode as XmlElement);
+                    Test existingTest = await Test.FromXML(existingTestNode as XmlElement);
                     if (!Test.CompareTests(existingTest, test))
                     {
                         if (await MessageServices.ShowYesNoMessage("Salvataggio Test Doshico", "Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", ModernWpf.Controls.ContentDialogButton.Close))
                         {
                             try
                             {
-                                if (AggiornaTestInternal(test, existingTestNode))
+                                if (await AggiornaTestInternal (test, existingTestNode))
                                 {
-                                    MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Test Doshico Aggiornato!");
+                                    await MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Test Doshico Aggiornato!");
                                     return true;
                                 }
                                 else
                                 {
-                                    MessageServices.ShowWarningMessage("Salvataggio Test Doshico", "Impossibile salvare il Test Doshico!");
+                                    await MessageServices.ShowWarningMessage("Salvataggio Test Doshico", "Impossibile salvare il Test Doshico!");
                                     return false;
                                 }
                             }
                             catch (Exception ex)
                             {
-                                MessageServices.ShowErrorMessage("Salvataggio Test Doshico", "Errore nell'aggiornamento del Test Doshico!", ex);
+                                await MessageServices.ShowErrorMessage("Salvataggio Test Doshico", "Errore nell'aggiornamento del Test Doshico!", ex);
                                 return false;
                             }
                         }
                         else
                         {
-                            MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Operazione annullata!");
+                            await MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Operazione annullata!");
                             return true;
                         }
                     }
@@ -154,7 +154,7 @@ namespace Data.Services
                 }
                 else
                 {
-                    XmlElement testNode = Test.ToXML(test, ref SavedTests);
+                    XmlElement testNode = await Test .ToXML(test, SavedTests);
                     if(testNode != null)
                     {
                         XmlNode importedTestNode = SavedTests.DocumentElement.OwnerDocument.ImportNode(testNode, true);
@@ -163,27 +163,27 @@ namespace Data.Services
                     }
                     else
                     {
-                        MessageServices.ShowWarningMessage("Salvataggio Cliente", "Impossibile salvare i dati Cliente!");
+                        await MessageServices.ShowWarningMessage("Salvataggio Cliente", "Impossibile salvare i dati Cliente!");
                         return false;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageServices.ShowErrorMessage("Salvataggio Test Doshico", "Errore nel salvataggio del Test Doshico!", ex);
+                await MessageServices.ShowErrorMessage("Salvataggio Test Doshico", "Errore nel salvataggio del Test Doshico!", ex);
                 return false;
             }
-            MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Test Doshico aggiunto al Sistema!");
+            await MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Test Doshico aggiunto al Sistema!");
             return true;
         }
 
-        public static List<Test> GetAllTests()
+        public static async Task<List<Test>> GetAllTests()
         {
             List<Test> tests = new List<Test>();
             Test test;
             foreach(XmlElement testElement in SavedTests.DocumentElement.SelectNodes(nameof(Test)))
             {
-                test = Test.FromXML(testElement);
+                test = await Test.FromXML(testElement);
                 if (test != null)
                     tests.Add(test);
             }
@@ -191,13 +191,13 @@ namespace Data.Services
             return tests;
         }
 
-        public static List<Cliente> GetAllClienti()
+        public static async Task<List<Cliente>> GetAllClienti()
         {
             List<Cliente> clienti = new List<Cliente>();
             Cliente cliente;
             foreach(XmlElement clienteElement in SavedClienti.DocumentElement.SelectNodes(nameof(Cliente)))
             {
-                cliente = Cliente.FromXML(clienteElement);
+                cliente = await Cliente.FromXML(clienteElement);
                 if (cliente != null)
                     clienti.Add(cliente);
             }
@@ -205,14 +205,14 @@ namespace Data.Services
             return clienti;
         }
 
-        public static Test GetTestByID(Guid id)
+        public static async Task<Test> GetTestByID(Guid id)
         {
-            return Test.FromXML(SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{id}']") as XmlElement);
+            return await Test.FromXML(SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{id}']") as XmlElement);
         }
 
-        public static Cliente GetClienteByID(Guid id)
+        public static async Task<Cliente> GetClienteByID(Guid id)
         {
-            return Cliente.FromXML(SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{id}']") as XmlElement);
+            return await Cliente.FromXML(SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{id}']") as XmlElement);
         }
 
         public static async void EliminaClienteByID(Guid id)
@@ -220,7 +220,7 @@ namespace Data.Services
             Cliente cliente = new Cliente();
             try
             {
-                cliente = GetClienteByID(id);
+                cliente = await GetClienteByID(id);
                 if(cliente != null)
                 {
                     SavedClienti.DocumentElement.RemoveChild(SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{id}']"));
@@ -236,15 +236,15 @@ namespace Data.Services
                                 EliminaTestByID(Guid.Parse(nodo.Attributes[nameof(Test.ID)].Value));
                             }
                             SavedTests.Save(TestPath);
-                            MessageServices.ShowInformationMessage("Test Doshico", $"Test Doshici per il Cliente {cliente.NomeCognome} eliminati!");
+                            await MessageServices.ShowInformationMessage("Test Doshico", $"Test Doshici per il Cliente {cliente.NomeCognome} eliminati!");
                         }
                     }
-                    MessageServices.ShowInformationMessage("Test Doshico", $"Cliente {cliente.NomeCognome} eliminato!");
+                    await MessageServices.ShowInformationMessage("Test Doshico", $"Cliente {cliente.NomeCognome} eliminato!");
                 }
             }
             catch(Exception ex)
             {
-                MessageServices.ShowErrorMessage("TestDoshico", $"Errore grave durante l'eliminazione del Cliente {cliente.NomeCognome}!", ex);
+                await MessageServices.ShowErrorMessage("TestDoshico", $"Errore grave durante l'eliminazione del Cliente {cliente.NomeCognome}!", ex);
             }
         }
 
@@ -254,15 +254,15 @@ namespace Data.Services
             SavedTests.Save(TestPath);
         }
 
-        public static bool AggiornaCliente(Cliente cliente)
+        public static async Task<bool> AggiornaCliente(Cliente cliente)
         {
             XmlNode existingClienteNode = SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{cliente.ID}']");
-            return AggiornaClienteInternal(cliente, existingClienteNode);
+            return await AggiornaClienteInternal(cliente, existingClienteNode);
         }
 
-        private static bool AggiornaClienteInternal(Cliente cliente, XmlNode existingClienteNode)
+        private static async Task<bool> AggiornaClienteInternal(Cliente cliente, XmlNode existingClienteNode)
         {
-                XmlElement newClienteNode = Cliente.ToXML(cliente, ref SavedClienti);
+                XmlElement newClienteNode = await Cliente.ToXML(cliente, SavedClienti);
                 if (newClienteNode != null)
                 {
                     XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
@@ -274,15 +274,15 @@ namespace Data.Services
                     return false;
         }
 
-        public static bool AggiornaTest(Test test)
+        public static async Task<bool> AggiornaTest(Test test)
         {
             XmlNode existingTestNode = SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{test.ID}']");
-            return AggiornaTestInternal(test, existingTestNode);
+            return await AggiornaTestInternal(test, existingTestNode);
         }
 
-        private static bool AggiornaTestInternal(Test test, XmlNode existingTestNode)
+        private static async Task<bool> AggiornaTestInternal(Test test, XmlNode existingTestNode)
         {
-            XmlElement newTestNode = Test.ToXML(test, ref SavedTests);
+            XmlElement newTestNode = await Test.ToXML(test, SavedTests);
             if (newTestNode != null)
             {
                 XmlNode importedTestNode = SavedTests.DocumentElement.OwnerDocument.ImportNode(newTestNode, true);

@@ -47,12 +47,20 @@ namespace TestDoshico.ViewModels.Tests
             EditTestCommand = new BaseCommand(EditTestButtonPressed);
         }
 
-        private void CercaButtonPressed(object obj)
+        private async void CercaButtonPressed(object obj)
         {
-            if(!String.IsNullOrEmpty(Filtro))
-                ListaTests = DataManager.GetAllTests().Where(w=>DataManager.GetClienteByID(w.IDCliente).NomeCognome.ToLower().Contains(Filtro.ToLower())).ToList();
+            if (!String.IsNullOrEmpty(Filtro))
+            {
+                IList<Test> lst = await DataManager.GetAllTests();
+                foreach(Test t in lst)
+                {
+                    Cliente c = await DataManager.GetClienteByID(t.IDCliente);
+                    if (c.NomeCognome.ToLower().Contains(Filtro.ToLower()))
+                        ListaTests.Add(t);
+                }
+            }
             else
-                ListaTests = DataManager.GetAllTests();
+                ListaTests = await DataManager.GetAllTests();
         }
 
         private async void EliminaTestButtonPressed(object obj)
@@ -71,18 +79,18 @@ namespace TestDoshico.ViewModels.Tests
                         CollectionViewSource.GetDefaultView(ListaTests).Refresh();
                     }
                     else
-                        MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'eliminazione del Test selezionato!");
+                        await MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'eliminazione del Test selezionato!");
                 }
                 else
-                    MessageServices.ShowInformationMessage("Test Doshico", "Eliminazione annullata!");
+                    await MessageServices.ShowInformationMessage("Test Doshico", "Eliminazione annullata!");
             }
             catch (Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'eliminazione del Test selezionato!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'eliminazione del Test selezionato!", ex);
             }
         }
 
-        private void EditTestButtonPressed(object obj)
+        private async void EditTestButtonPressed(object obj)
         {
             try
             {
@@ -102,11 +110,11 @@ namespace TestDoshico.ViewModels.Tests
                     CollectionViewSource.GetDefaultView(ListaTests).Refresh();
                 }
                 else
-                    MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'apertura della finestra di modifica!");
+                    await MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'apertura della finestra di modifica!");
             }
             catch (Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'apertura della finestra di modifica!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'apertura della finestra di modifica!", ex);
             }
         }
     }

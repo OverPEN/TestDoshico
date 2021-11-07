@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace Data.Models
@@ -82,7 +83,7 @@ namespace Data.Models
             }
         }
 
-        public static XmlElement ToXML(Cliente cliente, ref XmlDocument xmlDocument)
+        public static async Task<XmlElement> ToXML(Cliente cliente, XmlDocument xmlDocument)
         {
             if(cliente != null && xmlDocument != null)
             {
@@ -103,18 +104,18 @@ namespace Data.Models
                 }
                 catch (Exception ex)
                 {
-                    MessageServices.ShowErrorMessage("Test Doshico", "Errore nella serializzazione dei dati Cliente!", ex);
+                    await MessageServices.ShowErrorMessage("Test Doshico", "Errore nella serializzazione dei dati Cliente!", ex);
                     return null;
                 }
             }
             else
             {
-                MessageServices.ShowWarningMessage("Test Doshico", "Impossibile serializzare i Dati Cliente: Cliente o Percorso di Salvataggio non validi!");
+                await MessageServices.ShowWarningMessage("Test Doshico", "Impossibile serializzare i Dati Cliente: Cliente o Percorso di Salvataggio non validi!");
                 return null;
             }
         }
 
-        public static Cliente FromXML(XmlElement clienteElement)
+        public static async Task<Cliente> FromXML(XmlElement clienteElement)
         {
             if (clienteElement != null & clienteElement.HasChildNodes)
             {
@@ -141,13 +142,13 @@ namespace Data.Models
                 }
                 catch(Exception ex)
                 {
-                    MessageServices.ShowErrorMessage("Test Doshico", "Errore nella deserializzazione dei dati Cliente!", ex);
+                    await MessageServices.ShowErrorMessage("Test Doshico", "Errore nella deserializzazione dei dati Cliente!", ex);
                     return null;
                 }
             }
             else
             {
-                MessageServices.ShowWarningMessage("Test Doshico", "Nodo Cliente vuoto, impossibile deserializzare!");
+                await MessageServices.ShowWarningMessage("Test Doshico", "Nodo Cliente vuoto, impossibile deserializzare!");
                 return null;
             }
         }

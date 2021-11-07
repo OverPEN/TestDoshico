@@ -47,12 +47,15 @@ namespace TestDoshico.ViewModels.Clienti
             EditClienteCommand = new BaseCommand(EditClienteButtonPressed);
         }
 
-        private void CercaButtonPressed(object obj)
+        private async void CercaButtonPressed(object obj)
         {
-            if(!String.IsNullOrEmpty(Filtro))
-                ListaClienti = DataManager.GetAllClienti().Where(w=>w.NomeCognome.ToLower().Contains(Filtro.ToLower())).ToList();
+            if (!String.IsNullOrEmpty(Filtro))
+            {
+                IList<Cliente> lst = await DataManager.GetAllClienti();
+                ListaClienti = lst.Where(w => w.NomeCognome.ToLower().Contains(Filtro.ToLower())).ToList();
+            }
             else
-                ListaClienti = DataManager.GetAllClienti();
+                ListaClienti = await DataManager.GetAllClienti();
         }
         
         private async void EliminaClienteButtonPressed(object obj)
@@ -71,18 +74,18 @@ namespace TestDoshico.ViewModels.Clienti
                         CollectionViewSource.GetDefaultView(ListaClienti).Refresh();
                     }
                     else
-                        MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'eliminazione del Cliente selezionato!");
+                        await MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'eliminazione del Cliente selezionato!");
                 }
                 else
-                    MessageServices.ShowInformationMessage("Test Doshico", "Eliminazione annullata!");
+                    await MessageServices.ShowInformationMessage("Test Doshico", "Eliminazione annullata!");
             }
             catch (Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'eliminazione del Cliente selezionato!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'eliminazione del Cliente selezionato!", ex);
             }
         }
 
-        private void EditClienteButtonPressed(object obj)
+        private async void EditClienteButtonPressed(object obj)
         {
             try
             {
@@ -100,11 +103,11 @@ namespace TestDoshico.ViewModels.Clienti
                     datiClienteWindow.ShowDialog();
                 }
                 else
-                    MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'apertura della finestra di modifica!");
+                    await MessageServices.ShowWarningMessage("Test Doshico", "Errore durante l'apertura della finestra di modifica!");
             }
             catch (Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'apertura della finestra di modifica!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante l'apertura della finestra di modifica!", ex);
             }
         }
     }

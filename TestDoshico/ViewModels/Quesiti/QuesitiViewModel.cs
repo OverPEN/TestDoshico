@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using TestDoshico.Views.Quesiti;
@@ -111,7 +112,7 @@ namespace TestDoshico.ViewModels.Quesiti
             IndietroCommand = new BaseCommand(IndietroButtonPressed);
             Cliente = new Cliente();
             TestDoshico = new Test();
-            ListaClienti = DataManager.GetAllClienti();
+            ListaClienti = DataManager.GetAllClienti().Result;
         }
 
         public QuesitiViewModel(ref Test test)
@@ -122,9 +123,9 @@ namespace TestDoshico.ViewModels.Quesiti
             AnnullaSelezioneCommand = new BaseCommand(AnnullaSelezioneButtonPressed);
             SelectedItemChangedCommand = new BaseCommand(SelectedItemChangedFired);
             IndietroCommand = new BaseCommand(IndietroButtonPressed);
-            Cliente = DataManager.GetClienteByID(test.IDCliente) != null ? DataManager.GetClienteByID(test.IDCliente) : new Cliente();
+            Cliente = DataManager.GetClienteByID(test.IDCliente) != null ? DataManager.GetClienteByID(test.IDCliente).Result : new Cliente();
             TestDoshico = test;
-            ListaClienti = DataManager.GetAllClienti();
+            ListaClienti = DataManager.GetAllClienti().Result;
             Prakriti = test.QuesitiPrakriti;
             Vikriti = test.QuesitiVikriti;
             Mente = test.QuesitiMente;
@@ -144,7 +145,7 @@ namespace TestDoshico.ViewModels.Quesiti
                 CanAnnullaSelezione = false;
         }
 
-        private bool CanUseButton(object obj)
+        private async Task<bool> CanUseButton(object obj)
         {
             bool result = true;
             try
@@ -222,11 +223,11 @@ namespace TestDoshico.ViewModels.Quesiti
                 }
 
                 if (errorMessage != String.Empty)
-                    MessageServices.ShowWarningMessage("Test Doshico", errorMessage);
+                    await MessageServices.ShowWarningMessage("Test Doshico", errorMessage);
             }
             catch(Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nella validazione campi!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nella validazione campi!", ex);
                 return false;
             }
             return result;
@@ -236,7 +237,7 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             try
             {
-                if(CanUseButton(obj))
+                if(await CanUseButton(obj))
                 {
                     Page page = obj as Page;
                     if (page != null)
@@ -278,12 +279,12 @@ namespace TestDoshico.ViewModels.Quesiti
                         }
                     }
                     else
-                        MessageServices.ShowWarningMessage("Test Doshico", "Errore durante il cambio pagina del Test Doshico");
+                        await MessageServices.ShowWarningMessage("Test Doshico", "Errore durante il cambio pagina del Test Doshico");
                 }
             }
             catch(Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante il cambio pagina del Test Doshico!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante il cambio pagina del Test Doshico!", ex);
             }
         }
 
@@ -291,7 +292,7 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             try
             {
-                if (CanUseButton(obj))
+                if (await CanUseButton (obj))
                 {
                     Page page = obj as Page;
                     if (page != null)
@@ -328,26 +329,26 @@ namespace TestDoshico.ViewModels.Quesiti
                         else if (page.GetType() == typeof(QuesitiEmozioni))
                         {
                             TestDoshico.QuesitiEmozioni = Emozioni;
-                            DataManager.AggiornaTest(TestDoshico);
+                            await DataManager.AggiornaTest(TestDoshico);
                             Window.GetWindow(page).Close();
                             //GraficoComplessivoButtonPressed(page);
                         }
                     }
                     else
-                        MessageServices.ShowWarningMessage("Test Doshico", "Errore durante il cambio pagina del Test Doshico");
+                        await MessageServices.ShowWarningMessage("Test Doshico", "Errore durante il cambio pagina del Test Doshico");
                 }
             }
             catch (Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante il cambio pagina del Test Doshico!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante il cambio pagina del Test Doshico!", ex);
             }
         }
 
-        private void GraficoButtonPressed(object obj)
+        private async void GraficoButtonPressed(object obj)
         {
             try
             {
-                if (CanUseButton(obj))
+                if (await CanUseButton (obj))
                 {
                     Page page = obj as Page;
                     if (page != null)
@@ -367,20 +368,20 @@ namespace TestDoshico.ViewModels.Quesiti
                         grafico.Show();
                     }
                     else
-                        MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
+                        await MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
                 }
             }
             catch(Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nell'apertura del grafico!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nell'apertura del grafico!", ex);
             }
         }
 
-        private void GraficoComplessivoButtonPressed(object obj)
+        private async void GraficoComplessivoButtonPressed(object obj)
         {
             try
             {
-                if (CanUseButton(obj))
+                if (await CanUseButton (obj))
                 {
                     Page page = obj as Page;
                     if (page != null)
@@ -396,12 +397,12 @@ namespace TestDoshico.ViewModels.Quesiti
                         grafico.Show();
                     }
                     else
-                        MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
+                        await MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
                 }
             }
             catch (Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nell'apertura del grafico!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nell'apertura del grafico!", ex);
             }
         }
 
@@ -412,7 +413,7 @@ namespace TestDoshico.ViewModels.Quesiti
             Cliente = new Cliente();
         }
 
-        private void IndietroButtonPressed(object obj)
+        private async void IndietroButtonPressed(object obj)
         {
             try
             {
@@ -449,11 +450,11 @@ namespace TestDoshico.ViewModels.Quesiti
                     }
                 }
                 else
-                    MessageServices.ShowWarningMessage("Test Doshico", "Errore durante il cambio pagina del Test Doshico");
+                    await MessageServices.ShowWarningMessage("Test Doshico", "Errore durante il cambio pagina del Test Doshico");
             }
             catch (Exception ex)
             {
-                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante il cambio pagina del Test Doshico!", ex);
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante il cambio pagina del Test Doshico!", ex);
             }
         }
     }

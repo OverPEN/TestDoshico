@@ -10,7 +10,7 @@ namespace Data.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             Guid id = value != null ? Guid.Parse(value.ToString()) : Guid.Empty;
-            return DataManager.GetClienteByID(id).NomeCognome;
+            return DataManager.GetClienteByID(id).Result.NomeCognome;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
