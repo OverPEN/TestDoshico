@@ -109,5 +109,41 @@ namespace Data.Models
                 return null;
             }
         }
+
+        public static bool CompareTests(Test test1, Test test2)
+        {
+            List<PropertyInfo> props = typeof(Test).GetProperties().Where(w => w.PropertyType != typeof(Guid)).ToList();
+            foreach (PropertyInfo prop in props)
+            {
+                if(prop.PropertyType == typeof(DateTime))
+                {
+                    if (prop.GetValue(test1).ToString() != prop.GetValue(test2).ToString())
+                        return false;
+                }
+                else
+                {
+                    switch (prop.Name)
+                    {
+                        case nameof(QuesitiPrakriti):
+                            if (!Prakriti.CompareQuesiti(prop.GetValue(test1), prop.GetValue(test2)))
+                                return false;
+                            break;
+                        case nameof(QuesitiVikriti):
+                            if (!Prakriti.CompareQuesiti(prop.GetValue(test1), prop.GetValue(test2)))
+                                return false;
+                            break;
+                        case nameof(QuesitiMente):
+                            if (!Prakriti.CompareQuesiti(prop.GetValue(test1), prop.GetValue(test2)))
+                                return false;
+                            break;
+                        case nameof(QuesitiEmozioni):
+                            if (!Prakriti.CompareQuesiti(prop.GetValue(test1), prop.GetValue(test2)))
+                                return false;
+                            break;
+                    }
+                }
+            }
+            return true;
+        }
     }
 }

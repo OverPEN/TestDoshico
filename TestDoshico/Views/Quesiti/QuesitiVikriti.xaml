@@ -121,7 +121,7 @@
         <ComboBox Grid.Row="15" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Vikriti.Articolazioni}"/>
         <ui:SimpleStackPanel Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
             <TextBlock Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.Quesiti_Tot}" AutomationProperties.IsRowHeader="True"/>
-            <TextBlock Style="{StaticResource GridTextBlock}" Text="{Binding Prakriti.TotDosha}"/>
+            <TextBlock Style="{StaticResource GridTextBlock}" Text="{Binding Vikriti.TotDosha}"/>
         </ui:SimpleStackPanel>
         <ui:SimpleStackPanel Grid.Row="16" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{x:Static prop:Resources.BtnGrafico}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding GraficoCommand}" CommandParameter="{Binding ElementName=QuesitiVikritiPage}"/>

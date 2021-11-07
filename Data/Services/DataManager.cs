@@ -61,9 +61,15 @@ namespace Data.Services
                             try
                             {
                                 if(AggiornaClienteInternal(cliente, existingClienteNode))
+                                {
                                     MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Dati Cliente di {cliente.NomeCognome} aggiornati!");
+                                    return true;
+                                }
                                 else
+                                {
                                     MessageServices.ShowWarningMessage("Salvataggio Cliente", $"Errore durante l'aggiornamento dei dati Cliente di {cliente.NomeCognome}!");
+                                    return false;
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -113,36 +119,38 @@ namespace Data.Services
                 XmlNode existingTestNode = SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{test.ID}']");
                 if (existingTestNode != null)
                 {
-                    if (await MessageServices.ShowYesNoMessage("Salvataggio Test Doshico", "Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", ModernWpf.Controls.ContentDialogButton.Close))
+                    Test existingTest = Test.FromXML(existingTestNode as XmlElement);
+                    if (!Test.CompareTests(existingTest, test))
                     {
-                        try
+                        if (await MessageServices.ShowYesNoMessage("Salvataggio Test Doshico", "Test già presente nel sistema!" + Environment.NewLine + "Aggiornare il Test con i nuovi dati?", ModernWpf.Controls.ContentDialogButton.Close))
                         {
-                            XmlElement newTest = Test.ToXML(test, ref SavedTests);
-                            if(newTest != null)
+                            try
                             {
-                                XmlNode importedTestNode = SavedTests.DocumentElement.OwnerDocument.ImportNode(newTest, true);
-                                SavedTests.DocumentElement.ReplaceChild(importedTestNode, existingTestNode);
-                                SavedTests.Save(TestPath);
-                                MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Test Doshico Aggiornato!");
-                                return true;
+                                if (AggiornaTestInternal(test, existingTestNode))
+                                {
+                                    MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Test Doshico Aggiornato!");
+                                    return true;
+                                }
+                                else
+                                {
+                                    MessageServices.ShowWarningMessage("Salvataggio Test Doshico", "Impossibile salvare il Test Doshico!");
+                                    return false;
+                                }
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                MessageServices.ShowWarningMessage("Salvataggio Test Doshico", "Impossibile salvare il Test Doshico!");
+                                MessageServices.ShowErrorMessage("Salvataggio Test Doshico", "Errore nell'aggiornamento del Test Doshico!", ex);
                                 return false;
                             }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            MessageServices.ShowErrorMessage("Salvataggio Test Doshico", "Errore nell'aggiornamento del Test Doshico!", ex);
-                            return false;
+                            MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Operazione annullata!");
+                            return true;
                         }
                     }
                     else
-                    {
-                        MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Operazione annullata!");
                         return true;
-                    }
                 }
                 else
                 {
@@ -264,6 +272,26 @@ namespace Data.Services
                 }
                 else
                     return false;
+        }
+
+        public static bool AggiornaTest(Test test)
+        {
+            XmlNode existingTestNode = SavedTests.DocumentElement.SelectSingleNode($"{nameof(Test)}[@{nameof(Test.ID)}='{test.ID}']");
+            return AggiornaTestInternal(test, existingTestNode);
+        }
+
+        private static bool AggiornaTestInternal(Test test, XmlNode existingTestNode)
+        {
+            XmlElement newTestNode = Test.ToXML(test, ref SavedTests);
+            if (newTestNode != null)
+            {
+                XmlNode importedTestNode = SavedTests.DocumentElement.OwnerDocument.ImportNode(newTestNode, true);
+                SavedTests.DocumentElement.ReplaceChild(importedTestNode, existingTestNode);
+                SavedTests.Save(TestPath);
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

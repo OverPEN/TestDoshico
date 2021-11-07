@@ -115,5 +115,16 @@ namespace Data.Interfaces
         {
             return TotDosha;
         }
+
+        public static bool CompareQuesiti<T>(T quesito1, T quesito2)
+        {
+            List<PropertyInfo> props = typeof(T).GetProperties().Where(w => w.PropertyType != typeof(Guid)).ToList();
+            foreach (PropertyInfo prop in props)
+            {
+                if (prop.GetValue(quesito1).ToString() != prop.GetValue(quesito2).ToString())
+                    return false;
+            }
+            return true;
+        }
     }
 }

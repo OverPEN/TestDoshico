@@ -114,6 +114,23 @@ namespace TestDoshico.ViewModels.Quesiti
             ListaClienti = DataManager.GetAllClienti();
         }
 
+        public QuesitiViewModel(ref Test test)
+        {
+            AvantiCommand = new BaseCommand(AvantiUpdateButtonPressed);
+            GraficoCommand = new BaseCommand(GraficoButtonPressed);
+            GraficoComplessivoCommand = new BaseCommand(GraficoComplessivoButtonPressed);
+            AnnullaSelezioneCommand = new BaseCommand(AnnullaSelezioneButtonPressed);
+            SelectedItemChangedCommand = new BaseCommand(SelectedItemChangedFired);
+            IndietroCommand = new BaseCommand(IndietroButtonPressed);
+            Cliente = DataManager.GetClienteByID(test.IDCliente) != null ? DataManager.GetClienteByID(test.IDCliente) : new Cliente();
+            TestDoshico = test;
+            ListaClienti = DataManager.GetAllClienti();
+            Prakriti = test.QuesitiPrakriti;
+            Vikriti = test.QuesitiVikriti;
+            Mente = test.QuesitiMente;
+            Emozioni = test.QuesitiEmozioni;
+        }
+
         public void SelectedItemChangedFired(object obj)
         {
             SelectionChangedEventArgs eventArgs = (SelectionChangedEventArgs)obj;
@@ -265,6 +282,62 @@ namespace TestDoshico.ViewModels.Quesiti
                 }
             }
             catch(Exception ex)
+            {
+                MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante il cambio pagina del Test Doshico!", ex);
+            }
+        }
+
+        private async void AvantiUpdateButtonPressed(object obj)
+        {
+            try
+            {
+                if (CanUseButton(obj))
+                {
+                    Page page = obj as Page;
+                    if (page != null)
+                    {
+                        if (page.GetType() == typeof(DatiPersonali))
+                        {
+                            await DataManager.WriteClienteToXMLFile(cliente);
+                            TestDoshico.IDCliente = Cliente.ID;
+                            if (Prakriti == null)
+                                Prakriti = new Prakriti();
+                            page.NavigationService.Navigate(new QuesitiPrakriti(this));
+                        }
+                        else if (page.GetType() == typeof(QuesitiPrakriti))
+                        {
+                            TestDoshico.QuesitiPrakriti = Prakriti;
+                            if (Vikriti == null)
+                                Vikriti = new Vikriti();
+                            page.NavigationService.Navigate(new QuesitiVikriti(this));
+                        }
+                        else if (page.GetType() == typeof(QuesitiVikriti))
+                        {
+                            TestDoshico.QuesitiVikriti = Vikriti;
+                            if (Mente == null)
+                                Mente = new Mente();
+                            page.NavigationService.Navigate(new QuesitiMente(this));
+                        }
+                        else if (page.GetType() == typeof(QuesitiMente))
+                        {
+                            TestDoshico.QuesitiMente = Mente;
+                            if (Emozioni == null)
+                                Emozioni = new Emozioni();
+                            page.NavigationService.Navigate(new QuesitiEmozioni(this));
+                        }
+                        else if (page.GetType() == typeof(QuesitiEmozioni))
+                        {
+                            TestDoshico.QuesitiEmozioni = Emozioni;
+                            DataManager.AggiornaTest(TestDoshico);
+                            Window.GetWindow(page).Close();
+                            //GraficoComplessivoButtonPressed(page);
+                        }
+                    }
+                    else
+                        MessageServices.ShowWarningMessage("Test Doshico", "Errore durante il cambio pagina del Test Doshico");
+                }
+            }
+            catch (Exception ex)
             {
                 MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante il cambio pagina del Test Doshico!", ex);
             }
