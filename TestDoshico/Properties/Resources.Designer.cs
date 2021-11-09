@@ -19,7 +19,7 @@ namespace TestDoshico.Properties {
     // tramite uno strumento quale ResGen o Visual Studio.
     // Per aggiungere o rimuovere un membro, modificare il file con estensione ResX ed eseguire nuovamente ResGen
     // con l'opzione /str oppure ricompilare il progetto VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -238,6 +238,16 @@ namespace TestDoshico.Properties {
         public static string ListaTests_Titolo {
             get {
                 return ResourceManager.GetString("ListaTests_Titolo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Icon simile a (Icona).
+        /// </summary>
+        public static System.Drawing.Icon PieIcon {
+            get {
+                object obj = ResourceManager.GetObject("PieIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -1984,6 +1994,16 @@ namespace TestDoshico.Properties {
         public static string SelezionaClienteEsistente {
             get {
                 return ResourceManager.GetString("SelezionaClienteEsistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Icon simile a (Icona).
+        /// </summary>
+        public static System.Drawing.Icon UsersIcon {
+            get {
+                object obj = ResourceManager.GetObject("UsersIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

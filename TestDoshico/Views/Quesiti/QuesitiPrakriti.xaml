@@ -29,11 +29,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MaxWidth="250"/>
-            <ColumnDefinition MaxWidth="250"/>
-            <ColumnDefinition MaxWidth="250"/>
-            <ColumnDefinition MaxWidth="250"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition MinWidth="100"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt1_PrakritiHeader}" AutomationProperties.IsColumnHeader="True"/>
         <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_VataHeader}"  FontWeight="Bold" AutomationProperties.IsColumnHeader="True"/>
@@ -106,8 +106,8 @@
         </ui:SimpleStackPanel>
         <ui:SimpleStackPanel Grid.Row="13" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{x:Static prop:Resources.BtnGrafico}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding GraficoCommand}" CommandParameter="{Binding ElementName=QuesitiPrakritiPage}"/>
-            <Button Content="{x:Static prop:Resources.BtnIndietro}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding IndietroCommand}" CommandParameter="{Binding ElementName=QuesitiPrakritiPage}"/>
-            <Button Content="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=QuesitiPrakritiPage}"/>
+            <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnIndietro}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding IndietroCommand}" CommandParameter="{Binding ElementName=QuesitiPrakritiPage}" IsCompact="True" Icon="Back" Height="30"/>
+            <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=QuesitiPrakritiPage}" IsCompact="True" Icon="Forward" Height="30"/>
         </ui:SimpleStackPanel>
     </Grid>
 </ui:Page>

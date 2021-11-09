@@ -33,11 +33,11 @@
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition MaxWidth="250"/>
-            <ColumnDefinition MaxWidth="250"/>
-            <ColumnDefinition MaxWidth="250"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition MinWidth="100"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt2_VikritiHeader}" AutomationProperties.IsColumnHeader="True"/>
         <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_VataHeader}"  FontWeight="Bold" AutomationProperties.IsColumnHeader="True"/>
@@ -125,8 +125,8 @@
         </ui:SimpleStackPanel>
         <ui:SimpleStackPanel Grid.Row="16" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{x:Static prop:Resources.BtnGrafico}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding GraficoCommand}" CommandParameter="{Binding ElementName=QuesitiVikritiPage}"/>
-            <Button Content="{x:Static prop:Resources.BtnIndietro}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding IndietroCommand}" CommandParameter="{Binding ElementName=QuesitiVikritiPage}"/>
-            <Button Content="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=QuesitiVikritiPage}"/>
+            <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnIndietro}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding IndietroCommand}" CommandParameter="{Binding ElementName=QuesitiVikritiPage}" IsCompact="True" Height="30" Icon="Back"/>
+            <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=QuesitiVikritiPage}" IsCompact="True" Height="30" Icon="Forward"/>
         </ui:SimpleStackPanel>
     </Grid>
 </ui:Page>

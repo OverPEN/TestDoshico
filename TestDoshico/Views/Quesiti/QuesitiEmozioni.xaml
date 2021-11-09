@@ -28,11 +28,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MaxWidth="300"/>
-            <ColumnDefinition MaxWidth="300"/>
-            <ColumnDefinition MaxWidth="300"/>
-            <ColumnDefinition MaxWidth="300"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition MinWidth="100"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt4_EmozioniHeader}" AutomationProperties.IsColumnHeader="True"/>
         <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_VataHeader}"  FontWeight="Bold" AutomationProperties.IsColumnHeader="True"/>
@@ -101,8 +101,8 @@
         <ui:SimpleStackPanel Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{x:Static prop:Resources.BtnGraficoComplessivo}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding GraficoComplessivoCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
             <Button Content="{x:Static prop:Resources.BtnGrafico}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding GraficoCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
-            <Button Content="{x:Static prop:Resources.BtnIndietro}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding IndietroCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
-            <Button Content="{x:Static prop:Resources.BtnFine}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}"/>
+            <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnIndietro}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding IndietroCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}" IsCompact="True" Height="30" Icon="Back"/>
+            <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnFine}" VerticalAlignment="Bottom" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=QuesitiEmozioniPage}" IsCompact="True" Height="30" Icon="Save"/>
         </ui:SimpleStackPanel>
     </Grid>
 </ui:Page>

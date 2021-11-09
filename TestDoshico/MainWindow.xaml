@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
-        Title="Test Doshico" Height="Auto" Width="Auto">
+        Title="Test Doshico" Height="Auto" Width="Auto" Icon="/Resources/ApplicationIcon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,9 +16,9 @@
         </Grid.RowDefinitions>
         <ui:NavigationView Grid.Row="0" PaneDisplayMode="Top" SelectionChanged="NavigationView_SelectionChanged" ItemInvoked="NavigationView_ItemInvoked" IsSettingsVisible="False" IsBackButtonVisible="Collapsed">
             <ui:NavigationView.MenuItems>
-                <ui:NavigationViewItem Content="Nuovo Test Doshico" x:Name="bt_NuovoTest"/>
-                <ui:NavigationViewItem Content="Clienti Registrati" x:Name="bt_ListaClienti"/>
-                <ui:NavigationViewItem Content="Test Effettuati" x:Name="bt_ListaTest"/>
+                <ui:NavigationViewItem Content="Nuovo Test Doshico" x:Name="bt_NuovoTest" Icon="Add"/>
+                <ui:NavigationViewItem Content="Clienti Registrati" x:Name="bt_ListaClienti" Icon="People"/>
+                <ui:NavigationViewItem Content="Test Effettuati" x:Name="bt_ListaTest" Icon="AllApps"/>
             </ui:NavigationView.MenuItems>
         </ui:NavigationView>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10,0,10,10">

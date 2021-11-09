@@ -242,6 +242,7 @@ namespace TestDoshico.ViewModels.Quesiti
                     Page page = obj as Page;
                     if (page != null)
                     {
+                        MainWindow mainWindow = Window.GetWindow(page) as MainWindow;
                         if (page.GetType() == typeof(DatiPersonali))
                         {
                             await DataManager.WriteClienteToXMLFile(cliente);
@@ -275,7 +276,8 @@ namespace TestDoshico.ViewModels.Quesiti
                         {
                             TestDoshico.QuesitiEmozioni = Emozioni;
                             await DataManager.WriteTestToXMLFile(TestDoshico);
-                            //GraficoComplessivoButtonPressed(page);
+                            if (await MessageServices.ShowYesNoMessage("Test Doshico", "Chiudere il Test Doshico appena inserito?", ModernWpf.Controls.ContentDialogButton.Primary))
+                                mainWindow.Main.Content = null;
                         }
                     }
                     else

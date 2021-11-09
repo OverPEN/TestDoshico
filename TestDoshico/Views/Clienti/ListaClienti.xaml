@@ -25,28 +25,28 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <TextBox Text="{Binding Filtro}" MinWidth="100"/>
-            <Button Content="{x:Static prop:Resources.BtnCerca}" Command="{Binding CercaCommand}"/>
+            <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnCerca}" Command="{Binding CercaCommand}" Icon="Find" IsCompact="True" Height="30"/>
         </StackPanel>
         <DataGrid Grid.Row="2" ItemsSource="{Binding ListaClienti, Mode=TwoWay}" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button ToolTip="Elimina Cliente" Content="Elimina" Command="{Binding DataContext.EliminaClienteCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=ID}"/>
+                            <ui:AppBarButton ToolTip="Elimina Cliente" Content="Elimina" Command="{Binding DataContext.EliminaClienteCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=ID}" Icon="Delete" IsCompact="True" Height="30"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button ToolTip="Modifica Dati Cliente" Content="Modifica" Command="{Binding DataContext.EditClienteCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}">
+                            <ui:AppBarButton ToolTip="Modifica Dati Cliente" Content="Modifica" Command="{Binding DataContext.EditClienteCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" Icon="Edit" IsCompact="True" Height="30">
                                 <Button.CommandParameter>
                                     <MultiBinding Converter="{StaticResource MultiBindingConverter}">
                                         <Binding Path="ID"/>
                                         <Binding ElementName="ListaClientiPage"/>
                                     </MultiBinding>
                                 </Button.CommandParameter>
-                            </Button>
+                            </ui:AppBarButton>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

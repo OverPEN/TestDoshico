@@ -26,28 +26,28 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <TextBox Text="{Binding Filtro}" MinWidth="100"/>
-            <Button Content="{x:Static prop:Resources.BtnCerca}" Command="{Binding CercaCommand}"/>
+            <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnCerca}" Command="{Binding CercaCommand}" Icon="Find" Height="30" IsCompact="True"/>
         </StackPanel>
         <DataGrid Grid.Row="2" ItemsSource="{Binding ListaTests}" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button ToolTip="Elimina Test" Content="Elimina" Command="{Binding DataContext.EliminaTestCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=ID}"/>
+                            <ui:AppBarButton ToolTip="Elimina Test" Command="{Binding DataContext.EliminaTestCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=ID}" Icon="Delete"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button ToolTip="Modifica Test" Content="Modifica" Command="{Binding DataContext.EditTestCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}">
+                            <ui:AppBarButton ToolTip="Modifica Test" Content="Modifica" Command="{Binding DataContext.EditTestCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" Icon="Edit">
                                 <Button.CommandParameter>
                                     <MultiBinding Converter="{StaticResource MultiBindingConverter}">
                                         <Binding Path="ID"/>
                                         <Binding ElementName="ListaTestsPage"/>
                                     </MultiBinding>
                                 </Button.CommandParameter>
-                            </Button>
+                            </ui:AppBarButton>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
