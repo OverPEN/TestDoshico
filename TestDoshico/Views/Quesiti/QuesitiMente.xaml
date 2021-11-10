@@ -81,7 +81,11 @@
             <TextBlock Style="{StaticResource GridTextBlock}" Text="{Binding Mente.TotDosha}"/>
         </ui:SimpleStackPanel>
         <ui:SimpleStackPanel Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Content="{x:Static prop:Resources.BtnGrafico}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding GraficoCommand}" CommandParameter="{Binding ElementName=QuesitiMentePage}"/>
+            <ui:AppBarButton Content="{x:Static prop:Resources.BtnGrafico}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding GraficoCommand}" CommandParameter="{Binding ElementName=QuesitiMentePage}" IsCompact="True" Height="30">
+                <ui:AppBarButton.Icon>
+                    <ui:BitmapIcon UriSource="pack://application:,,,/TestDoshico;component/Resources/PieIcon.png"/>
+                </ui:AppBarButton.Icon>
+            </ui:AppBarButton>
             <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnIndietro}" VerticalAlignment="Bottom" Margin="0,0,10,0" Command="{Binding IndietroCommand}" CommandParameter="{Binding ElementName=QuesitiMentePage}" IsCompact="True" Height="30" Icon="Back"/>
             <ui:AppBarButton ToolTip="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=QuesitiMentePage}" IsCompact="True" Height="30" Icon="Forward"/>
         </ui:SimpleStackPanel>

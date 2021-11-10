@@ -242,12 +242,12 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
-        ///   Cerca una risorsa localizzata di tipo System.Drawing.Icon simile a (Icona).
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Icon PieIcon {
+        public static System.Drawing.Bitmap PieIcon {
             get {
                 object obj = ResourceManager.GetObject("PieIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1998,12 +1998,12 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
-        ///   Cerca una risorsa localizzata di tipo System.Drawing.Icon simile a (Icona).
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Icon UsersIcon {
+        public static System.Drawing.Bitmap TotalPieIcon {
             get {
-                object obj = ResourceManager.GetObject("UsersIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("TotalPieIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
