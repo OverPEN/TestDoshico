@@ -33,14 +33,14 @@
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ui:AppBarButton ToolTip="Elimina Test" Command="{Binding DataContext.EliminaTestCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=ID}" Icon="Delete"/>
+                            <ui:AppBarButton ToolTip="Elimina Test" Command="{Binding DataContext.EliminaTestCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=ID}" Icon="Delete" Height="30"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ui:AppBarButton ToolTip="Modifica Test" Content="Modifica" Command="{Binding DataContext.EditTestCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" Icon="Edit">
+                            <ui:AppBarButton ToolTip="Modifica Test" Content="Modifica" Command="{Binding DataContext.EditTestCommand, RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}" Icon="Edit" Height="30">
                                 <Button.CommandParameter>
                                     <MultiBinding Converter="{StaticResource MultiBindingConverter}">
                                         <Binding Path="ID"/>
