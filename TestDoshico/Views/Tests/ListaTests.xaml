@@ -51,7 +51,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Data:" Binding="{Binding DataTest}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Data:" Binding="{Binding DataTest, StringFormat={}{0:dd/MM/yyyy}}" Width="Auto" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Cliente:" Binding="{Binding IDCliente, Converter={StaticResource GuidToNomeClienteConverter}}" Width="Auto" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Prakriti:" Binding="{Binding QuesitiPrakriti}" Width="Auto" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Vikriti:" Binding="{Binding QuesitiVikriti}" Width="Auto" IsReadOnly="True"/>

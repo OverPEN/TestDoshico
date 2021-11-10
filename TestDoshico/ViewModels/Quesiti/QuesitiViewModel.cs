@@ -17,6 +17,7 @@ namespace TestDoshico.ViewModels.Quesiti
     public class QuesitiViewModel : BaseNotifyPropertyChanged
     {
         #region Private Values
+        private DateTime dataTest;
         private Cliente cliente;
         private Emozioni emozioni;
         private Mente mente;
@@ -28,6 +29,15 @@ namespace TestDoshico.ViewModels.Quesiti
         #endregion
 
         #region Public Values
+        public DateTime DataTest
+        {
+            get { return this.dataTest; }
+            set
+            {
+                this.dataTest = value;
+                this.OnPropertyChanged();
+            }
+        }
         public Cliente Cliente {
             get { return this.cliente; }
             set
@@ -113,6 +123,7 @@ namespace TestDoshico.ViewModels.Quesiti
             Cliente = new Cliente();
             TestDoshico = new Test();
             ListaClienti = DataManager.GetAllClienti().Result;
+            DataTest = DateTime.Today;
         }
 
         public QuesitiViewModel(ref Test test)
@@ -130,6 +141,7 @@ namespace TestDoshico.ViewModels.Quesiti
             Vikriti = test.QuesitiVikriti;
             Mente = test.QuesitiMente;
             Emozioni = test.QuesitiEmozioni;
+            DataTest = test.DataTest;
         }
 
         public void SelectedItemChangedFired(object obj)
@@ -160,7 +172,7 @@ namespace TestDoshico.ViewModels.Quesiti
                         List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w => w.PropertyType == typeof(string) || w.PropertyType == typeof(int)).ToList();
                         foreach (PropertyInfo T in props)
                         {
-                            if (T.GetValue(Cliente) == null)
+                            if (T.GetValue(Cliente) == null || (T.PropertyType == typeof(int) && Convert.ToInt32(T.GetValue(Cliente)) == 0))
                             {
                                 var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
                                 result = false;
@@ -247,6 +259,7 @@ namespace TestDoshico.ViewModels.Quesiti
                         {
                             await DataManager.WriteClienteToXMLFile(cliente);
                             TestDoshico.IDCliente = Cliente.ID;
+                            TestDoshico.DataTest = DataTest;
                             if (Prakriti == null)
                                 Prakriti = new Prakriti();
                             page.NavigationService.Navigate(new QuesitiPrakriti(this));
@@ -303,6 +316,7 @@ namespace TestDoshico.ViewModels.Quesiti
                         {
                             await DataManager.WriteClienteToXMLFile(cliente);
                             TestDoshico.IDCliente = Cliente.ID;
+                            TestDoshico.DataTest = DataTest;
                             if (Prakriti == null)
                                 Prakriti = new Prakriti();
                             page.NavigationService.Navigate(new QuesitiPrakriti(this));

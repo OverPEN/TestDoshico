@@ -16,7 +16,7 @@ namespace Data.Models
         public Vikriti QuesitiVikriti { get; set; }
         public Mente QuesitiMente { get; set; }
         public Emozioni QuesitiEmozioni { get; set; }
-        public DateTime DataTest { get; set; } = DateTime.Now;
+        public DateTime DataTest { get; set; }
 
         public static async Task<XmlElement> ToXML(Test test, XmlDocument xmlDocument)
         {

@@ -24,6 +24,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -41,18 +42,20 @@
             </ComboBox>
             <Button Content="Annulla Selezione" Command="{Binding AnnullaSelezioneCommand}" CommandParameter="{Binding ElementName=comboBox, Mode=OneWay}" IsEnabled="{Binding CanAnnullaSelezione}"/>
         </StackPanel>
-        <Label Grid.Row="2" Content="{x:Static prop:Resources.DatiPersonali_Signora}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="2" Grid.Column="1"  Margin="0,5,0,0" Text="{Binding Cliente.NomeCognome}" AutomationProperties.IsRequiredForForm="True"/>
-        <Label Grid.Row="3" Content="{x:Static prop:Resources.DatiPersonali_Eta}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <ui:NumberBox Grid.Row="3" Grid.Column="1" Margin="0,5,0,0" Value="{Binding Cliente.Età}" AutomationProperties.IsRequiredForForm="True" SpinButtonPlacementMode="Inline"/>
-        <Label Grid.Row="4" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Costituzione}" AutomationProperties.IsRequiredForForm="True"/>
-        <Label Grid.Row="5" Content="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Squilibrio}" AutomationProperties.IsRequiredForForm="True"/>
-        <Label Grid.Row="6" Content="{x:Static prop:Resources.DatiPersonali_EvNote}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Note}" AutomationProperties.IsRequiredForForm="True"/>
-        <Label Grid.Row="7" Content="{x:Static prop:Resources.DatiPersonali_Inestetismi}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Inestetismi}" AutomationProperties.IsRequiredForForm="True"/>
-        <ui:AppBarButton Grid.Row="8"  Grid.Column="1" ToolTip="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=DatiPersonaliPage}" IsCompact="True" Icon="Forward" Height="30"/>
+        <Label Grid.Row="2" Content="{x:Static prop:Resources.DatiPersonali_Data}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <DatePicker Grid.Row="2" Grid.Column="1"  Margin="0,5,0,0" SelectedDate="{Binding DataTest}" AutomationProperties.IsRequiredForForm="True"/>
+        <Label Grid.Row="3" Content="{x:Static prop:Resources.DatiPersonali_Signora}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <TextBox Grid.Row="3" Grid.Column="1"  Margin="0,5,0,0" Text="{Binding Cliente.NomeCognome}" AutomationProperties.IsRequiredForForm="True"/>
+        <Label Grid.Row="4" Content="{x:Static prop:Resources.DatiPersonali_Eta}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <ui:NumberBox Grid.Row="4" Grid.Column="1" Margin="0,5,0,0" Value="{Binding Cliente.Età}" AutomationProperties.IsRequiredForForm="True" SpinButtonPlacementMode="Inline"/>
+        <Label Grid.Row="5" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Costituzione}" AutomationProperties.IsRequiredForForm="True"/>
+        <Label Grid.Row="6" Content="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Squilibrio}" AutomationProperties.IsRequiredForForm="True"/>
+        <Label Grid.Row="7" Content="{x:Static prop:Resources.DatiPersonali_EvNote}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Note}" AutomationProperties.IsRequiredForForm="True"/>
+        <Label Grid.Row="8" Content="{x:Static prop:Resources.DatiPersonali_Inestetismi}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <TextBox Grid.Row="8" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Inestetismi}" AutomationProperties.IsRequiredForForm="True"/>
+        <ui:AppBarButton Grid.Row="9"  Grid.Column="1" ToolTip="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=DatiPersonaliPage}" IsCompact="True" Icon="Forward" Height="30"/>
     </Grid>
 </ui:Page>
