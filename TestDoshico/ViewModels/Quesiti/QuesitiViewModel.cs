@@ -23,7 +23,9 @@ namespace TestDoshico.ViewModels.Quesiti
         private Mente mente;
         private Prakriti prakriti;
         private Vikriti vikriti;
+#pragma warning disable IDE0044 // Aggiungi modificatore readonly
         private Test TestDoshico;
+#pragma warning restore IDE0044 // Aggiungi modificatore readonly
         private IList<Cliente> listaClienti;
         private bool canAnnullaSelezione;
         #endregion
@@ -163,10 +165,9 @@ namespace TestDoshico.ViewModels.Quesiti
             bool result = true;
             try
             {
-                Page page = obj as Page;
                 string errorMessage = String.Empty;
 
-                if (page != null)
+                if (obj is Page page)
                 {
                     if (page.GetType() == typeof(DatiPersonali))
                     {
@@ -252,8 +253,7 @@ namespace TestDoshico.ViewModels.Quesiti
             {
                 if (await CanUseButton(obj))
                 {
-                    Page page = obj as Page;
-                    if (page != null)
+                    if (obj is Page page)
                     {
                         MainWindow mainWindow = Window.GetWindow(page) as MainWindow;
                         if (page.GetType() == typeof(DatiPersonali))
@@ -310,8 +310,7 @@ namespace TestDoshico.ViewModels.Quesiti
             {
                 if (await CanUseButton(obj))
                 {
-                    Page page = obj as Page;
-                    if (page != null)
+                    if (obj is Page page)
                     {
                         if (page.GetType() == typeof(DatiPersonali))
                         {
@@ -367,8 +366,7 @@ namespace TestDoshico.ViewModels.Quesiti
             {
                 if (await CanUseButton(obj))
                 {
-                    Page page = obj as Page;
-                    if (page != null)
+                    if (obj is Page page)
                     {
                         GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel();
 
@@ -380,8 +378,10 @@ namespace TestDoshico.ViewModels.Quesiti
                             graficoViewModel = new GraficoQuesitiViewModel(Emozioni, "Grafico Emozioni", "Legenda");
                         else if (page.GetType() == typeof(QuesitiMente))
                             graficoViewModel = new GraficoQuesitiViewModel(Mente, "Grafico Mente", "Legenda");
-                        GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
-                        grafico.Owner = Window.GetWindow(page);
+                        GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel)
+                        {
+                            Owner = Window.GetWindow(page)
+                        };
                         grafico.Show();
                     }
                     else
@@ -400,8 +400,7 @@ namespace TestDoshico.ViewModels.Quesiti
             {
                 if (await CanUseButton(obj))
                 {
-                    Page page = obj as Page;
-                    if (page != null)
+                    if (obj is Page page)
                     {
                         GraficoQuesitiViewModel graficoViewModel = new GraficoQuesitiViewModel();
 
@@ -409,8 +408,10 @@ namespace TestDoshico.ViewModels.Quesiti
                             TestDoshico.QuesitiEmozioni = Emozioni;
 
                         graficoViewModel = new GraficoQuesitiViewModel(TestDoshico, "Grafico Complessivo", "Legenda");
-                        GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
-                        grafico.Owner = Window.GetWindow(page);
+                        GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel)
+                        {
+                            Owner = Window.GetWindow(page)
+                        };
                         grafico.Show();
                     }
                     else
@@ -434,8 +435,7 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             try
             {
-                Page page = obj as Page;
-                if (page != null)
+                if (obj is Page page)
                 {
                     if (page.GetType() == typeof(QuesitiPrakriti))
                     {

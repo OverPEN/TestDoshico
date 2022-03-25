@@ -14,7 +14,7 @@ namespace Data.Models
     {
         #region private properties
         private string nomeCognome;
-        private int età;
+        private int? età;
         private string costituzione;
         private string squilibrio;
         private string note;
@@ -33,7 +33,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Età")]
-        public int Età
+        public int? Età
         {
             get { return età; }
             set
@@ -130,7 +130,7 @@ namespace Data.Models
                         clienteNode = clienteElement.SelectSingleNode(prop.Name);
                         if (clienteNode != null)
                         {
-                            if (prop.PropertyType == typeof(int))
+                            if (prop.PropertyType == typeof(int?))
                                 prop.SetValue(cliente, Convert.ToInt32(clienteNode.InnerText));
                             else if (prop.PropertyType == typeof(string))
                                 prop.SetValue(cliente, clienteNode.InnerText);

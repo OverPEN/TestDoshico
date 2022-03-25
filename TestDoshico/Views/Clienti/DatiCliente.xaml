@@ -38,6 +38,6 @@
         <TextBox Grid.Row="5" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Note}" AutomationProperties.IsRequiredForForm="True"/>
         <Label Grid.Row="6" Content="{x:Static prop:Resources.DatiPersonali_Inestetismi}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
         <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Inestetismi}" AutomationProperties.IsRequiredForForm="True"/>
-        <Button Grid.Row="7"  Grid.Column="1" Content="{x:Static prop:Resources.BtnSalva}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding SalvaCommand}" CommandParameter="{Binding ElementName=DatiClienteWindow}"/>
+        <ui:AppBarButton Grid.Row="7"  Grid.Column="1" Content="{x:Static prop:Resources.BtnSalva}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding SalvaCommand}" CommandParameter="{Binding ElementName=DatiClienteWindow}" IsCompact="True" Height="30" Icon="Save" ToolTip="Salva"/>
     </Grid>
 </Window>

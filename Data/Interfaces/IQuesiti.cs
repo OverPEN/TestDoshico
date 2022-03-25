@@ -102,13 +102,13 @@ namespace Data.Interfaces
                 catch (Exception ex)
                 {
                     await MessageServices.ShowErrorMessage("Test Doshico", $"Errore nella deserializzazione dei quesiti {nameof(T)}!", ex);
-                    return default(T);
+                    return default;
                 }
             }
             else
             {
                 await MessageServices.ShowWarningMessage("Test Doshico", $"Nodo Quesiti {quesitoElement.Name} vuoto, impossibile deserializzare!");
-                return default(T);
+                return default;
             }
         }
 
