@@ -11,7 +11,7 @@ namespace TestDoshico.Views.Clienti
         public DatiCliente(DatiClienteViewModel viewModel)
         {
             this.DataContext = viewModel;
-            InitializeComponent();       
+            InitializeComponent();
         }
     }
 }

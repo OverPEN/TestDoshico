@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ModernWpf.Controls;
+using System;
 using System.Threading.Tasks;
-using ModernWpf.Controls;
 
 namespace Data.Services
 {
@@ -9,7 +9,7 @@ namespace Data.Services
         static ContentDialog contentDialog;
         public static async Task<bool> ShowInformationMessage(string Header, string Text)
         {
-            contentDialog = new ContentDialog() { Title = Header, Content = Text, CloseButtonText = "Ok", DefaultButton = ContentDialogButton.Close};
+            contentDialog = new ContentDialog() { Title = Header, Content = Text, CloseButtonText = "Ok", DefaultButton = ContentDialogButton.Close };
             await contentDialog.ShowAsync();
             contentDialog.Hide();
             return true;

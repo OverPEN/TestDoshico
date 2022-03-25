@@ -85,7 +85,7 @@ namespace Data.Models
 
         public static async Task<XmlElement> ToXML(Cliente cliente, XmlDocument xmlDocument)
         {
-            if(cliente != null && xmlDocument != null)
+            if (cliente != null && xmlDocument != null)
             {
                 try
                 {
@@ -128,7 +128,7 @@ namespace Data.Models
                     foreach (PropertyInfo prop in props)
                     {
                         clienteNode = clienteElement.SelectSingleNode(prop.Name);
-                        if(clienteNode != null)
+                        if (clienteNode != null)
                         {
                             if (prop.PropertyType == typeof(int))
                                 prop.SetValue(cliente, Convert.ToInt32(clienteNode.InnerText));
@@ -140,7 +140,7 @@ namespace Data.Models
                     }
                     return cliente;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     await MessageServices.ShowErrorMessage("Test Doshico", "Errore nella deserializzazione dei dati Cliente!", ex);
                     return null;

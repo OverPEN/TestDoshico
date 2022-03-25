@@ -1,7 +1,7 @@
 ﻿using Data.Models;
+using Data.Services;
 using System;
 using System.Collections.Generic;
-using Data.Services;
 
 namespace TestDoshico.ViewModels.Quesiti
 {

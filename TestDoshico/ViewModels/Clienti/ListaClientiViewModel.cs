@@ -57,7 +57,7 @@ namespace TestDoshico.ViewModels.Clienti
             else
                 ListaClienti = await DataManager.GetAllClienti();
         }
-        
+
         private async void EliminaClienteButtonPressed(object obj)
         {
             try

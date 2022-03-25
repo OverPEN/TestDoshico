@@ -27,10 +27,10 @@ namespace TestDoshico.ViewModels.Clienti
             SalvaCommand = new BaseCommand(SalvaButtonPressed);
         }
 
-        private void SalvaButtonPressed(object obj)
+        private async void SalvaButtonPressed(object obj)
         {
             DatiCliente view = obj as DatiCliente;
-            DataManager.AggiornaCliente(Cliente);
+            await DataManager.AggiornaCliente(Cliente);
 
             if (view != null)
                 view.Close();

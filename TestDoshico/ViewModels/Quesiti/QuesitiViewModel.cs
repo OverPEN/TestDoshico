@@ -38,7 +38,8 @@ namespace TestDoshico.ViewModels.Quesiti
                 this.OnPropertyChanged();
             }
         }
-        public Cliente Cliente {
+        public Cliente Cliente
+        {
             get { return this.cliente; }
             set
             {
@@ -148,9 +149,9 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             SelectionChangedEventArgs eventArgs = (SelectionChangedEventArgs)obj;
             eventArgs.Handled = true;
-            
+
             ComboBox cmbCliente = eventArgs.Source as ComboBox;
-            
+
             if (cmbCliente.SelectedItem != null)
                 CanAnnullaSelezione = true;
             else
@@ -237,7 +238,7 @@ namespace TestDoshico.ViewModels.Quesiti
                 if (errorMessage != String.Empty)
                     await MessageServices.ShowWarningMessage("Test Doshico", errorMessage);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nella validazione campi!", ex);
                 return false;
@@ -249,7 +250,7 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             try
             {
-                if(await CanUseButton(obj))
+                if (await CanUseButton(obj))
                 {
                     Page page = obj as Page;
                     if (page != null)
@@ -297,7 +298,7 @@ namespace TestDoshico.ViewModels.Quesiti
                         await MessageServices.ShowWarningMessage("Test Doshico", "Errore durante il cambio pagina del Test Doshico");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave durante il cambio pagina del Test Doshico!", ex);
             }
@@ -307,7 +308,7 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             try
             {
-                if (await CanUseButton (obj))
+                if (await CanUseButton(obj))
                 {
                     Page page = obj as Page;
                     if (page != null)
@@ -364,7 +365,7 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             try
             {
-                if (await CanUseButton (obj))
+                if (await CanUseButton(obj))
                 {
                     Page page = obj as Page;
                     if (page != null)
@@ -387,7 +388,7 @@ namespace TestDoshico.ViewModels.Quesiti
                         await MessageServices.ShowWarningMessage("Test Doshico", "Errore nell'apertura del grafico!");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 await MessageServices.ShowErrorMessage("Test Doshico", "Errore grave nell'apertura del grafico!", ex);
             }
@@ -397,7 +398,7 @@ namespace TestDoshico.ViewModels.Quesiti
         {
             try
             {
-                if (await CanUseButton (obj))
+                if (await CanUseButton(obj))
                 {
                     Page page = obj as Page;
                     if (page != null)
@@ -406,7 +407,7 @@ namespace TestDoshico.ViewModels.Quesiti
 
                         if (TestDoshico.QuesitiEmozioni == null && Emozioni != null)
                             TestDoshico.QuesitiEmozioni = Emozioni;
-                        
+
                         graficoViewModel = new GraficoQuesitiViewModel(TestDoshico, "Grafico Complessivo", "Legenda");
                         GraficoQuesiti grafico = new GraficoQuesiti(graficoViewModel);
                         grafico.Owner = Window.GetWindow(page);

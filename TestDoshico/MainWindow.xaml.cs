@@ -1,12 +1,10 @@
 ﻿using Data.Services;
 using System;
 using System.Windows;
-using System.Windows.Media.Imaging;
 using TestDoshico.ViewModels.Quesiti;
 using TestDoshico.Views.Clienti;
 using TestDoshico.Views.Quesiti;
 using TestDoshico.Views.Tests;
-using Windows.UI.Xaml.Controls;
 
 namespace TestDoshico
 {
@@ -22,7 +20,8 @@ namespace TestDoshico
 
         private async void NavigationView_SelectionChanged(ModernWpf.Controls.NavigationView sender, ModernWpf.Controls.NavigationViewSelectionChangedEventArgs args)
         {
-            try {
+            try
+            {
                 while (Main.NavigationService.CanGoBack)
                 {
                     Main.NavigationService.RemoveBackEntry();
@@ -79,7 +78,7 @@ namespace TestDoshico
             {
                 ;
             }
-            
+
         }
 
         private async void NavigationView_ItemInvoked(ModernWpf.Controls.NavigationView sender, ModernWpf.Controls.NavigationViewItemInvokedEventArgs args)

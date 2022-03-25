@@ -20,7 +20,7 @@ namespace Data.Models
 
         public static async Task<XmlElement> ToXML(Test test, XmlDocument xmlDocument)
         {
-            if(test != null && xmlDocument != null)
+            if (test != null && xmlDocument != null)
             {
                 XmlElement testNode = xmlDocument.CreateElement(nameof(Test));
                 try
@@ -40,11 +40,11 @@ namespace Data.Models
                     testNode.AppendChild(testInnerNode);
                     //Creazione nodo Emozioni
                     testInnerNode = xmlDocument.CreateElement(nameof(QuesitiEmozioni));
-                    testInnerNode = await Emozioni .ToXML(test.QuesitiEmozioni, xmlDocument, testInnerNode);
+                    testInnerNode = await Emozioni.ToXML(test.QuesitiEmozioni, xmlDocument, testInnerNode);
                     testNode.AppendChild(testInnerNode);
                     //Creazione nodo Mente
                     testInnerNode = xmlDocument.CreateElement(nameof(QuesitiMente));
-                    testInnerNode = await Mente .ToXML(test.QuesitiMente, xmlDocument, testInnerNode);
+                    testInnerNode = await Mente.ToXML(test.QuesitiMente, xmlDocument, testInnerNode);
                     testNode.AppendChild(testInnerNode);
 
                     return testNode;
@@ -64,7 +64,7 @@ namespace Data.Models
 
         public static async Task<Test> FromXML(XmlElement testElement)
         {
-            if(testElement != null & testElement.HasChildNodes)
+            if (testElement != null & testElement.HasChildNodes)
             {
                 try
                 {
@@ -72,7 +72,7 @@ namespace Data.Models
                     List<PropertyInfo> props = typeof(Test).GetProperties().Where(w => w.PropertyType != typeof(Guid) && w.PropertyType != typeof(DateTime)).ToList();
 
                     XmlNode testNode;
-                    foreach(PropertyInfo prop in props)
+                    foreach (PropertyInfo prop in props)
                     {
                         testNode = testElement.SelectSingleNode(prop.Name);
                         if (testNode != null)
@@ -98,7 +98,7 @@ namespace Data.Models
                     }
                     return test;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     await MessageServices.ShowErrorMessage("Test Doshico", "Errore nella deserializzazione del Test Doshico!", ex);
                     return null;
@@ -116,7 +116,7 @@ namespace Data.Models
             List<PropertyInfo> props = typeof(Test).GetProperties().Where(w => w.PropertyType != typeof(Guid)).ToList();
             foreach (PropertyInfo prop in props)
             {
-                if(prop.PropertyType == typeof(DateTime))
+                if (prop.PropertyType == typeof(DateTime))
                 {
                     if (prop.GetValue(test1).ToString() != prop.GetValue(test2).ToString())
                         return false;

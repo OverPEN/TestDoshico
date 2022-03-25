@@ -11,7 +11,7 @@ namespace TestDoshico.Views.Quesiti
         public DatiPersonali(QuesitiViewModel viewModel)
         {
             this.DataContext = viewModel;
-            InitializeComponent();       
+            InitializeComponent();
         }
     }
 }

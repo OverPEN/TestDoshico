@@ -52,7 +52,7 @@ namespace TestDoshico.ViewModels.Tests
             if (!String.IsNullOrEmpty(Filtro))
             {
                 IList<Test> lst = await DataManager.GetAllTests();
-                foreach(Test t in lst)
+                foreach (Test t in lst)
                 {
                     Cliente c = await DataManager.GetClienteByID(t.IDCliente);
                     if (c.NomeCognome.ToLower().Contains(Filtro.ToLower()))

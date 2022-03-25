@@ -3,12 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Xml;
 
 namespace Data.Services
 {
-    public  static class DataManager
+    public static class DataManager
     {
         private static XmlDocument SavedTests = new XmlDocument();
         private static XmlDocument SavedClienti = new XmlDocument();
@@ -32,7 +31,7 @@ namespace Data.Services
                 SavedTests.AppendChild(testsParentNode);
                 SavedTests.Save(TestPath);
             }
-                
+
 
             if (File.Exists(ClientiPath))
                 SavedClienti.Load(ClientiPath);
@@ -53,14 +52,14 @@ namespace Data.Services
                 XmlNode existingClienteNode = SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{cliente.ID}']");
                 if (existingClienteNode != null)
                 {
-                    Cliente existingCliente = await Cliente .FromXML(existingClienteNode as XmlElement);
+                    Cliente existingCliente = await Cliente.FromXML(existingClienteNode as XmlElement);
                     if (!Cliente.CompareClienti(existingCliente, cliente))
                     {
                         if (await MessageServices.ShowYesNoMessage("Salvataggio Cliente", $"Cliente {cliente.NomeCognome} già presente nel sistema!" + Environment.NewLine + "Aggiornare le informazioni con i nuovi dati?", ModernWpf.Controls.ContentDialogButton.Close))
                         {
                             try
                             {
-                                if(await AggiornaClienteInternal(cliente, existingClienteNode))
+                                if (await AggiornaClienteInternal(cliente, existingClienteNode))
                                 {
                                     await MessageServices.ShowInformationMessage("Salvataggio Cliente", $"Dati Cliente di {cliente.NomeCognome} aggiornati!");
                                     return true;
@@ -89,7 +88,7 @@ namespace Data.Services
                 else
                 {
                     XmlElement newClienteNode = await Cliente.ToXML(cliente, SavedClienti);
-                    if(newClienteNode != null)
+                    if (newClienteNode != null)
                     {
                         XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
                         SavedClienti.DocumentElement.AppendChild(importedClienteNode);
@@ -126,7 +125,7 @@ namespace Data.Services
                         {
                             try
                             {
-                                if (await AggiornaTestInternal (test, existingTestNode))
+                                if (await AggiornaTestInternal(test, existingTestNode))
                                 {
                                     await MessageServices.ShowInformationMessage("Salvataggio Test Doshico", "Test Doshico Aggiornato!");
                                     return true;
@@ -154,8 +153,8 @@ namespace Data.Services
                 }
                 else
                 {
-                    XmlElement testNode = await Test .ToXML(test, SavedTests);
-                    if(testNode != null)
+                    XmlElement testNode = await Test.ToXML(test, SavedTests);
+                    if (testNode != null)
                     {
                         XmlNode importedTestNode = SavedTests.DocumentElement.OwnerDocument.ImportNode(testNode, true);
                         SavedTests.DocumentElement.AppendChild(importedTestNode);
@@ -181,7 +180,7 @@ namespace Data.Services
         {
             List<Test> tests = new List<Test>();
             Test test;
-            foreach(XmlElement testElement in SavedTests.DocumentElement.SelectNodes(nameof(Test)))
+            foreach (XmlElement testElement in SavedTests.DocumentElement.SelectNodes(nameof(Test)))
             {
                 test = await Test.FromXML(testElement);
                 if (test != null)
@@ -195,7 +194,7 @@ namespace Data.Services
         {
             List<Cliente> clienti = new List<Cliente>();
             Cliente cliente;
-            foreach(XmlElement clienteElement in SavedClienti.DocumentElement.SelectNodes(nameof(Cliente)))
+            foreach (XmlElement clienteElement in SavedClienti.DocumentElement.SelectNodes(nameof(Cliente)))
             {
                 cliente = await Cliente.FromXML(clienteElement);
                 if (cliente != null)
@@ -221,13 +220,13 @@ namespace Data.Services
             try
             {
                 cliente = await GetClienteByID(id);
-                if(cliente != null)
+                if (cliente != null)
                 {
                     SavedClienti.DocumentElement.RemoveChild(SavedClienti.DocumentElement.SelectSingleNode($"{nameof(Cliente)}[@{nameof(Cliente.ID)}='{id}']"));
                     SavedClienti.Save(ClientiPath);
 
                     XmlNodeList lstNodiTest = SavedTests.DocumentElement.SelectNodes($"{nameof(Test)}[@{nameof(Test.IDCliente)}='{id}']");
-                    if(lstNodiTest.Count > 0)
+                    if (lstNodiTest.Count > 0)
                     {
                         if (await MessageServices.ShowYesNoMessage("Test Doshico", $"Eliminare tutti i Test Doshici effettuati dal Cliente {cliente.NomeCognome}?", ModernWpf.Controls.ContentDialogButton.Close))
                         {
@@ -242,7 +241,7 @@ namespace Data.Services
                     await MessageServices.ShowInformationMessage("Test Doshico", $"Cliente {cliente.NomeCognome} eliminato!");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 await MessageServices.ShowErrorMessage("TestDoshico", $"Errore grave durante l'eliminazione del Cliente {cliente.NomeCognome}!", ex);
             }
@@ -262,16 +261,16 @@ namespace Data.Services
 
         private static async Task<bool> AggiornaClienteInternal(Cliente cliente, XmlNode existingClienteNode)
         {
-                XmlElement newClienteNode = await Cliente.ToXML(cliente, SavedClienti);
-                if (newClienteNode != null)
-                {
-                    XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
-                    SavedClienti.DocumentElement.ReplaceChild(importedClienteNode, existingClienteNode);
-                    SavedClienti.Save(ClientiPath);
-                    return true;
-                }
-                else
-                    return false;
+            XmlElement newClienteNode = await Cliente.ToXML(cliente, SavedClienti);
+            if (newClienteNode != null)
+            {
+                XmlNode importedClienteNode = SavedClienti.DocumentElement.OwnerDocument.ImportNode(newClienteNode, true);
+                SavedClienti.DocumentElement.ReplaceChild(importedClienteNode, existingClienteNode);
+                SavedClienti.Save(ClientiPath);
+                return true;
+            }
+            else
+                return false;
         }
 
         public static async Task<bool> AggiornaTest(Test test)

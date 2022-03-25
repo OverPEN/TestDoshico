@@ -40,7 +40,7 @@ namespace Data.Interfaces
 
         public static async Task<XmlElement> ToXML<T>(T quesito, XmlDocument xmlDocument, XmlElement quesitoInTest)
         {
-            if(quesito != null && xmlDocument != null && quesitoInTest != null)
+            if (quesito != null && xmlDocument != null && quesitoInTest != null)
             {
                 try
                 {
@@ -68,7 +68,7 @@ namespace Data.Interfaces
 
         public static async Task<T> FromXML<T>(XmlElement quesitoElement)
         {
-            if(quesitoElement != null & quesitoElement.HasChildNodes)
+            if (quesitoElement != null & quesitoElement.HasChildNodes)
             {
                 try
                 {
@@ -80,7 +80,7 @@ namespace Data.Interfaces
                     {
                         quesitoNode = quesitoElement.SelectSingleNode(prop.Name);
                         TipoCaratteristicaEnum quesitoValore = TipoCaratteristicaEnum.Selezionare;
-                        if(quesitoNode != null)
+                        if (quesitoNode != null)
                         {
                             switch (quesitoNode.InnerText)
                             {

@@ -21,7 +21,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum collo;
         private TipoCaratteristicaEnum mento;
         #endregion
- 
+
         [DisplayName("Corporatura")]
         public TipoCaratteristicaEnum Corporatura
         {
@@ -32,7 +32,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }       
+        }
         [DisplayName("Struttura Ossea")]
         public TipoCaratteristicaEnum StruttOssea
         {
@@ -43,7 +43,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }        
+        }
         [DisplayName("Mani")]
         public TipoCaratteristicaEnum Mani
         {
@@ -54,7 +54,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }        
+        }
         [DisplayName("Corporatura in Fanciullezza")]
         public TipoCaratteristicaEnum CorporaturaFanc
         {
@@ -65,7 +65,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }        
+        }
         [DisplayName("Accumulo")]
         public TipoCaratteristicaEnum Accumulo
         {
@@ -76,7 +76,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }        
+        }
         [DisplayName("Pelle")]
         public TipoCaratteristicaEnum Pelle
         {
@@ -87,7 +87,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }        
+        }
         [DisplayName("Capelli in Fanciullezza")]
         public TipoCaratteristicaEnum CapelliFanc
         {
@@ -98,7 +98,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }        
+        }
         [DisplayName("Fronte")]
         public TipoCaratteristicaEnum Fronte
         {
@@ -109,7 +109,7 @@ namespace Data.Models
                 OnPropertyChanged();
                 OnPropertyChanged("TotDosha");
             }
-        }        
+        }
         [DisplayName("Occhi")]
         public TipoCaratteristicaEnum Occhi
         {
@@ -119,7 +119,7 @@ namespace Data.Models
                 occhi = value;
                 OnPropertyChanged();
             }
-        }       
+        }
         [DisplayName("Denti")]
         public TipoCaratteristicaEnum Denti
         {
@@ -140,7 +140,7 @@ namespace Data.Models
                 collo = value;
                 OnPropertyChanged();
             }
-        }        
+        }
         [DisplayName("Mento")]
         public TipoCaratteristicaEnum Mento
         {
@@ -152,6 +152,6 @@ namespace Data.Models
                 OnPropertyChanged("TotDosha");
             }
         }
-        
+
     }
 }

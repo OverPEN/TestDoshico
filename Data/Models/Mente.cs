@@ -1,6 +1,6 @@
 ﻿using Data.Enums;
-using System.ComponentModel;
 using Data.Interfaces;
+using System.ComponentModel;
 
 namespace Data.Models
 {
