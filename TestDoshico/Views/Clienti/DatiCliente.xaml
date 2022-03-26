@@ -9,7 +9,7 @@
       mc:Ignorable="d"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       ui:WindowHelper.UseModernWindowStyle="True"
-      Title="Dati Cliente" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+      Title="Dati Cliente" MinHeight="600" MinWidth="800" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
     <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>

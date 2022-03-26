@@ -35,47 +35,47 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_VataHeader}"  FontWeight="Bold" AutomationProperties.IsColumnHeader="True"/>
         <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_PittaHeader}" FontWeight="Bold" AutomationProperties.IsColumnHeader="True"/>
         <TextBlock Grid.Row="0" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_KaphaHeader}" FontWeight="Bold" AutomationProperties.IsColumnHeader="True"/>
-        <TextBlock Grid.Row="0" Grid.Column="4" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_DoshaHeader}" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" />
+        <TextBlock Grid.Row="0" Grid.Column="4" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.Quesiti_DoshaHeader}" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" HorizontalAlignment="Center" />
         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Memoria}" AutomationProperties.IsRowHeader="True"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_MemoriaV}"/>
         <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_MemoriaP}"/>
         <TextBlock Grid.Row="1" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_MemoriaK}"/>
-        <ComboBox Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Memoria}" TabIndex="1"/>
+        <ComboBox Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Memoria}" TabIndex="1" VerticalAlignment="Center" Width="100"/>
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Routine}" AutomationProperties.IsRowHeader="True"/>
         <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_RoutineV}"/>
         <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_RoutineP}"/>
         <TextBlock Grid.Row="2" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_RoutineK}"/>
-        <ComboBox Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Routine}" TabIndex="2"/>
+        <ComboBox Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Routine}" TabIndex="2" VerticalAlignment="Center" Width="100"/>
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Decisioni}" AutomationProperties.IsRowHeader="True"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DecisioniV}"/>
         <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DecisioniP}"/>
         <TextBlock Grid.Row="3" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DecisioniK}"/>
-        <ComboBox Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Decisioni}" TabIndex="3"/>
+        <ComboBox Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Decisioni}" TabIndex="3" VerticalAlignment="Center" Width="100"/>
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Carattere}" AutomationProperties.IsRowHeader="True"/>
         <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_CarattereV}"/>
         <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_CarattereP}"/>
         <TextBlock Grid.Row="4" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_CarattereK}"/>
-        <ComboBox Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Carattere}" TabIndex="4"/>
+        <ComboBox Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Carattere}" TabIndex="4" VerticalAlignment="Center" Width="100"/>
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Pensiero}" AutomationProperties.IsRowHeader="True"/>
         <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_PensieroV}"/>
         <TextBlock Grid.Row="5" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_PensieroP}"/>
         <TextBlock Grid.Row="5" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_PensieroK}"/>
-        <ComboBox Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Pensiero}" TabIndex="5"/>
+        <ComboBox Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Pensiero}" TabIndex="5" VerticalAlignment="Center" Width="100"/>
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Organizzazione}" AutomationProperties.IsRowHeader="True"/>
         <TextBlock Grid.Row="6" Grid.Column="1" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt3_OrganizzazioneV}"/>
         <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt3_OrganizzazioneP}"/>
         <TextBlock Grid.Row="6" Grid.Column="3" Style="{StaticResource GridTextBlock}"  Text="{x:Static prop:Resources.QuesitiPt3_OrganizzazioneK}"/>
-        <ComboBox Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Organizzazione}" TabIndex="6"/>
+        <ComboBox Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Organizzazione}" TabIndex="6" VerticalAlignment="Center" Width="100"/>
         <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Amicizia}" AutomationProperties.IsRowHeader="True"/>
         <TextBlock Grid.Row="7" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_AmiciziaV}"/>
         <TextBlock Grid.Row="7" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_AmiciziaP}"/>
         <TextBlock Grid.Row="7" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_AmiciziaK}"/>
-        <ComboBox Grid.Row="7" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Amicizia}" TabIndex="7"/>
+        <ComboBox Grid.Row="7" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Amicizia}" TabIndex="7" VerticalAlignment="Center" Width="100"/>
         <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_Denaro}" AutomationProperties.IsRowHeader="True"/>
         <TextBlock Grid.Row="8" Grid.Column="1" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DenaroV}"/>
         <TextBlock Grid.Row="8" Grid.Column="2" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DenaroP}"/>
         <TextBlock Grid.Row="8" Grid.Column="3" Style="{StaticResource GridTextBlock}" Text="{x:Static prop:Resources.QuesitiPt3_DenaroK}"/>
-        <ComboBox Grid.Row="8" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Denaro}" TabIndex="8"/>
+        <ComboBox Grid.Row="8" Grid.Column="4" HorizontalAlignment="Center" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:TipoCaratteristicaEnum}}}" SelectedItem="{Binding Mente.Denaro}" TabIndex="8" VerticalAlignment="Center" Width="100"/>
         <ui:SimpleStackPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
             <TextBlock Style="{StaticResource GridHeaderTextBlock}" Text="{x:Static prop:Resources.Quesiti_Tot}" AutomationProperties.IsRowHeader="True"/>
             <TextBlock Style="{StaticResource GridTextBlock}" Text="{Binding Mente.TotDosha}"/>

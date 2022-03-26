@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
-        Title="Grafico Quesiti" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        Title="Grafico Quesiti" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="600" MinWidth="800">
     <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <DVC:Chart Title="{Binding TitoloGrafico}" LegendTitle="{Binding TitoloLegenda}" Background="White" Foreground="Black">
             <DVC:Chart.Series>

@@ -15,6 +15,7 @@ namespace Data.Models
         #region private properties
         private string nomeCognome;
         private int? età;
+        private string sesso;
         private string costituzione;
         private string squilibrio;
         private string note;
@@ -39,6 +40,16 @@ namespace Data.Models
             set
             {
                 età = value;
+                OnPropertyChanged();
+            }
+        }
+        [DisplayName("Sesso")]
+        public string Sesso
+        {
+            get { return sesso; }
+            set
+            {
+                sesso = value;
                 OnPropertyChanged();
             }
         }
