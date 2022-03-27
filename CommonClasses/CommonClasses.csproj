@@ -45,9 +45,5 @@
     <Compile Include="BaseClasses\EnumBindingSourceExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Libs\System.Windows.Controls.DataVisualization.Toolkit.dll" />
-    <Content Include="Libs\WPFToolkit.dll" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
