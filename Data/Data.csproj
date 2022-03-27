@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Converters\GuidToNomeClienteConverter.cs" />
     <Compile Include="Converters\MultiBindingConverter.cs" />
+    <Compile Include="Enums\SessoEnum.cs" />
     <Compile Include="Enums\TipoCaratteristicaEnum.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Emozioni.cs" />

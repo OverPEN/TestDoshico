@@ -4,14 +4,16 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:baseclasses="clr-namespace:CommonClasses.BaseClasses;assembly=CommonClasses"
+      xmlns:enums="clr-namespace:Data.Enums;assembly=Data"
       xmlns:prop="clr-namespace:TestDoshico.Properties"
       mc:Ignorable="d"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       ui:WindowHelper.UseModernWindowStyle="True"
       Title="Dati Cliente" MinHeight="600" MinWidth="800" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-    <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,10">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -30,14 +32,16 @@
         <TextBox Grid.Row="1" Grid.Column="1"  Margin="0,5,10,0" Text="{Binding Cliente.NomeCognome}" AutomationProperties.IsRequiredForForm="True"/>
         <Label Grid.Row="2" Content="{x:Static prop:Resources.DatiPersonali_Eta}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
         <ui:NumberBox Grid.Row="2" Grid.Column="1" Margin="0,5,10,0" Value="{Binding Cliente.Età}" AutomationProperties.IsRequiredForForm="True" SpinButtonPlacementMode="Inline"/>
-        <Label Grid.Row="3" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Costituzione}" AutomationProperties.IsRequiredForForm="True"/>
-        <Label Grid.Row="4" Content="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Squilibrio}" AutomationProperties.IsRequiredForForm="True"/>
-        <Label Grid.Row="5" Content="{x:Static prop:Resources.DatiPersonali_EvNote}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Note}" AutomationProperties.IsRequiredForForm="True"/>
-        <Label Grid.Row="6" Content="{x:Static prop:Resources.DatiPersonali_Inestetismi}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Inestetismi}" AutomationProperties.IsRequiredForForm="True"/>
-        <ui:AppBarButton Grid.Row="7"  Grid.Column="1" Content="{x:Static prop:Resources.BtnSalva}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding SalvaCommand}" CommandParameter="{Binding ElementName=DatiClienteWindow}" IsCompact="True" Height="30" Icon="Save" ToolTip="Salva"/>
+        <Label Grid.Row="3" Content="{x:Static prop:Resources.DatiPersonali_Sesso}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="0,5,10,0" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:SessoEnum}}}" SelectedItem="{Binding Cliente.Sesso}" AutomationProperties.IsRequiredForForm="True"/>
+        <Label Grid.Row="4" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Costituzione}" AutomationProperties.IsRequiredForForm="True"/>
+        <Label Grid.Row="5" Content="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Squilibrio}" AutomationProperties.IsRequiredForForm="True"/>
+        <Label Grid.Row="6" Content="{x:Static prop:Resources.DatiPersonali_EvNote}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Note}" AutomationProperties.IsRequiredForForm="True"/>
+        <Label Grid.Row="7" Content="{x:Static prop:Resources.DatiPersonali_Inestetismi}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Inestetismi}" AutomationProperties.IsRequiredForForm="True"/>
+        <ui:AppBarButton Grid.Row="8"  Grid.Column="1" Content="{x:Static prop:Resources.BtnSalva}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding SalvaCommand}" CommandParameter="{Binding ElementName=DatiClienteWindow}" IsCompact="True" Height="30" Icon="Save" ToolTip="Salva"/>
     </Grid>
 </Window>

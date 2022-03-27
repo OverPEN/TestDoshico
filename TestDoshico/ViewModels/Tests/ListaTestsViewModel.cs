@@ -103,8 +103,10 @@ namespace TestDoshico.ViewModels.Tests
                 {
                     Test testInEdit = ListaTests.FirstOrDefault(f => f.ID == id);
                     Quesiti.QuesitiViewModel viewModel = new Quesiti.QuesitiViewModel(ref testInEdit);
-                    DatiTest datiTestWindow = new DatiTest(viewModel);
-                    datiTestWindow.Owner = Window.GetWindow(listaTestsPage);
+                    DatiTest datiTestWindow = new DatiTest(viewModel)
+                    {
+                        Owner = Window.GetWindow(listaTestsPage)
+                    };
                     datiTestWindow.ShowDialog();
                     ListaTests[ListaTests.IndexOf(ListaTests.FirstOrDefault(f => f.ID == testInEdit.ID))] = testInEdit;
                     CollectionViewSource.GetDefaultView(ListaTests).Refresh();

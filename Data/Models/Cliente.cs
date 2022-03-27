@@ -1,4 +1,5 @@
 ﻿using CommonClasses.BaseClasses;
+using Data.Enums;
 using Data.Services;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Data.Models
         #region private properties
         private string nomeCognome;
         private int? età;
-        private string sesso;
+        private SessoEnum sesso;
         private string costituzione;
         private string squilibrio;
         private string note;
@@ -44,7 +45,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Sesso")]
-        public string Sesso
+        public SessoEnum Sesso
         {
             get { return sesso; }
             set
@@ -145,6 +146,20 @@ namespace Data.Models
                                 prop.SetValue(cliente, Convert.ToInt32(clienteNode.InnerText));
                             else if (prop.PropertyType == typeof(string))
                                 prop.SetValue(cliente, clienteNode.InnerText);
+                            else if (prop.PropertyType == typeof(SessoEnum))
+                            {
+                                SessoEnum sesso = SessoEnum.Selezionare;
+                                switch (clienteNode.InnerText)
+                                {
+                                    case "Maschio":
+                                        sesso = SessoEnum.Maschio;
+                                        break;
+                                    case "Femmina":
+                                        sesso = SessoEnum.Femmina;
+                                        break;
+                                }
+                                prop.SetValue(cliente, sesso);
+                            }
                         }
                         else
                             prop.SetValue(cliente, null);
