@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Markup;
 
 namespace CommonClasses.BaseClasses
@@ -17,7 +18,9 @@ namespace CommonClasses.BaseClasses
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            return Enum.GetValues(EnumType);
+            var values = Enum.GetValues(EnumType);
+            var filteredValues = values.Cast<Enum>().Where(w => w.ToString() != "Selezionare").ToList();
+            return filteredValues;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Data.Services;
 using System;
 using System.Windows;
+using TestDoshico.ViewModels.Clienti;
 using TestDoshico.ViewModels.Quesiti;
 using TestDoshico.Views.Clienti;
 using TestDoshico.Views.Quesiti;
@@ -26,8 +27,14 @@ namespace TestDoshico
                 {
                     Main.NavigationService.RemoveBackEntry();
                 }
-
-                if (args.SelectedItem == bt_NuovoTest)
+                if (args.SelectedItem == bt_NuovoCliente)
+                {
+                    NuovoClienteViewModel clienteViewModel = new NuovoClienteViewModel();
+                    NuovoCliente nuovoCliente = new NuovoCliente(clienteViewModel);
+                    Main.Content = nuovoCliente;
+                    this.Title = $"Test Doshico - {nuovoCliente.Title}";
+                }
+                else if (args.SelectedItem == bt_NuovoTest)
                 {
                     QuesitiViewModel quesitiViewModel = new QuesitiViewModel();
                     DatiPersonali datiPersonali = new DatiPersonali(quesitiViewModel);

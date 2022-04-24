@@ -63,11 +63,15 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Clienti\NuovoClienteViewModel.cs" />
     <Compile Include="ViewModels\Clienti\DatiClienteViewModel.cs" />
     <Compile Include="ViewModels\Clienti\ListaClientiViewModel.cs" />
     <Compile Include="ViewModels\Quesiti\GraficoQuesitiViewModel.cs" />
     <Compile Include="ViewModels\Quesiti\QuesitiViewModel.cs" />
     <Compile Include="ViewModels\Tests\ListaTestsViewModel.cs" />
+    <Compile Include="Views\Clienti\NuovoCliente.xaml.cs">
+      <DependentUpon>NuovoCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Clienti\DatiCliente.xaml.cs">
       <DependentUpon>DatiCliente.xaml</DependentUpon>
     </Compile>
@@ -101,6 +105,10 @@
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Clienti\NuovoCliente.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Clienti\DatiCliente.xaml">
       <Generator>MSBuild:Compile</Generator>
