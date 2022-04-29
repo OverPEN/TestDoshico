@@ -43,7 +43,6 @@
     <ApplicationIcon>Resources\ApplicationIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="netstandard" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />

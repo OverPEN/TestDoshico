@@ -27,6 +27,7 @@ namespace TestDoshico
                 {
                     Main.NavigationService.RemoveBackEntry();
                 }
+                #region NuovoClienteClick
                 if (args.SelectedItem == bt_NuovoCliente)
                 {
                     NuovoClienteViewModel clienteViewModel = new NuovoClienteViewModel();
@@ -34,6 +35,8 @@ namespace TestDoshico
                     Main.Content = nuovoCliente;
                     this.Title = $"Test Doshico - {nuovoCliente.Title}";
                 }
+                #endregion
+                #region NuovoTestClick
                 else if (args.SelectedItem == bt_NuovoTest)
                 {
                     QuesitiViewModel quesitiViewModel = new QuesitiViewModel();
@@ -41,6 +44,8 @@ namespace TestDoshico
                     Main.Content = datiPersonali;
                     this.Title = $"Test Doshico - {datiPersonali.Title}";
                 }
+                #endregion
+                #region ListaClientiClick
                 else if (args.SelectedItem == bt_ListaClienti)
                 {
                     if (Main.Content == null || (Main.Content.GetType() != typeof(DatiPersonali) && Main.Content.GetType() != typeof(QuesitiPrakriti) && Main.Content.GetType() != typeof(QuesitiVikriti) && Main.Content.GetType() != typeof(QuesitiMente) && Main.Content.GetType() != typeof(QuesitiEmozioni)))
@@ -60,6 +65,8 @@ namespace TestDoshico
 
                     }
                 }
+                #endregion
+                #region ListaTestClick
                 else if (args.SelectedItem == bt_ListaTest)
                 {
 
@@ -80,10 +87,28 @@ namespace TestDoshico
 
                     }
                 }
+                #endregion
+                //#region UpdateClick
+                //else if (args.SelectedItem == bt_Update)
+                //{
+                //    try
+                //    {
+                //        Cursor = System.Windows.Input.Cursors.Wait;
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        await MessageServices.ShowErrorMessage("Servizio di Aggiornamento Automatico", "Errore Grave!", ex);
+                //    }
+                //    finally
+                //    {
+                //        Cursor = System.Windows.Input.Cursors.Arrow;
+                //    }
+                //}
+                //#endregion
             }
-            catch
+            catch (Exception ex)
             {
-                ;
+                await MessageServices.ShowErrorMessage("Test Doshico", "Errore Grave durante la navigazione!", ex); ;
             }
 
         }

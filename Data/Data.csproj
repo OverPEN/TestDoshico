@@ -35,7 +35,6 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="netstandard" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />

@@ -14,12 +14,21 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ui:NavigationView Grid.Row="0" PaneDisplayMode="Top" SelectionChanged="NavigationView_SelectionChanged" ItemInvoked="NavigationView_ItemInvoked" IsSettingsVisible="False" IsBackButtonVisible="Collapsed">
+        <ui:NavigationView Grid.Row="0" PaneDisplayMode="Top" SelectionChanged="NavigationView_SelectionChanged" ItemInvoked="NavigationView_ItemInvoked" IsSettingsVisible="False" IsBackButtonVisible="Collapsed" PaneTitle="Test Doshico">
+            <ui:NavigationView.PaneHeader>
+                <ui:BitmapIcon UriSource="pack://application:,,,/TestDoshico;component/Resources/ApplicationIcon.ico"/>
+            </ui:NavigationView.PaneHeader>
             <ui:NavigationView.MenuItems>
-                <ui:NavigationViewItem Content="Nuovo Cliente" x:Name="bt_NuovoCliente" Icon="AddFriend"/>
-                <ui:NavigationViewItem Content="Nuovo Test Doshico" x:Name="bt_NuovoTest" Icon="Add"/>
-                <ui:NavigationViewItem Content="Clienti Registrati" x:Name="bt_ListaClienti" Icon="People"/>
-                <ui:NavigationViewItem Content="Test Effettuati" x:Name="bt_ListaTest" Icon="AllApps"/>
+                <ui:NavigationViewItem Content="Nuovo Cliente" x:Name="bt_NuovoCliente" Icon="AddFriend" ToolTipService.ToolTip="Aggiungi Nuovo Cliente"/>
+                <ui:NavigationViewItem Content="Nuovo Test Doshico" x:Name="bt_NuovoTest" Icon="Add" ToolTipService.ToolTip="Aggiungi Nuovo Test Doshico"/>
+                <ui:NavigationViewItem Content="Clienti Registrati" x:Name="bt_ListaClienti" Icon="People" ToolTipService.ToolTip="Visualizza Lista CLienti"/>
+                <ui:NavigationViewItem Content="Test Effettuati" x:Name="bt_ListaTest" Icon="AllApps" ToolTipService.ToolTip="Visualizza Lista Tests"/>
+                <ui:NavigationViewItem Content="Altro" x:Name="bt_Altro" Icon="More">
+                    <ui:NavigationViewItem.MenuItems>
+                        <ui:NavigationViewItem Content="About" x:Name="bt_About" Icon="Help"/>
+                        <ui:NavigationViewItem Content="Verifica Aggiornamenti" x:Name="bt_Update" Icon="Download"/>
+                    </ui:NavigationViewItem.MenuItems>
+                </ui:NavigationViewItem>
             </ui:NavigationView.MenuItems>
         </ui:NavigationView>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10,0,10,10">
