@@ -4,15 +4,25 @@ Nuget Package Metadata: https://github.com/Squirrel/Squirrel.Windows/blob/develo
 Automatizzazione Squirrel --releasify coomand: https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/visual-studio-packaging.md
 Distribuzione tramite GitHUb: https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/github.md
 
-UTILIZZO DI SQUIRREL FIRST TIME
+UTILIZZO DI SQUIRREL FIRST TIME (MANUALE)
 -Installare il Nuget Package Squirrel.Windows
 -Buildare il progetto con configurazione Release
 -Con il NuGet Package Explorer creare un pacchetto Nuget ed eseguire il release seguendo queste linee guida: https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/getting-started/2-packaging.md (es Squirrel --releasify "E:\Programmi\Visual Studio\Packages\TestDoshico.1.0.0.nupkg")
 -Creare una Release sul GitHub del progetto con la versione corrispondente alla corrente release version, e caricare tutto il contenuto della cartella Release (Situata nella cartella di progetto su disco)
 
-UTILIZZO DI SQUIRREL PER UPDATES
--Aggiornare l'AssemblyVersion
+UTILIZZO DI SQUIRREL PER UPDATES (MANUALE)
+-Aggiornare l'AssemblyInfo
 -Buildare il progetto con configurazione Release
 -Con il NuGet Package Explorer aprire il pacchetto Nuget della release precedente e sostituire le dll da aggiornare
+-Lanciare il comando Squirrel --releasify
 -Creare una Release sul GitHub del progetto con la versione corrispondente alla corrente release version, e caricare il contenuto della cartella Release (Situata nella cartella di progetto su disco). Se si carica solo gli ultimi pacchetti, Squirrel installera in modo completo l'ultima versione
 
+UTILIZZO DI SQUIRREL AUTOMATIZZATO (Vedi INFO UTILI Automatizzazione Squirrel):
+-Operazioni Preliminari:
+	-Assicurarsi della corretta impostazione del file .nuspec per la generazione del pacchetto nuget
+	-Assicurarsi di aver installato il pacchetto  Nuget.CommandLine
+	-Assicurarsi della corretta impostazione dei commandi MSBuild nel file .csproj principale (Vedi INFO UTILI Automatizzazione Squirrel, esempio TestDoshico.csproj)
+-Aggiornare gli AssemblyInfo interessati
+-Eseguire il Rebuild in configurazione Release (in caso di errore 9009 riavviare Visual Studio o aprire la Console di Gestione Pacchetti per inizializzarla)
+-Il Rebuild avrà creato da solo il pacchetto nuget e la nuova versione nella cartella Release all'interno del progetto
+-Creare una nuova Release su GitHub e trascinare tutti gli elementi all'interno della cartella Release su disco
