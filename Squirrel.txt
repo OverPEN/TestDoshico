@@ -1,0 +1,18 @@
+INFO UTILI:
+Squirrel ReadMe: https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/readme.md
+Nuget Package Metadata: https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/nuget-package-metadata.md
+Automatizzazione Squirrel --releasify coomand: https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/visual-studio-packaging.md
+Distribuzione tramite GitHUb: https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/github.md
+
+UTILIZZO DI SQUIRREL FIRST TIME
+-Installare il Nuget Package Squirrel.Windows
+-Buildare il progetto con configurazione Release
+-Con il NuGet Package Explorer creare un pacchetto Nuget ed eseguire il release seguendo queste linee guida: https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/getting-started/2-packaging.md (es Squirrel --releasify "E:\Programmi\Visual Studio\Packages\TestDoshico.1.0.0.nupkg")
+-Creare una Release sul GitHub del progetto con la versione corrispondente alla corrente release version, e caricare tutto il contenuto della cartella Release (Situata nella cartella di progetto su disco)
+
+UTILIZZO DI SQUIRREL PER UPDATES
+-Aggiornare l'AssemblyVersion
+-Buildare il progetto con configurazione Release
+-Con il NuGet Package Explorer aprire il pacchetto Nuget della release precedente e sostituire le dll da aggiornare
+-Creare una Release sul GitHub del progetto con la versione corrispondente alla corrente release version, e caricare il contenuto della cartella Release (Situata nella cartella di progetto su disco). Se si carica solo gli ultimi pacchetti, Squirrel installera in modo completo l'ultima versione
+

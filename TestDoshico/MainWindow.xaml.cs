@@ -6,6 +6,8 @@ using TestDoshico.ViewModels.Quesiti;
 using TestDoshico.Views.Clienti;
 using TestDoshico.Views.Quesiti;
 using TestDoshico.Views.Tests;
+using Squirrel;
+using System.Threading.Tasks;
 
 namespace TestDoshico
 {
@@ -88,23 +90,35 @@ namespace TestDoshico
                     }
                 }
                 #endregion
-                //#region UpdateClick
-                //else if (args.SelectedItem == bt_Update)
-                //{
-                //    try
-                //    {
-                //        Cursor = System.Windows.Input.Cursors.Wait;
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        await MessageServices.ShowErrorMessage("Servizio di Aggiornamento Automatico", "Errore Grave!", ex);
-                //    }
-                //    finally
-                //    {
-                //        Cursor = System.Windows.Input.Cursors.Arrow;
-                //    }
-                //}
-                //#endregion
+                #region UpdateClick
+                else if (args.SelectedItem == bt_Update)
+                {
+                    try
+                    {
+                        Cursor = System.Windows.Input.Cursors.Wait;
+                        using (var updater = UpdateManager.GitHubUpdateManager("https://github.com/OverPEN/TestDoshico"))
+                        {
+                            UpdateInfo updateInfo = await updater.Result.CheckForUpdate();
+                            if (updateInfo.ReleasesToApply.Count > 0)
+                            {
+                                if (await MessageServices.ShowYesNoMessage("Servizio di Aggiornamento Automatico", "E' disponibile una nuova versione dell'applicazione, eseguire l'aggiornamento?", ModernWpf.Controls.ContentDialogButton.Primary))
+                                {
+                                    await updater.Result.UpdateApp();
+                                    await MessageServices.ShowInformationMessage("Servizio di Aggiornamento Automatico", "Aggiornamento scaricato con successo! Riavvia l'applicazione per applicarlo");
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        await MessageServices.ShowErrorMessage("Servizio di Aggiornamento Automatico", "Errore Grave!", ex);
+                    }
+                    finally
+                    {
+                        Cursor = System.Windows.Input.Cursors.Arrow;
+                    }
+                }
+                #endregion
             }
             catch (Exception ex)
             {
