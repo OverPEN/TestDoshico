@@ -7,7 +7,7 @@ using TestDoshico.Views.Clienti;
 using TestDoshico.Views.Quesiti;
 using TestDoshico.Views.Tests;
 using Squirrel;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace TestDoshico
 {
@@ -96,17 +96,17 @@ namespace TestDoshico
                 {
                     try
                     {
-                        Cursor = System.Windows.Input.Cursors.Wait;
+                        Mouse.OverrideCursor = Cursors.Wait;
                         updater = await UpdateManager.GitHubUpdateManager("https://github.com/OverPEN/TestDoshico", prerelease: true);
                         UpdateInfo updateInfo = await updater.CheckForUpdate();
                         if (updateInfo.ReleasesToApply.Count > 0)
                         {
-                            Cursor = System.Windows.Input.Cursors.Arrow;
+                            Mouse.OverrideCursor = Cursors.Arrow;
                             if (await MessageServices.ShowYesNoMessage("Servizio di Aggiornamento Automatico", "E' disponibile una nuova versione dell'applicazione, eseguire l'aggiornamento?", ModernWpf.Controls.ContentDialogButton.Primary))
                             {
-                                Cursor = System.Windows.Input.Cursors.Wait;
+                                Mouse.OverrideCursor = Cursors.Wait;
                                 await updater.UpdateApp();
-                                Cursor = System.Windows.Input.Cursors.Wait;
+                                Mouse.OverrideCursor = Cursors.Arrow;
                                 await MessageServices.ShowInformationMessage("Servizio di Aggiornamento Automatico", "Aggiornamento scaricato con successo! Riavvia l'applicazione per applicarlo");
                             }
                         }
@@ -117,8 +117,16 @@ namespace TestDoshico
                     }
                     finally
                     {
-                        Cursor = System.Windows.Input.Cursors.Arrow;
+                        Mouse.OverrideCursor = Cursors.Arrow;
                     }
+                }
+                #endregion
+                #region AboutClick
+                else if (args.SelectedItem == bt_About)
+                {
+                    About aboutWindow = new About();
+                    aboutWindow.ShowDialog();
+
                 }
                 #endregion
             }

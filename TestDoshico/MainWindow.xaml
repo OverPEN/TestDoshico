@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
-        Title="Test Doshico" Height="Auto" Width="Auto" Icon="/Resources/ApplicationIcon.ico" MinHeight="600" MinWidth="800">
+        Title="Test Doshico" Height="Auto" Width="Auto" Icon="pack://application:,,,/TestDoshico;component/Resources/ApplicationIcon.ico" MinHeight="600" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <ui:NavigationView Grid.Row="0" PaneDisplayMode="Top" SelectionChanged="NavigationView_SelectionChanged" ItemInvoked="NavigationView_ItemInvoked" IsSettingsVisible="False" IsBackButtonVisible="Collapsed" PaneTitle="Test Doshico">
             <ui:NavigationView.PaneHeader>
-                <ui:BitmapIcon UriSource="pack://application:,,,/TestDoshico;component/Resources/ApplicationIcon.ico"/>
+                <Image Source="pack://application:,,,/TestDoshico;component/Resources/ApplicationIcon.ico"/>
             </ui:NavigationView.PaneHeader>
             <ui:NavigationView.MenuItems>
                 <ui:NavigationViewItem Content="Nuovo Cliente" x:Name="bt_NuovoCliente" Icon="AddFriend" ToolTipService.ToolTip="Aggiungi Nuovo Cliente"/>

@@ -40,6 +40,7 @@
     <Reference Include="System.Xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyData.cs" />
     <Compile Include="BaseClasses\BaseCommand.cs" />
     <Compile Include="BaseClasses\BaseNotifyPropertyChanged.cs" />
     <Compile Include="BaseClasses\EnumBindingSourceExtension.cs" />

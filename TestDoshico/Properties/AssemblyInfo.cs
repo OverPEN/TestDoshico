@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -6,9 +7,9 @@ using System.Windows;
 // set di attributi. Modificare i valori di questi attributi per modificare le informazioni
 // associate a un assembly.
 [assembly: AssemblyTitle("TestDoshico")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Gestionale per Test Doshici")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Penna Giuseppe")]
 [assembly: AssemblyProduct("TestDoshico")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
@@ -51,3 +52,4 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.1.0.0")]
 [assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: NeutralResourcesLanguage("it-IT")]

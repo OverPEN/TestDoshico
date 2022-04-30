@@ -1,0 +1,23 @@
+﻿<Window x:Class="TestDoshico.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:local="clr-namespace:TestDoshico"
+        mc:Ignorable="d"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        Title="About" Height="600" Width="600" ResizeMode="NoResize">
+    <DockPanel>
+        <ui:SimpleStackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Image Source="pack://application:,,,/TestDoshico;component/Resources/ApplicationIcon.ico" Width="100" HorizontalAlignment="Left"/>
+            <Label Content="Test Doshico" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </ui:SimpleStackPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <Label Content="Lista Componenti" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DockPanel.Dock="Bottom">
+                <DataGrid x:Name="AssemblyList" HeadersVisibility="Column" AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" ScrollViewer.CanContentScroll="True"/>
+            </ScrollViewer>
+        </DockPanel>
+    </DockPanel>
+</Window>
