@@ -165,79 +165,20 @@ namespace TestDoshico.ViewModels.Quesiti
             bool result = true;
             try
             {
-                string errorMessage = String.Empty;
 
                 if (obj is Page page)
                 {
                     if (page.GetType() == typeof(DatiPersonali))
-                    {
-                        List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w => w.PropertyType == typeof(string) || w.PropertyType == typeof(int)).ToList();
-                        foreach (PropertyInfo T in props)
-                        {
-                            if (T.GetValue(Cliente) == null || (T.PropertyType == typeof(int) && Convert.ToInt32(T.GetValue(Cliente)) == 0))
-                            {
-                                var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
-                                result = false;
-                                errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
-                            }
-                        }
-                    }
+                        result = await ValidatorService.ValidateAsync(Cliente);
                     else if (page.GetType() == typeof(QuesitiPrakriti))
-                    {
-                        List<PropertyInfo> props = typeof(Prakriti).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
-                        foreach (PropertyInfo T in props)
-                        {
-                            if ((TipoCaratteristicaEnum)T.GetValue(Prakriti) == TipoCaratteristicaEnum.Selezionare)
-                            {
-                                var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
-                                result = false;
-                                errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
-                            }
-                        }
-                    }
+                        result = await ValidatorService.ValidateAsync(Prakriti);
                     else if (page.GetType() == typeof(QuesitiVikriti))
-                    {
-                        List<PropertyInfo> props = typeof(Vikriti).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
-                        foreach (PropertyInfo T in props)
-                        {
-                            if ((TipoCaratteristicaEnum)T.GetValue(Vikriti) == TipoCaratteristicaEnum.Selezionare)
-                            {
-                                var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
-                                result = false;
-                                errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
-                            }
-                        }
-                    }
+                        result = await ValidatorService.ValidateAsync(Vikriti);
                     else if (page.GetType() == typeof(QuesitiMente))
-                    {
-                        List<PropertyInfo> props = typeof(Mente).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
-                        foreach (PropertyInfo T in props)
-                        {
-                            if ((TipoCaratteristicaEnum)T.GetValue(Mente) == TipoCaratteristicaEnum.Selezionare)
-                            {
-                                var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
-                                result = false;
-                                errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
-                            }
-                        }
-                    }
+                        result = await ValidatorService.ValidateAsync(Mente);
                     else if (page.GetType() == typeof(QuesitiEmozioni))
-                    {
-                        List<PropertyInfo> props = typeof(Emozioni).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
-                        foreach (PropertyInfo T in props)
-                        {
-                            if ((TipoCaratteristicaEnum)T.GetValue(Emozioni) == TipoCaratteristicaEnum.Selezionare)
-                            {
-                                var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
-                                result = false;
-                                errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
-                            }
-                        }
-                    }
+                        result = await ValidatorService.ValidateAsync(Emozioni);
                 }
-
-                if (errorMessage != String.Empty)
-                    await MessageServices.ShowWarningMessage("Test Doshico", errorMessage);
             }
             catch (Exception ex)
             {

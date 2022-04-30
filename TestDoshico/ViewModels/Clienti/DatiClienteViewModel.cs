@@ -29,10 +29,13 @@ namespace TestDoshico.ViewModels.Clienti
 
         private async void SalvaButtonPressed(object obj)
         {
-            await DataManager.AggiornaCliente(Cliente);
+            if (await ValidatorService.ValidateAsync(Cliente))
+            {
+                await DataManager.AggiornaCliente(Cliente);
 
-            if (obj is DatiCliente view)
-                view.Close();
+                if (obj is DatiCliente view)
+                    view.Close();
+            }
         }
     }
 }

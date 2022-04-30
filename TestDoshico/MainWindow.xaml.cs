@@ -110,6 +110,8 @@ namespace TestDoshico
                                 await MessageServices.ShowInformationMessage("Servizio di Aggiornamento Automatico", "Aggiornamento scaricato con successo! Riavvia l'applicazione per applicarlo");
                             }
                         }
+                        else
+                            await MessageServices.ShowInformationMessage("Servizio di Aggiornamento Automatico", "Nessun nuovo aggiornamento disponibile!");
                     }
                     catch (Exception ex)
                     {

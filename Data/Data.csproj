@@ -58,6 +58,7 @@
     <Compile Include="Services\DataManager.cs" />
     <Compile Include="Services\GraficiServices.cs" />
     <Compile Include="Services\MessageServices.cs" />
+    <Compile Include="Services\ValidatorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonClasses\CommonClasses.csproj">
