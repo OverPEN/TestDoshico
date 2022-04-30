@@ -16,6 +16,7 @@ namespace TestDoshico
     /// </summary>
     public partial class MainWindow : Window
     {
+        UpdateManager updater;
         public MainWindow()
         {
             InitializeComponent();
@@ -96,16 +97,17 @@ namespace TestDoshico
                     try
                     {
                         Cursor = System.Windows.Input.Cursors.Wait;
-                        using (var updater = UpdateManager.GitHubUpdateManager("https://github.com/OverPEN/TestDoshico"))
+                        updater = await UpdateManager.GitHubUpdateManager("https://github.com/OverPEN/TestDoshico", prerelease: true);
+                        UpdateInfo updateInfo = await updater.CheckForUpdate();
+                        if (updateInfo.ReleasesToApply.Count > 0)
                         {
-                            UpdateInfo updateInfo = await updater.Result.CheckForUpdate();
-                            if (updateInfo.ReleasesToApply.Count > 0)
+                            Cursor = System.Windows.Input.Cursors.Arrow;
+                            if (await MessageServices.ShowYesNoMessage("Servizio di Aggiornamento Automatico", "E' disponibile una nuova versione dell'applicazione, eseguire l'aggiornamento?", ModernWpf.Controls.ContentDialogButton.Primary))
                             {
-                                if (await MessageServices.ShowYesNoMessage("Servizio di Aggiornamento Automatico", "E' disponibile una nuova versione dell'applicazione, eseguire l'aggiornamento?", ModernWpf.Controls.ContentDialogButton.Primary))
-                                {
-                                    await updater.Result.UpdateApp();
-                                    await MessageServices.ShowInformationMessage("Servizio di Aggiornamento Automatico", "Aggiornamento scaricato con successo! Riavvia l'applicazione per applicarlo");
-                                }
+                                Cursor = System.Windows.Input.Cursors.Wait;
+                                await updater.UpdateApp();
+                                Cursor = System.Windows.Input.Cursors.Wait;
+                                await MessageServices.ShowInformationMessage("Servizio di Aggiornamento Automatico", "Aggiornamento scaricato con successo! Riavvia l'applicazione per applicarlo");
                             }
                         }
                     }
