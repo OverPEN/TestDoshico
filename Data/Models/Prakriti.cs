@@ -1,6 +1,7 @@
 ﻿using Data.Enums;
 using Data.Interfaces;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Data.Models
 {
@@ -23,6 +24,7 @@ namespace Data.Models
         #endregion
 
         [DisplayName("Corporatura")]
+        [Required]
         public TipoCaratteristicaEnum Corporatura
         {
             get { return corporatura; }
@@ -34,6 +36,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Struttura Ossea")]
+        [Required]
         public TipoCaratteristicaEnum StruttOssea
         {
             get { return struttOssea; }
@@ -45,6 +48,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Mani")]
+        [Required]
         public TipoCaratteristicaEnum Mani
         {
             get { return mani; }
@@ -56,6 +60,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Corporatura in Fanciullezza")]
+        [Required]
         public TipoCaratteristicaEnum CorporaturaFanc
         {
             get { return corporaturaFanc; }
@@ -67,6 +72,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Accumulo")]
+        [Required]
         public TipoCaratteristicaEnum Accumulo
         {
             get { return accumulo; }
@@ -78,6 +84,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Pelle")]
+        [Required]
         public TipoCaratteristicaEnum Pelle
         {
             get { return pelle; }
@@ -89,6 +96,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Capelli in Fanciullezza")]
+        [Required]
         public TipoCaratteristicaEnum CapelliFanc
         {
             get { return capelliFanc; }
@@ -100,6 +108,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Fronte")]
+        [Required]
         public TipoCaratteristicaEnum Fronte
         {
             get { return fronte; }
@@ -111,6 +120,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Occhi")]
+        [Required]
         public TipoCaratteristicaEnum Occhi
         {
             get { return occhi; }
@@ -121,6 +131,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Denti")]
+        [Required]
         public TipoCaratteristicaEnum Denti
         {
             get { return denti; }
@@ -132,6 +143,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Collo")]
+        [Required]
         public TipoCaratteristicaEnum Collo
         {
             get { return collo; }
@@ -142,6 +154,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Mento")]
+        [Required]
         public TipoCaratteristicaEnum Mento
         {
             get { return mento; }

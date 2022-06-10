@@ -71,6 +71,16 @@ namespace TestDoshico.Properties {
         }
         
         /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ApplicationIcon_png {
+            get {
+                object obj = ResourceManager.GetObject("ApplicationIcon_png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Avanti.
         /// </summary>
         public static string BtnAvanti {

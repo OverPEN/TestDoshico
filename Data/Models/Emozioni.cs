@@ -1,6 +1,7 @@
 ﻿using Data.Enums;
 using Data.Interfaces;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Data.Models
 {
@@ -20,6 +21,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum sogni;
         #endregion
         [DisplayName("Sentimento")]
+        [Required]
         public TipoCaratteristicaEnum Sentimento
         {
             get { return sentimento; }
@@ -31,6 +33,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Indole")]
+        [Required]
         public TipoCaratteristicaEnum Indole
         {
             get { return indole; }
@@ -42,6 +45,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Istinto")]
+        [Required]
         public TipoCaratteristicaEnum Istinto
         {
             get { return istinto; }
@@ -53,6 +57,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Reazione allo Stress")]
+        [Required]
         public TipoCaratteristicaEnum ReazStress
         {
             get { return reazStress; }
@@ -64,6 +69,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Vizio")]
+        [Required]
         public TipoCaratteristicaEnum Vizio
         {
             get { return vizio; }
@@ -75,6 +81,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Tendenza Emozionale")]
+        [Required]
         public TipoCaratteristicaEnum TendEmozionale
         {
             get { return tendEmozionale; }
@@ -86,6 +93,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Virtù")]
+        [Required]
         public TipoCaratteristicaEnum Virtù
         {
             get { return virtù; }
@@ -97,6 +105,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Gestione Emozioni")]
+        [Required]
         public TipoCaratteristicaEnum GestioneEmozioni
         {
             get { return gestioneEmozioni; }
@@ -108,6 +117,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Punti di Forza")]
+        [Required]
         public TipoCaratteristicaEnum PuntoDiForza
         {
             get { return puntoDiForza; }
@@ -119,6 +129,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Reazione")]
+        [Required]
         public TipoCaratteristicaEnum Reazione
         {
             get { return reazione; }
@@ -130,6 +141,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Sogni")]
+        [Required]
         public TipoCaratteristicaEnum Sogni
         {
             get { return sogni; }

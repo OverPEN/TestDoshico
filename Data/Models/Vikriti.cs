@@ -1,6 +1,7 @@
 ﻿using Data.Enums;
 using Data.Interfaces;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Data.Models
 {
@@ -24,6 +25,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum articolazioni;
         #endregion
         [DisplayName("Peso")]
+        [Required]
         public TipoCaratteristicaEnum Peso
         {
             get { return peso; }
@@ -35,6 +37,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Temperatura")]
+        [Required]
         public TipoCaratteristicaEnum Temperatura
         {
             get { return temperatura; }
@@ -46,6 +49,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Tendenza Pelle")]
+        [Required]
         public TipoCaratteristicaEnum TendPelle
         {
             get { return tendPelle; }
@@ -57,6 +61,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Labbra")]
+        [Required]
         public TipoCaratteristicaEnum Labbra
         {
             get { return labbra; }
@@ -68,6 +73,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Capelli")]
+        [Required]
         public TipoCaratteristicaEnum Capelli
         {
             get { return capelli; }
@@ -79,6 +85,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Luoghi")]
+        [Required]
         public TipoCaratteristicaEnum Luoghi
         {
             get { return luoghi; }
@@ -90,6 +97,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Lingua")]
+        [Required]
         public TipoCaratteristicaEnum Lingua
         {
             get { return lingua; }
@@ -101,6 +109,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Bianco degli Occhi")]
+        [Required]
         public TipoCaratteristicaEnum BiancoOcchi
         {
             get { return biancoOcchi; }
@@ -112,6 +121,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Evacuazione")]
+        [Required]
         public TipoCaratteristicaEnum Evacuazione
         {
             get { return evacuazione; }
@@ -123,6 +133,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Malattie")]
+        [Required]
         public TipoCaratteristicaEnum Malattie
         {
             get { return malattie; }
@@ -134,6 +145,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Interesse Sessuale")]
+        [Required]
         public TipoCaratteristicaEnum InteresseSessuale
         {
             get { return interesseSessuale; }
@@ -145,6 +157,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Mestruazioni")]
+        [Required]
         public TipoCaratteristicaEnum Mestruazioni
         {
             get { return mestruazioni; }
@@ -156,6 +169,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Cibo")]
+        [Required]
         public TipoCaratteristicaEnum Cibo
         {
             get { return cibo; }
@@ -167,6 +181,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Gengive")]
+        [Required]
         public TipoCaratteristicaEnum Gengive
         {
             get { return gengive; }
@@ -178,6 +193,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Articolazioni")]
+        [Required]
         public TipoCaratteristicaEnum Articolazioni
         {
             get { return articolazioni; }

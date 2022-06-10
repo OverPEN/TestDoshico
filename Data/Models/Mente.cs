@@ -1,6 +1,7 @@
 ﻿using Data.Enums;
 using Data.Interfaces;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Data.Models
 {
@@ -17,6 +18,7 @@ namespace Data.Models
         private TipoCaratteristicaEnum denaro;
         #endregion
         [DisplayName("Memoria")]
+        [Required]
         public TipoCaratteristicaEnum Memoria
         {
             get { return memoria; }
@@ -28,6 +30,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Rotuine")]
+        [Required]
         public TipoCaratteristicaEnum Routine
         {
             get { return routine; }
@@ -39,6 +42,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Decisioni")]
+        [Required]
         public TipoCaratteristicaEnum Decisioni
         {
             get { return decisioni; }
@@ -50,6 +54,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Carattere")]
+        [Required]
         public TipoCaratteristicaEnum Carattere
         {
             get { return carattere; }
@@ -61,6 +66,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Pensiero")]
+        [Required]
         public TipoCaratteristicaEnum Pensiero
         {
             get { return pensiero; }
@@ -72,6 +78,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Organizzazione")]
+        [Required]
         public TipoCaratteristicaEnum Organizzazione
         {
             get { return organizzazione; }
@@ -83,6 +90,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Amicizia")]
+        [Required]
         public TipoCaratteristicaEnum Amicizia
         {
             get { return amicizia; }
@@ -94,6 +102,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Denaro")]
+        [Required]
         public TipoCaratteristicaEnum Denaro
         {
             get { return denaro; }

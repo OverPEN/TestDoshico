@@ -246,14 +246,17 @@
 		</Resource>
 	</ItemGroup>
 	<ItemGroup>
-		<Resource Include="Resources\PieIcon.png">
+		<Content Include="Resources\ApplicationIcon.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
+		</Content>
+		<Content Include="Resources\PieIcon.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 	<ItemGroup>
-		<Resource Include="Resources\TotalPieIcon.png">
+		<Content Include="Resources\TotalPieIcon.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
+		</Content>
 	</ItemGroup>
 	<ItemGroup>
 		<BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -268,17 +271,19 @@
 		</BootstrapperPackage>
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
 	<PropertyGroup>
-		<PackageDir>E:\Programmi\VisualStudio\Packages</PackageDir>
-		<NuspecFile>E:\Programmi\VisualStudio\Packages\TestDoshico.nuspec</NuspecFile>
+		<PackageDir>$(SolutionDir)Deploy\NugetPackages</PackageDir>
+		<NuspecFile>$(SolutionDir)Deploy\TestDoshico.nuspec</NuspecFile>
+		<ReleaseDir>$(SolutionDir)Deploy\Releases</ReleaseDir>
 	</PropertyGroup>
-
 	<Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
 		<GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
-			<Output TaskParameter="Assemblies" ItemName="myAssemblyInfo"/>
+			<Output TaskParameter="Assemblies" ItemName="myAssemblyInfo" />
 		</GetAssemblyIdentity>
+		<MakeDir Directories="$(SolutionDir)Deploy" Condition="!Exists('$(SolutionDir)Deploy')"  />
+		<MakeDir Directories="$(PackageDir)" Condition="!Exists('$(PackageDir)')"  />
+		<MakeDir Directories="$(ReleaseDir)" Condition="!Exists('$(ReleaseDir)')"  />
 		<Exec Command="nuget pack $(NuspecFile) -Version %(myAssemblyInfo.Version) -Properties Configuration=Release -OutputDirectory $(PackageDir) -BasePath $(OutDir)" />
-		<Exec Command="squirrel --releasify $(PackageDir)\TestDoshico.$([System.Version]::Parse(%(myAssemblyInfo.Version)).ToString(3)).nupkg" />
+		<Exec Command="squirrel --releasify $(PackageDir)\TestDoshico.$([System.Version]::Parse(%(myAssemblyInfo.Version)).ToString(3)).nupkg --releaseDir=$(ReleaseDir)" />
 	</Target>
 </Project>

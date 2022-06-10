@@ -28,19 +28,19 @@
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="{x:Static prop:Resources.DatiCliente_Titolo}" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
         <Label Grid.Row="1" Content="{x:Static prop:Resources.DatiPersonali_Signora}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="1" Grid.Column="1"  Margin="0,5,10,0" Text="{Binding Cliente.NomeCognome}" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox Grid.Row="1" Grid.Column="1"  Margin="0,5,10,0" Text="{Binding Cliente.NomeCognome}" />
         <Label Grid.Row="2" Content="{x:Static prop:Resources.DatiPersonali_Eta}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <ui:NumberBox Grid.Row="2" Grid.Column="1" Margin="0,5,10,0" Value="{Binding Cliente.Età}" AutomationProperties.IsRequiredForForm="True" SpinButtonPlacementMode="Inline"/>
+        <ui:NumberBox Grid.Row="2" Grid.Column="1" Margin="0,5,10,0"  SpinButtonPlacementMode="Inline" ValidationMode="Disabled" />
         <Label Grid.Row="3" Content="{x:Static prop:Resources.DatiPersonali_Sesso}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <ComboBox Grid.Row="3" Grid.Column="1" Margin="0,5,10,0" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:SessoEnum}}}" SelectedItem="{Binding Cliente.Sesso}" AutomationProperties.IsRequiredForForm="True"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="0,5,10,0" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:SessoEnum}}}" SelectedItem="{Binding Cliente.Sesso}" />
         <Label Grid.Row="4" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Costituzione}" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Costituzione}" />
         <Label Grid.Row="5" Content="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Squilibrio}" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Squilibrio}" />
         <Label Grid.Row="6" Content="{x:Static prop:Resources.DatiPersonali_EvNote}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Note}" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Note}" />
         <Label Grid.Row="7" Content="{x:Static prop:Resources.DatiPersonali_Inestetismi}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Inestetismi}" AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,10,0" Text="{Binding Cliente.Inestetismi}" />
         <ui:AppBarButton Grid.Row="8"  Grid.Column="1" Content="{x:Static prop:Resources.BtnSalva}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Command="{Binding SalvaCommand}" CommandParameter="{Binding ElementName=NuovoClientePage}" IsCompact="True" Height="30" Icon="Save" ToolTip="Salva"/>
     </Grid>
 </ui:Page>

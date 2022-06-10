@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Data.Enums
 {
-    public enum SessoEnum
+    public enum SessoEnum : byte
     {
-        Selezionare = ' ',
-        Maschio = 'M',
-        Femmina = 'F'
+        Selezionare = 0,
+        Maschio = 1,
+        Femmina = 2
     }
 }

@@ -4,6 +4,7 @@ using Data.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace Data.Models
 
         public Guid ID { get; set; } = Guid.NewGuid();
         [DisplayName("Nome e Cognome")]
+        [Required]
         public string NomeCognome
         {
             get { return nomeCognome; }
@@ -35,6 +37,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Età")]
+        [Required]
         public int? Età
         {
             get { return età; }
@@ -45,6 +48,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Sesso")]
+        [Required]
         public SessoEnum Sesso
         {
             get { return sesso; }
@@ -55,6 +59,7 @@ namespace Data.Models
             }
         }
         [DisplayName("Costituzione")]
+        [Required]
         public string Costituzione
         {
             get { return costituzione; }

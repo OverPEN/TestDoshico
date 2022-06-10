@@ -3,6 +3,7 @@ using Data.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -43,10 +44,10 @@ namespace Data.Services
 
         private static bool ValidaCliente(Cliente cliente, ref string errorMessage)
         {
-            List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w => w.PropertyType == typeof(string) || w.PropertyType == typeof(int?)).ToList();
+            List<PropertyInfo> props = typeof(Cliente).GetProperties().Where(w => w.GetCustomAttribute<RequiredAttribute>() != null).ToList();
             foreach (PropertyInfo T in props)
             {
-                if (T.GetValue(cliente) == null || (T.PropertyType == typeof(int?) && Convert.ToInt32(T.GetValue(cliente)) == 0))
+                if (T.GetValue(cliente) == null || (T.PropertyType == typeof(int?) && Convert.ToInt32(T.GetValue(cliente)) == 0) || (T.PropertyType == typeof(SessoEnum) && (SessoEnum)T.GetValue(cliente) == SessoEnum.Selezionare))
                 {
                     var displayAttribute = T.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
                     errorMessage += $"Il campo {displayAttribute.DisplayName} non è stato compilato! {Environment.NewLine}";
@@ -57,7 +58,7 @@ namespace Data.Services
 
         private static bool ValidaPrakriti(Prakriti prakriti, ref string errorMessage)
         {
-            List<PropertyInfo> props = typeof(Prakriti).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+            List<PropertyInfo> props = typeof(Prakriti).GetProperties().Where(w => w.GetCustomAttribute<RequiredAttribute>() != null).ToList();
             foreach (PropertyInfo T in props)
             {
                 if ((TipoCaratteristicaEnum)T.GetValue(prakriti) == TipoCaratteristicaEnum.Selezionare)
@@ -71,7 +72,7 @@ namespace Data.Services
 
         private static bool ValidaVikriti(Vikriti vikriti, ref string errorMessage)
         {
-            List<PropertyInfo> props = typeof(Vikriti).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+            List<PropertyInfo> props = typeof(Vikriti).GetProperties().Where(w => w.GetCustomAttribute<RequiredAttribute>() != null).ToList();
             foreach (PropertyInfo T in props)
             {
                 if ((TipoCaratteristicaEnum)T.GetValue(vikriti) == TipoCaratteristicaEnum.Selezionare)
@@ -85,7 +86,7 @@ namespace Data.Services
 
         private static bool ValidaMente(Mente mente, ref string errorMessage)
         {
-            List<PropertyInfo> props = typeof(Mente).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+            List<PropertyInfo> props = typeof(Mente).GetProperties().Where(w => w.GetCustomAttribute<RequiredAttribute>() != null).ToList();
             foreach (PropertyInfo T in props)
             {
                 if ((TipoCaratteristicaEnum)T.GetValue(mente) == TipoCaratteristicaEnum.Selezionare)
@@ -99,7 +100,7 @@ namespace Data.Services
 
         private static bool ValidaEmozioni(Emozioni emozioni, ref string errorMessage)
         {
-            List<PropertyInfo> props = typeof(Emozioni).GetProperties().Where(w => w.PropertyType == typeof(TipoCaratteristicaEnum)).ToList();
+            List<PropertyInfo> props = typeof(Emozioni).GetProperties().Where(w => w.GetCustomAttribute<RequiredAttribute>() != null).ToList();
             foreach (PropertyInfo T in props)
             {
                 if ((TipoCaratteristicaEnum)T.GetValue(emozioni) == TipoCaratteristicaEnum.Selezionare)
