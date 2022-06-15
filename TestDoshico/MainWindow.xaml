@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
-        Title="Test Doshico" Height="Auto" Width="Auto" Icon="pack://application:,,,/TestDoshico;component/Resources/ApplicationIcon.ico" MinHeight="600" MinWidth="800">
+        Title="Test Doshico" Height="Auto" Width="Auto" Icon="pack://application:,,,/TestDoshico;component/Resources/ApplicationIcon.png" MinHeight="600" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
