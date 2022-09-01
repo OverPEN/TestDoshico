@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>TestDoshico</id>
-    <version>0.1.1</version>
+    <version>0.0.0</version>
     <title>Test Doshico</title>
     <authors>Penna Giuseppe</authors>
     <owners>Penna Giuseppe</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <icon>lib\net45\Resources\ApplicationIcon.png</icon>
+    <icon>lib\net472\Resources\ApplicationIcon.png</icon>
     <description>Gestionale per Test Doshici</description>
     <summary>Gestionale per Test Doshici</summary>
     <releaseNotes>Release</releaseNotes>
@@ -15,11 +15,6 @@
     <language>it-IT</language>
   </metadata>
   <files>
-    <file src="*.*" target="lib\net45\" exclude="*.pdb;*.nupkg;*.vshost.*"/>
-    <file src="it-IT\ModernWpf.Controls.resources.dll" target="lib\net45\it-IT\ModernWpf.Controls.resources.dll" />
-    <file src="it-IT\ModernWpf.resources.dll" target="lib\net45\it-IT\ModernWpf.resources.dll" />
-    <file src="Resources\ApplicationIcon.png" target="lib\net45\Resources\ApplicationIcon.png" />
-    <file src="Resources\PieIcon.png" target="lib\net45\Resources\PieIcon.png" />
-    <file src="Resources\TotalPieIcon.png" target="lib\net45\Resources\TotalPieIcon.png" />
+    <file src="**" target="lib\net472" exclude="*.vshost;*.pdb" />
   </files>
 </package>

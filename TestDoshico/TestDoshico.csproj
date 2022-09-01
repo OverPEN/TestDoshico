@@ -221,7 +221,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="squirrel.windows">
-      <Version>1.9.0</Version>
+      <Version>2.0.1</Version>
     </PackageReference>
     <PackageReference Include="System.Runtime.WindowsRuntime">
       <Version>4.7.0</Version>
@@ -241,9 +241,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\ApplicationIcon.ico">
+    <Content Include="Resources\ApplicationIcon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\ApplicationIcon.png">
