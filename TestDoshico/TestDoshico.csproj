@@ -1,289 +1,290 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{948DA3E8-A2EA-4B4A-B0F3-D8319BBE9483}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>TestDoshico</RootNamespace>
-    <AssemblyName>TestDoshico</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <LangVersion>7.1</LangVersion>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <LangVersion>7.1</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Resources\ApplicationIcon.ico</ApplicationIcon>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="About.xaml.cs">
-      <DependentUpon>About.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\Clienti\NuovoClienteViewModel.cs" />
-    <Compile Include="ViewModels\Clienti\DatiClienteViewModel.cs" />
-    <Compile Include="ViewModels\Clienti\ListaClientiViewModel.cs" />
-    <Compile Include="ViewModels\Quesiti\GraficoQuesitiViewModel.cs" />
-    <Compile Include="ViewModels\Quesiti\QuesitiViewModel.cs" />
-    <Compile Include="ViewModels\Tests\ListaTestsViewModel.cs" />
-    <Compile Include="Views\Clienti\NuovoCliente.xaml.cs">
-      <DependentUpon>NuovoCliente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Clienti\DatiCliente.xaml.cs">
-      <DependentUpon>DatiCliente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Clienti\ListaClienti.xaml.cs">
-      <DependentUpon>ListaClienti.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Quesiti\DatiPersonali.xaml.cs">
-      <DependentUpon>DatiPersonali.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Quesiti\GraficoQuesiti.xaml.cs">
-      <DependentUpon>GraficoQuesiti.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Quesiti\QuesitiEmozioni.xaml.cs">
-      <DependentUpon>QuesitiEmozioni.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Quesiti\QuesitiMente.xaml.cs">
-      <DependentUpon>QuesitiMente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Quesiti\QuesitiVikriti.xaml.cs">
-      <DependentUpon>QuesitiVikriti.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Quesiti\QuesitiPrakriti.xaml.cs">
-      <DependentUpon>QuesitiPrakriti.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Tests\ListaTests.xaml.cs">
-      <DependentUpon>ListaTests.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Tests\DatiTest.xaml.cs">
-      <DependentUpon>DatiTest.xaml</DependentUpon>
-    </Compile>
-    <Page Include="About.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Clienti\NuovoCliente.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Clienti\DatiCliente.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Clienti\ListaClienti.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Views\Quesiti\DatiPersonali.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Quesiti\GraficoQuesiti.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Quesiti\QuesitiEmozioni.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Quesiti\QuesitiMente.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Quesiti\QuesitiVikriti.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Quesiti\QuesitiPrakriti.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tests\ListaTests.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Tests\DatiTest.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="DotNetProjects.WpfToolkit.DataVisualization">
-      <Version>6.1.94</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Windows.SDK.Contracts">
-      <Version>10.0.22621.2</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
-      <Version>1.1.39</Version>
-    </PackageReference>
-    <PackageReference Include="ModernWpfUI">
-      <Version>0.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NuGet.CommandLine">
-      <Version>6.2.1</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="squirrel.windows">
-      <Version>2.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="System.Runtime.WindowsRuntime">
-      <Version>4.7.0</Version>
-    </PackageReference>
-    <PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml">
-      <Version>4.7.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CommonClasses\CommonClasses.csproj">
-      <Project>{d1eeb7dd-ad6a-4647-a877-c0a00d9f7ff6}</Project>
-      <Name>CommonClasses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{BAB390F2-F1D7-4C1C-8ACB-B7A1B422077C}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\ApplicationIcon.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\ApplicationIcon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\PieIcon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\TotalPieIcon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PackageDir>$(SolutionDir)Deploy\NugetPackages</PackageDir>
-    <NuspecFile>$(SolutionDir)Deploy\TestDoshico.nuspec</NuspecFile>
-    <ReleaseDir>$(SolutionDir)Deploy\Releases</ReleaseDir>
-  </PropertyGroup>
-  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
-    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
-      <Output TaskParameter="Assemblies" ItemName="myAssemblyInfo" />
-    </GetAssemblyIdentity>
-    <MakeDir Directories="$(SolutionDir)Deploy" Condition="!Exists('$(SolutionDir)Deploy')" />
-    <MakeDir Directories="$(PackageDir)" Condition="!Exists('$(PackageDir)')" />
-    <MakeDir Directories="$(ReleaseDir)" Condition="!Exists('$(ReleaseDir)')" />
-    <Exec Command="nuget pack $(NuspecFile) -Version %(myAssemblyInfo.Version) -Properties Configuration=Release -OutputDirectory $(PackageDir) -BasePath $(OutDir)" />
-    <Exec Command="squirrel --releasify $(PackageDir)\TestDoshico.$([System.Version]::Parse(%(myAssemblyInfo.Version)).ToString(3)).nupkg --releaseDir=$(ReleaseDir)" />
-  </Target>
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{948DA3E8-A2EA-4B4A-B0F3-D8319BBE9483}</ProjectGuid>
+		<OutputType>WinExe</OutputType>
+		<RootNamespace>TestDoshico</RootNamespace>
+		<AssemblyName>TestDoshico</AssemblyName>
+		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+		<FileAlignment>512</FileAlignment>
+		<ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<WarningLevel>4</WarningLevel>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<Deterministic>true</Deterministic>
+		<NuGetPackageImportStamp>
+		</NuGetPackageImportStamp>
+		<PublishUrl>publish\</PublishUrl>
+		<Install>true</Install>
+		<InstallFrom>Disk</InstallFrom>
+		<UpdateEnabled>false</UpdateEnabled>
+		<UpdateMode>Foreground</UpdateMode>
+		<UpdateInterval>7</UpdateInterval>
+		<UpdateIntervalUnits>Days</UpdateIntervalUnits>
+		<UpdatePeriodically>false</UpdatePeriodically>
+		<UpdateRequired>false</UpdateRequired>
+		<MapFileExtensions>true</MapFileExtensions>
+		<ApplicationRevision>0</ApplicationRevision>
+		<ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+		<IsWebBootstrapper>false</IsWebBootstrapper>
+		<UseApplicationTrust>false</UseApplicationTrust>
+		<BootstrapperEnabled>true</BootstrapperEnabled>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<LangVersion>7.1</LangVersion>
+		<Prefer32Bit>false</Prefer32Bit>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<LangVersion>7.1</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup>
+		<ApplicationIcon>Resources\ApplicationIcon.ico</ApplicationIcon>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System" />
+		<Reference Include="System.Drawing" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Xaml">
+			<RequiredTargetFramework>4.0</RequiredTargetFramework>
+		</Reference>
+		<Reference Include="WindowsBase" />
+		<Reference Include="PresentationCore" />
+		<Reference Include="PresentationFramework" />
+	</ItemGroup>
+	<ItemGroup>
+		<ApplicationDefinition Include="App.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</ApplicationDefinition>
+		<Compile Include="About.xaml.cs">
+			<DependentUpon>About.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="MainWindow.xaml.cs">
+			<DependentUpon>MainWindow.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="ViewModels\Clienti\NuovoClienteViewModel.cs" />
+		<Compile Include="ViewModels\Clienti\DatiClienteViewModel.cs" />
+		<Compile Include="ViewModels\Clienti\ListaClientiViewModel.cs" />
+		<Compile Include="ViewModels\Quesiti\GraficoQuesitiViewModel.cs" />
+		<Compile Include="ViewModels\Quesiti\QuesitiViewModel.cs" />
+		<Compile Include="ViewModels\Tests\ListaTestsViewModel.cs" />
+		<Compile Include="Views\Clienti\NuovoCliente.xaml.cs">
+			<DependentUpon>NuovoCliente.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Clienti\DatiCliente.xaml.cs">
+			<DependentUpon>DatiCliente.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Clienti\ListaClienti.xaml.cs">
+			<DependentUpon>ListaClienti.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Quesiti\DatiPersonali.xaml.cs">
+			<DependentUpon>DatiPersonali.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Quesiti\GraficoQuesiti.xaml.cs">
+			<DependentUpon>GraficoQuesiti.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Quesiti\QuesitiEmozioni.xaml.cs">
+			<DependentUpon>QuesitiEmozioni.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Quesiti\QuesitiMente.xaml.cs">
+			<DependentUpon>QuesitiMente.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Quesiti\QuesitiVikriti.xaml.cs">
+			<DependentUpon>QuesitiVikriti.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Quesiti\QuesitiPrakriti.xaml.cs">
+			<DependentUpon>QuesitiPrakriti.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Tests\ListaTests.xaml.cs">
+			<DependentUpon>ListaTests.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="Views\Tests\DatiTest.xaml.cs">
+			<DependentUpon>DatiTest.xaml</DependentUpon>
+		</Compile>
+		<Page Include="About.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="MainWindow.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Views\Clienti\NuovoCliente.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Include="Views\Clienti\DatiCliente.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Include="Views\Clienti\ListaClienti.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Compile Include="App.xaml.cs">
+			<DependentUpon>App.xaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		<Page Include="Views\Quesiti\DatiPersonali.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Views\Quesiti\GraficoQuesiti.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Views\Quesiti\QuesitiEmozioni.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Include="Views\Quesiti\QuesitiMente.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Include="Views\Quesiti\QuesitiVikriti.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Include="Views\Quesiti\QuesitiPrakriti.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Views\Tests\ListaTests.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Include="Views\Tests\DatiTest.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Properties\AssemblyInfo.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Include="Properties\Resources.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<Compile Include="Properties\Settings.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+		</Compile>
+		<EmbeddedResource Include="Properties\Resources.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Include="Properties\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="App.config" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DotNetProjects.WpfToolkit.DataVisualization">
+			<Version>6.1.94</Version>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Windows.SDK.Contracts">
+			<Version>10.0.22621.2</Version>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
+			<Version>1.1.39</Version>
+		</PackageReference>
+		<PackageReference Include="ModernWpfUI">
+			<Version>0.9.6</Version>
+		</PackageReference>
+		<PackageReference Include="NuGet.CommandLine">
+			<Version>6.2.1</Version>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="squirrel.windows">
+			<Version>2.0.1</Version>
+		</PackageReference>
+		<PackageReference Include="System.Runtime.WindowsRuntime">
+			<Version>4.7.0</Version>
+		</PackageReference>
+		<PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml">
+			<Version>4.7.0</Version>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\CommonClasses\CommonClasses.csproj">
+			<Project>{d1eeb7dd-ad6a-4647-a877-c0a00d9f7ff6}</Project>
+			<Name>CommonClasses</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\Data\Data.csproj">
+			<Project>{BAB390F2-F1D7-4C1C-8ACB-B7A1B422077C}</Project>
+			<Name>Data</Name>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Resources\ApplicationIcon.ico">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Resources\ApplicationIcon.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\PieIcon.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Resources\TotalPieIcon.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+			<Visible>False</Visible>
+			<ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+			<Install>true</Install>
+		</BootstrapperPackage>
+		<BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+			<Visible>False</Visible>
+			<ProductName>.NET Framework 3.5 SP1</ProductName>
+			<Install>false</Install>
+		</BootstrapperPackage>
+	</ItemGroup>
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<PropertyGroup>
+		<PackageDir>$(SolutionDir)Deploy\NugetPackages</PackageDir>
+		<NuspecFile>$(SolutionDir)Deploy\TestDoshico.nuspec</NuspecFile>
+		<ReleaseDir>$(SolutionDir)Deploy\Releases</ReleaseDir>
+	</PropertyGroup>
+	<Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
+		<GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+			<Output TaskParameter="Assemblies" ItemName="myAssemblyInfo" />
+		</GetAssemblyIdentity>
+		<MakeDir Directories="$(SolutionDir)Deploy" Condition="!Exists('$(SolutionDir)Deploy')" />
+		<MakeDir Directories="$(PackageDir)" Condition="!Exists('$(PackageDir)')" />
+		<MakeDir Directories="$(ReleaseDir)" Condition="!Exists('$(ReleaseDir)')" />
+		<RemoveDir Directories="$(OutDir)\Logs" Condition="Exists('$(OutDir)\Logs')" />
+		<Exec Command="nuget pack $(NuspecFile) -Version %(myAssemblyInfo.Version) -Properties Configuration=Release -OutputDirectory $(PackageDir) -BasePath $(OutDir)" />
+		<Exec Command="squirrel --releasify $(PackageDir)\TestDoshico.$([System.Version]::Parse(%(myAssemblyInfo.Version)).ToString(3)).nupkg --releaseDir=$(ReleaseDir)" />
+	</Target>
 </Project>
