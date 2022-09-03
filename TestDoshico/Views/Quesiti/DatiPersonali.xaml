@@ -49,17 +49,17 @@
         <Label Grid.Row="3" Content="{x:Static prop:Resources.DatiPersonali_Signora}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
         <TextBox Grid.Row="3" Grid.Column="1"  Margin="0,5,0,0" Text="{Binding Cliente.NomeCognome}"  TabIndex="4"/>
         <Label Grid.Row="4" Content="{x:Static prop:Resources.DatiPersonali_Eta}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <ui:NumberBox Grid.Row="4" Grid.Column="1" Margin="0,5,0,0"  SpinButtonPlacementMode="Inline" TabIndex="5" ui:ValidationHelper.IsTemplateValidationAdornerSite="False" ValidationMode="Disabled"/>
+        <ui:NumberBox Grid.Row="4" Grid.Column="1" Margin="0,5,0,0"  SpinButtonPlacementMode="Inline" TabIndex="5" ui:ValidationHelper.IsTemplateValidationAdornerSite="False" ValidationMode="Disabled" Value="{Binding Cliente.Età}/>
         <Label Grid.Row="5" Content="{x:Static prop:Resources.DatiPersonali_Sesso}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,5,0,0" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:SessoEnum}}}" SelectedItem="{Binding Cliente.Sesso}"/>
-        <Label Grid.Row="6" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Costituzione}"  TabIndex="6"/>
-        <Label Grid.Row="7" Content="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Squilibrio}"  TabIndex="7"/>
-        <Label Grid.Row="8" Content="{x:Static prop:Resources.DatiPersonali_EvNote}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="8" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Note}"  TabIndex="8"/>
-        <Label Grid.Row="9" Content="{x:Static prop:Resources.DatiPersonali_Inestetismi}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <TextBox Grid.Row="9" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Inestetismi}"  TabIndex="9"/>
-        <ui:AppBarButton Grid.Row="10"  Grid.Column="1" ToolTip="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=DatiPersonaliPage}" IsCompact="True" Icon="Forward" Height="30" TabIndex="10" IsDefault="True"/>
+            <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,5,0,0" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:SessoEnum}}}" SelectedItem="{Binding Cliente.Sesso}"/>
+            <Label Grid.Row="6" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Costituzione}"  TabIndex="6"/>
+            <Label Grid.Row="7" Content="{x:Static prop:Resources.DatiPersonali_EvSquilibrio}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+            <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Squilibrio}"  TabIndex="7"/>
+            <Label Grid.Row="8" Content="{x:Static prop:Resources.DatiPersonali_EvNote}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+            <TextBox Grid.Row="8" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Note}"  TabIndex="8"/>
+            <Label Grid.Row="9" Content="{x:Static prop:Resources.DatiPersonali_Inestetismi}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
+            <TextBox Grid.Row="9" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Cliente.Inestetismi}"  TabIndex="9"/>
+            <ui:AppBarButton Grid.Row="10"  Grid.Column="1" ToolTip="{x:Static prop:Resources.BtnAvanti}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding AvantiCommand}" CommandParameter="{Binding ElementName=DatiPersonaliPage}" IsCompact="True" Icon="Forward" Height="30" TabIndex="10" IsDefault="True"/>
     </Grid>
 </ui:Page>

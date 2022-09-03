@@ -114,7 +114,8 @@ namespace Data.Models
                     foreach (PropertyInfo prop in props)
                     {
                         clienteNode = xmlDocument.CreateElement(prop.Name);
-                        clienteNode.InnerText = prop.GetValue(cliente).ToString();
+                        if (prop.GetValue(cliente) != null)
+                            clienteNode.InnerText = prop.GetValue(cliente).ToString();
                         clienteXml.AppendChild(clienteNode);
                     }
                     return clienteXml;

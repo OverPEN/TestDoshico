@@ -30,7 +30,7 @@
         <Label Grid.Row="1" Content="{x:Static prop:Resources.DatiPersonali_Signora}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
         <TextBox Grid.Row="1" Grid.Column="1"  Margin="0,5,10,0" Text="{Binding Cliente.NomeCognome}" />
         <Label Grid.Row="2" Content="{x:Static prop:Resources.DatiPersonali_Eta}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
-        <ui:NumberBox Grid.Row="2" Grid.Column="1" Margin="0,5,10,0"  SpinButtonPlacementMode="Inline" ValidationMode="Disabled" />
+        <ui:NumberBox Grid.Row="2" Grid.Column="1" Margin="0,5,10,0"  SpinButtonPlacementMode="Inline" ValidationMode="Disabled" Value="{Binding Cliente.Età}"/>
         <Label Grid.Row="3" Content="{x:Static prop:Resources.DatiPersonali_Sesso}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>
         <ComboBox Grid.Row="3" Grid.Column="1" Margin="0,5,10,0" ItemsSource="{Binding Source={baseclasses:EnumBindingSource {x:Type enums:SessoEnum}}}" SelectedItem="{Binding Cliente.Sesso}" />
         <Label Grid.Row="4" Content="{x:Static prop:Resources.DatiPersonali_Costituzione}" VerticalContentAlignment="Center" FontWeight="Bold" AutomationProperties.IsRowHeader="True"/>

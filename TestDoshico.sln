@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDoshico", "TestDoshico\TestDoshico.csproj", "{948DA3E8-A2EA-4B4A-B0F3-D8319BBE9483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDoshico", "TestDoshico\TestDoshico.csproj", "{948DA3E8-A2EA-4B4A-B0F3-D8319BBE9483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{BAB390F2-F1D7-4C1C-8ACB-B7A1B422077C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{BAB390F2-F1D7-4C1C-8ACB-B7A1B422077C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonClasses", "CommonClasses\CommonClasses.csproj", "{D1EEB7DD-AD6A-4647-A877-C0A00D9F7FF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonClasses", "CommonClasses\CommonClasses.csproj", "{D1EEB7DD-AD6A-4647-A877-C0A00D9F7FF6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{3BF70B6A-9104-4EB3-A578-203FFEBF319C}"
 	ProjectSection(SolutionItems) = preProject
